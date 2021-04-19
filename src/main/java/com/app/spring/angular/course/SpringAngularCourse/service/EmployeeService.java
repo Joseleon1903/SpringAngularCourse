@@ -38,7 +38,7 @@ public class EmployeeService {
     }
 
     public Employee findEmployeeById(Long id){
-        return employeeRepository.findEmployeeById(id).orElseThrow(() -> new UserNotFoundException("cant't find a user with id : "+id));
+        return employeeRepository.findEmployeeById(id).orElseThrow(() -> new UserNotFoundException("cant't find a user with id : "+ id ));
     }
 
 
