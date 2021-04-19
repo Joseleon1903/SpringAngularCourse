@@ -10,6 +10,8 @@ import {HttpErrorResponse} from "@angular/common/http";
 })
 export class AppComponent implements OnInit{
 
+  title = 'SpringAngularCourseWebapp';
+
   public employees : Employee[];
 
   constructor(private employeeService : EmployeeService){

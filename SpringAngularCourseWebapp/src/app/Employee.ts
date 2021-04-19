@@ -3,7 +3,7 @@ export interface Employee{
   id: number;
   name: string;
   email:string;
-  jobtittle: string;
+  jobTittle: string;
   phone:string;
   imageUrl: string;
   employeeCode:string;
