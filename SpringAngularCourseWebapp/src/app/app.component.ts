@@ -15,12 +15,14 @@ export class AppComponent implements OnInit{
 
   public employees : Employee[];
   public editEmployee : Employee;
+  public deleteEmployee : Employee;
 
   constructor(private employeeService : EmployeeService){
     this.employees = [];
   }
 
   ngOnInit(){
+
     this.getEmployees();
   }
 
@@ -38,6 +40,25 @@ export class AppComponent implements OnInit{
     );
   }
 
+  public searchEmployee(key:string): void{
+
+    const result : Employee[]= [];
+
+    for(const employee of this.employees){
+      if(employee.name.toLowerCase().indexOf(key.toLowerCase()) !== -1
+      || employee.email.toLowerCase().indexOf(key.toLowerCase()) !== -1
+      || employee.phone.toLowerCase().indexOf(key.toLowerCase()) !== -1
+      || employee.jobTittle.toLowerCase().indexOf(key.toLowerCase()) !== -1){
+        result.push(employee);
+      }
+
+    }
+
+    this.employees = result;
+    if(result.length ==0 || !key){
+      this.getEmployees();
+    }
+  }
 
   public onOpenModal(employee : Employee, mode: string): void {
 
@@ -51,6 +72,7 @@ export class AppComponent implements OnInit{
     button.setAttribute('data-toggle','modal');
 
     if(mode == 'add'){
+
       button.setAttribute('data-target','#addEmployeeModal');
     }
 
@@ -60,6 +82,7 @@ export class AppComponent implements OnInit{
     }
 
     if(mode == 'delete'){
+      this.deleteEmployee = employee;
       button.setAttribute('data-target','#deleteEmployeeModal');
     }
 
@@ -69,9 +92,7 @@ export class AppComponent implements OnInit{
 
   }
 
-
   public onAddEmployee(addForm : NgForm){
-
     document.getElementById('add-employee-form').click();
     this.employeeService.addEmployees(addForm.value).subscribe(
       (response:Employee)=> {
@@ -79,7 +100,7 @@ export class AppComponent implements OnInit{
         this.getEmployees();
       },
       (error: HttpErrorResponse)=>{
-
+        alert(error.message);
       }
     );
   }
@@ -93,7 +114,19 @@ export class AppComponent implements OnInit{
         this.getEmployees();
       },
       (error: HttpErrorResponse)=>{
+        alert(error.message);
+      }
+    );
+  }
 
+  public onDeleteEmployee(employeeId : number) : void{
+    this.employeeService.deleteEmployees(employeeId).subscribe(
+      (response: void )=> {
+        console.log("response:"+response);
+        this.getEmployees();
+      },
+      (error: HttpErrorResponse)=>{
+        alert(error.message);
       }
     );
   }
