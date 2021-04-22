@@ -1,8 +1,6 @@
 package com.app.spring.angular.course.SpringAngularCourse.controller;
 
-import com.app.spring.angular.course.SpringAngularCourse.model.Employee;
 import com.app.spring.angular.course.SpringAngularCourse.model.Student;
-import com.app.spring.angular.course.SpringAngularCourse.service.EmployeeService;
 import com.app.spring.angular.course.SpringAngularCourse.service.StudentService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
