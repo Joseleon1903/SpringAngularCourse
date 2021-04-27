@@ -1,4 +1,4 @@
-package com.app.spring.angular.course.SpringAngularCourse.repository;
+package com.app.spring.angular.course.SpringAngularCourse.jparepository;
 
 import com.app.spring.angular.course.SpringAngularCourse.model.Student;
 import org.springframework.data.jpa.repository.JpaRepository;

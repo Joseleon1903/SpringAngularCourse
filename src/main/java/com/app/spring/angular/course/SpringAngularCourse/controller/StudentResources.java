@@ -24,7 +24,13 @@ public class StudentResources {
 
     @GetMapping
     public ResponseEntity<List<Student>> getAllStudents(){
-        List<Student> employees = studentService.findAllStudents();
-        return ResponseEntity.ok(employees);
+        List<Student> students = studentService.findAllStudents();
+        return ResponseEntity.ok(students);
+    }
+
+    @GetMapping(path = "/jdbc")
+    public ResponseEntity<List<Student>> getAllJdbcStudents(){
+        List<Student> students = studentService.findAllJdbcStudents();
+        return ResponseEntity.ok(students);
     }
 }

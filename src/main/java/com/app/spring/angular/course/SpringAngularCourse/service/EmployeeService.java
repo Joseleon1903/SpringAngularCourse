@@ -2,7 +2,7 @@ package com.app.spring.angular.course.SpringAngularCourse.service;
 
 import com.app.spring.angular.course.SpringAngularCourse.exception.UserNotFoundException;
 import com.app.spring.angular.course.SpringAngularCourse.model.Employee;
-import com.app.spring.angular.course.SpringAngularCourse.repository.EmployeeRepository;
+import com.app.spring.angular.course.SpringAngularCourse.jparepository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
