@@ -19,6 +19,8 @@ public class Destination {
             name = "destination_sequence",
             sequenceName ="destination_sequence" ,
             allocationSize =1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,
+            generator = "destination_sequence")
     private Long id;
 
     @Column(name = "name", nullable = false)

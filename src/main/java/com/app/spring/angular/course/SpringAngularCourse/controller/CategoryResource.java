@@ -1,7 +1,6 @@
 package com.app.spring.angular.course.SpringAngularCourse.controller;
 
 import com.app.spring.angular.course.SpringAngularCourse.model.Category;
-import com.app.spring.angular.course.SpringAngularCourse.model.Employee;
 import com.app.spring.angular.course.SpringAngularCourse.service.CategoryService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

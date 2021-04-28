@@ -118,3 +118,14 @@ insert into Destination(id, name, address, city, region, postal_code, charge)val
 insert into Destination(id, name, address, city, region, postal_code, charge)values(16, 'Chicago City', '639  Princess Street','Chicago', 'Chicago','87530',  3.5);
 
 
+/*
+       role table insert
+ */
+insert into Role(id, role_name, description, creation_date, permission)values(1, 'BASIC_USER', 'Simple user of the application',CURRENT_TIMESTAMP(), 'BASIC');
+insert into Role(id, role_name, description, creation_date, permission)values(2, 'ADMIN_USER', 'Administrator user of the application',CURRENT_TIMESTAMP(), 'ADMIN');
+insert into Role(id, role_name, description, creation_date, permission)values(3 , 'UNKNOW_USER', 'Unknow user of the application',CURRENT_TIMESTAMP(), 'NONE');
+
+/*
+       default admin user table insert
+ */
+insert into Sys_User  (id, email,username, password, creation_day, last_update, status, role_id ) VALUES (1, 'SysAdmin@admin.com', 'admin', 'admin01',CURRENT_TIMESTAMP(),CURRENT_TIMESTAMP(), 'ACTIVE', 2  );

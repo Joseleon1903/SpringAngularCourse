@@ -7,4 +7,6 @@ public class OrderStatus {
 
     private Long id;
     private String name;
+    private String description;
+
 }

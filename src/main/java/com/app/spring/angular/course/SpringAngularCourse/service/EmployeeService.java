@@ -32,7 +32,6 @@ public class EmployeeService {
         return employeeRepository.findAll();
     }
 
-
     public Employee updateEmployee(Employee employee){
         return  employeeRepository.save(employee);
     }
@@ -40,7 +39,6 @@ public class EmployeeService {
     public Employee findEmployeeById(Long id){
         return employeeRepository.findEmployeeById(id).orElseThrow(() -> new UserNotFoundException("cant't find a user with id : "+ id ));
     }
-
 
     public void deleteEmployee(Long id){
         employeeRepository.deleteEmployeeById(id);
