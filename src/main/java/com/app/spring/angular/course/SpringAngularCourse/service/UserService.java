@@ -7,6 +7,7 @@ import com.app.spring.angular.course.SpringAngularCourse.model.Role;
 import com.app.spring.angular.course.SpringAngularCourse.model.User;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 import java.util.List;
 
 /**
@@ -39,8 +40,6 @@ public class UserService {
         if(userRepository.findByUsernameOrEmail(user.getUsername(), user.getEmail()).isPresent()){
             throw new UserNotFoundException("user already register");
         }
-        Role role = roleRepository.getOne(user.getRole().getId());
-        user.setRole(role);
         return userRepository.save(user);
     }
 
@@ -49,6 +48,13 @@ public class UserService {
             return userRepository.save(user);
         }
         throw new UserNotFoundException("user not found");
+    }
+
+    public void deleteUserById(Long userId){
+        if(!userRepository.findById(userId).isPresent()){
+            throw new UserNotFoundException("user not found");
+        }
+        userRepository.deleteById(userId);
     }
 
 }

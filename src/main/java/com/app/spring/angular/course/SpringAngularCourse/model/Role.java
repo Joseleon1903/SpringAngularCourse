@@ -24,6 +24,9 @@ public class Role {
             name = "role_sequence",
             sequenceName ="role_sequence" ,
             allocationSize =1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,
+            generator = "role_sequence")
+    @Column(name = "role_id", nullable = false)
     private Long id;
 
     @Column(name = "role_name", nullable = false)
@@ -37,4 +40,11 @@ public class Role {
 
     @Column(name = "permission", nullable = false)
     private String permissions;
+
+    public Role(){}
+
+    public Role(Long roleId){
+        this.id = roleId;
+    }
+
 }

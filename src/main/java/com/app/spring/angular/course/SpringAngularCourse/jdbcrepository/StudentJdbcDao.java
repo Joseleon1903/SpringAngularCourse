@@ -27,7 +27,7 @@ public class StudentJdbcDao {
     }
 
     //select * from Student where id=?
-    public Student findbyId(long id){
+    public Student findById(long id){
         Student students = jdbcTemplate.queryForObject("select * from Student where id=?",new StudentRowMapper(), id);
         return students;
     }
@@ -42,8 +42,8 @@ public class StudentJdbcDao {
         return jdbcTemplate.update(query, student.getId(), student.getFirstName(), student.getLastName(), student.getEmail(), student.getAge());
     }
 
-    public int upadate(Student student){
-        String query = "update student set first_name = ?, set last_name = ?, set email =?, set age = ? where id = ? ";
+    public int update(Student student){
+        String query = "update student set first_name = ?, last_name = ?, email =?, age = ? where id = ? ";
         return jdbcTemplate.update(query, student.getFirstName(), student.getLastName(), student.getEmail(), student.getAge(), student.getId());
     }
 

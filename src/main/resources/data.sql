@@ -1,11 +1,9 @@
 /*
        Employee table insert
  */
-
 insert into Employee (id,name, email, job_tittle, phone, image_url, employee_code )
 VALUES (1, 'Carlos', 'carlosgEE@gmail.com','Developer', '809653214',
 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSya5dwz7sppH6NGJVip5KpNHbO6feSmMVJoQ&usqp=CAU', '938547574888eUJHD0485');
-
 
 insert into Employee (id,name, email, job_tittle, phone, image_url, employee_code )
 VALUES (2, 'Julia', 'Julia@gmail.com','Analist', '809653214',
@@ -96,6 +94,7 @@ insert into Category(id, name, code, status)values(25, 'Hobbies', 'HOB-05', true
 insert into Category(id, name, code, status)values(26, 'Travel', 'TRL-06', true);
 insert into Category(id, name, code, status)values(27, 'Video Games Console', 'VID-07', true);
 insert into Category(id, name, code, status)values(28, 'Unknow', 'UNK-00', true);
+ALTER SEQUENCE category_sequence RESTART WITH 29;
 
 /*
        destination table insert
@@ -116,16 +115,93 @@ insert into Destination(id, name, address, city, region, postal_code, charge)val
 insert into Destination(id, name, address, city, region, postal_code, charge)values(14, 'New Jersey City', '010  Saint Jule Street','New Jersey', 'New Jersey','69632',  5.20);
 insert into Destination(id, name, address, city, region, postal_code, charge)values(15, 'Texas City', '002  june Street','Texas', 'Texas','35410',  9.99);
 insert into Destination(id, name, address, city, region, postal_code, charge)values(16, 'Chicago City', '639  Princess Street','Chicago', 'Chicago','87530',  3.5);
-
+ALTER SEQUENCE destination_sequence RESTART WITH 17;
 
 /*
        role table insert
  */
-insert into Role(id, role_name, description, creation_date, permission)values(1, 'BASIC_USER', 'Simple user of the application',CURRENT_TIMESTAMP(), 'BASIC');
-insert into Role(id, role_name, description, creation_date, permission)values(2, 'ADMIN_USER', 'Administrator user of the application',CURRENT_TIMESTAMP(), 'ADMIN');
-insert into Role(id, role_name, description, creation_date, permission)values(3 , 'UNKNOW_USER', 'Unknow user of the application',CURRENT_TIMESTAMP(), 'NONE');
+insert into Role(role_id, role_name, description, creation_date, permission)values(1, 'BASIC_USER', 'Simple user of the application',CURRENT_TIMESTAMP(), 'BASIC');
+insert into Role(role_id, role_name, description, creation_date, permission)values(2, 'ADMIN_USER', 'Administrator user of the application',CURRENT_TIMESTAMP(), 'ADMIN');
+insert into Role(role_id, role_name, description, creation_date, permission)values(3 , 'UNKNOW_USER', 'Unknow user of the application',CURRENT_TIMESTAMP(), 'NONE');
+ALTER SEQUENCE role_sequence RESTART WITH 4;
 
 /*
        default admin user table insert
  */
-insert into Sys_User  (id, email,username, password, creation_day, last_update, status, role_id ) VALUES (1, 'SysAdmin@admin.com', 'admin', 'admin01',CURRENT_TIMESTAMP(),CURRENT_TIMESTAMP(), 'ACTIVE', 2  );
+insert into Customer  (customer_id, customer_code,first_name, last_name, address, birthday ) VALUES (1, 'ADMIN_CODE', 'administrator', 'system administrator','NONE',CURRENT_TIMESTAMP() );
+insert into Sys_User  (user_id, email,username, password, creation_day, last_update, status, role_id, customer_id) VALUES (1, 'SysAdmin@admin.com', 'admin', 'admin01',CURRENT_TIMESTAMP(),CURRENT_TIMESTAMP(), 'ACTIVE', 2 , 1 );
+
+ALTER SEQUENCE user_sequence RESTART WITH 2;
+ALTER SEQUENCE customer_sequence RESTART WITH 2;
+
+/*
+       product table insert
+ */
+insert into product (id,name, description, category_id, product_code, price,discount_percent, image_path) values(1, 'Computer','Personal computer', 1, 'AHSGD-85', 85.50, 20, '' );
+insert into product (id,name, description, category_id, product_code, price,discount_percent, image_path) values(2, 'HP Pavellion','Personal Laptop', 1, 'AH86GD-85', 120.50, 5, '' );
+insert into product (id,name, description, category_id, product_code, price,discount_percent, image_path) values(3, 'Samsumng Turbo','Personal laptop', 1, 'SAMG-00', 250.50, 20, '' );
+insert into product (id,name, description, category_id, product_code, price,discount_percent, image_path) values(4, 'HP Chromebook 14','Personal computer', 1, 'N3350', 250.99, 15, '' );
+insert into product (id,name, description, category_id, product_code, price,discount_percent, image_path) values(5, 'Acer Chromebook 11.6','Personal computer', 1, 'JUO85', 562.00, 20, '' );
+insert into product (id,name, description, category_id, product_code, price,discount_percent, image_path) values(6, 'Dell 11.6" Chromebook Intel','Personal computer', 1, 'AGD85', 356.30, 0, '' );
+insert into product (id,name, description, category_id, product_code, price,discount_percent, image_path) values(7, 'Lenovo 11.6 Thinkpad','Personal computer', 1, 'GG56', 585.50, 0, '' );
+insert into product (id,name, description, category_id, product_code, price,discount_percent, image_path) values(8, 'Lenovo Flex 6 2','Personal computer', 1, '522LX', 596.50, 0, '' );
+insert into product (id,name, description, category_id, product_code, price,discount_percent, image_path) values(9, 'Gateway 11.6','Personal computer', 1, 'GAT11', 1200.50, 30, '' );
+insert into product (id,name, description, category_id, product_code, price,discount_percent, image_path) values(10, 'Samsung 4 15.6','Personal computer', 1, 'POP85', 1560.10, 0, '' );
+insert into product (id,name, description, category_id, product_code, price,discount_percent, image_path) values(11, 'HP Stream','Personal computer', 1, 'HP33', 85.50, 20, '' );
+--
+insert into product (id,name, description, category_id, product_code, price,discount_percent, image_path) values(12, 'Hercules Bodybuilding','Book Train Without Weights "FREE SHIPPING" and "FREE GIFT"', 5, 'ISBN8965233205', 20.25, 12, '' );
+insert into product (id,name, description, category_id, product_code, price,discount_percent, image_path) values(13, 'True Strength','My Journey from Hercules to Mere Mortal and How Nearly Dying Save', 5, 'ISBN8566322322', 45.10, 6, '' );
+insert into product (id,name, description, category_id, product_code, price,discount_percent, image_path) values(14, 'Pillars of Hercules','A Grand Tour of the Mediterranean by Paul Theroux', 5, 'ISBN78563322235', 256, 13, '' );
+insert into product (id,name, description, category_id, product_code, price,discount_percent, image_path) values(15, 'Zenmaster Coloring','Books-Adult Color Bk Of Chihuahuas T BOOK NEW', 5, 'ISBN786633214555', 10.30, 0, '' );
+insert into product (id,name, description, category_id, product_code, price,discount_percent, image_path) values(16, 'Kate in Waiting','by Becky Albertalli SIGNED FIRST EDITION', 5, 'ISBN1256986563385', 56.50, 10, '' );
+insert into product (id,name, description, category_id, product_code, price,discount_percent, image_path) values(17, 'Stephen King Night Shift','GIFT EDITION SLIPCASED Cemetery Dance Beautiful book!', 5, 'ISBN46696632155', 63.10, 0, '' );
+insert into product (id,name, description, category_id, product_code, price,discount_percent, image_path) values(18, 'The Whys Of Cooking','Book Janet McKenzie Hill', 5, 'ISBN78556333214455', 33.50, 40, '' );
+insert into product (id,name, description, category_id, product_code, price,discount_percent, image_path) values(19, 'Black Book','by Rankin', 5, 'ISBN9780752883571 ', 22.50, 20, '' );
+insert into product (id,name, description, category_id, product_code, price,discount_percent, image_path) values(20, 'A New History of England','by Jeremy Black (English) Paperback Book Free Shipping!', 5, 'ISBN7896632541', 23.11, 5, '' );
+
+insert into product (id,name, description, category_id, product_code, price,discount_percent, image_path) values(21, 'Women Clothes Casual Women''s','Clothing Funny Cute Cat Print Long Sleeve T-Shirts', 11, 'CLOS9685', 15.70, 5, '' );
+insert into product (id,name, description, category_id, product_code, price,discount_percent, image_path) values(22, 'Aventura Clothing Casual Sleeveless Dress','Women''s Size XS, Print NWT', 11, 'IOPLN', 13.53, 9, '' );
+insert into product (id,name, description, category_id, product_code, price,discount_percent, image_path) values(23, 'Coveted Clothing Womens Coral','Sleeveless Lace Shift Dress Small', 11, '963PL85', 26.50, 0, '' );
+insert into product (id,name, description, category_id, product_code, price,discount_percent, image_path) values(24, 'Pregnant Women Summer','Nursing Dress Stripe Sleepwear Sleeveless Casual Clothing', 11, 'AHSGD89', 14.99, 20, '' );
+insert into product (id,name, description, category_id, product_code, price,discount_percent, image_path) values(25, 'Pregnant Women Nursing Vest','Dress Maternity Summer Casual Breastfeeding Clothing', 11, 'AA-99', 89.29, 10, '' );
+insert into product (id,name, description, category_id, product_code, price,discount_percent, image_path) values(26, 'ONE CLOTHING Womens Navy Tie Dye','Short Sleeve Above The Knee Dress Size: S', 11, 'BB-896', 63.99, 25, '' );
+insert into product (id,name, description, category_id, product_code, price,discount_percent, image_path) values(27, 'DKNY Women''s Sleeveless Scuba','Stretch Dress Sheath 8 Casual Work Clothes NWT', 11, 'CC-987', 11.99, 0, '' );
+insert into product (id,name, description, category_id, product_code, price,discount_percent, image_path) values(28, 'Alligator Embroidered','Badge Iron On Sew On Clothes', 11, 'AA-256', 63.99, 0, '' );
+insert into product (id,name, description, category_id, product_code, price,discount_percent, image_path) values(29, 'Children''S Clothing','Bulktops Skirt Dress Underpants', 11, 'II-85', 6.99, 3, '' );
+insert into product (id,name, description, category_id, product_code, price,discount_percent, image_path) values(30, 'Pink Korean Children''S','Clothing Dot Tops', 11, 'PLO-96385', 30, 0, '' );
+
+insert into product (id,name, description, category_id, product_code, price,discount_percent, image_path) values(31, 'Frank Holme Signed Original Antique','WC Painting Arab Eastern Camel & Figures', 3, 'ART-85', 45.50, 0, '' );
+insert into product (id,name, description, category_id, product_code, price,discount_percent, image_path) values(32, 'Hand Painted impressionism','art-Portrait Canvas Oil Painting for Home Wall Art', 3, 'ART-8555', 11.99, 20, '' );
+insert into product (id,name, description, category_id, product_code, price,discount_percent, image_path) values(33, 'Russian Avant Garde','Suprematist Ivan Kliun, bears signature in Cyrillic', 3, 'ART-99', 85.50, 20, '' );
+insert into product (id,name, description, category_id, product_code, price,discount_percent, image_path) values(34, 'BLUE FLOWERS EXPRESSIONIST OIL PAINTING','BY ARTIST VIVEK MANDALIA FLORAL ARTWORK', 3, 'ARTT-78', 25.99, 11, '' );
+insert into product (id,name, description, category_id, product_code, price,discount_percent, image_path) values(35, 'Painting Print Man Naked Nude Erotic Art','Nude Man Erotic Beautiful Art Print', 3, 'ART-125', 256.99, 20, '' );
+insert into product (id,name, description, category_id, product_code, price,discount_percent, image_path) values(36, 'Painting Print Man Naked Nude Erotic Art','Nude Man Erotic Beautiful Art Print', 3, 'ART-416', 13.99, 3, '' );
+insert into product (id,name, description, category_id, product_code, price,discount_percent, image_path) values(37, 'Man Nude Erotic Art','Print 20x30cm, Nude Man Erotic Art Print', 3, 'ART-741', 10.50, 5, '' );
+insert into product (id,name, description, category_id, product_code, price,discount_percent, image_path) values(38, 'Watercolour Painting','Original and signed', 3, 'ART-01', 12.50, 0, '' );
+insert into product (id,name, description, category_id, product_code, price,discount_percent, image_path) values(39, 'Watercolour, Drawing Signed!!!','Carl Jürgen tohmfor', 3, 'ART-0285', 63.99, 7, '' );
+insert into product (id,name, description, category_id, product_code, price,discount_percent, image_path) values(40, 'Printing 20x30cm Man Naked Nude Erotic Art','Nude Man Erotic Beautiful Art Print', 3, 'ART-13', 56.99, 0, '' );
+insert into product (id,name, description, category_id, product_code, price,discount_percent, image_path) values(41, 'Lone Star Tip Original ACEO','Pin Up Sexy Sketch Card by Jimbing', 3, 'ART-963', 99.99, 9, '' );
+
+--
+insert into product (id,name, description, category_id, product_code, price,discount_percent, image_path) values(42, 'REFURBISHED STORM FIRE ROAD','FULLY PLUGGED, REVIVED, RESURFACED,15LBS', 24, 'SPORT-896', 33.50, 20, '' );
+insert into product (id,name, description, category_id, product_code, price,discount_percent, image_path) values(43, 'Vintage Nokona Pro Line','Kangaroo Leather Baseball Glove', 24, 'SPORT-85', 14.99, 0, '' );
+insert into product (id,name, description, category_id, product_code, price,discount_percent, image_path) values(44, 'Nike Tiempo Legend 8 Elite FG','Cleats Black Red Size 10.5 BRAND NEW Soocer Boots', 24, 'SPORT-8745', 78.99, 7, '' );
+insert into product (id,name, description, category_id, product_code, price,discount_percent, image_path) values(45, 'SHIRT ARSENAL 1982-1983','PETROVIC SERBIA JERSEY CRVENA ZVEZDA YUGOSLAVIA STANDARD', 24, 'SPORT-41', 785.99, 11, '' );
+insert into product (id,name, description, category_id, product_code, price,discount_percent, image_path) values(46, 'Nike Men''s Tiempo Legend 7 Pro FG','White Blue Soccer Cleats Size 10 AH7241-107', 24, 'SPORT-789', 10.50, 0, '' );
+insert into product (id,name, description, category_id, product_code, price,discount_percent, image_path) values(47, 'VAUGHN EPIC 8404 GOALIE','CHEST AND ARM PROTECTOR shoulder pads youth Small', 24, 'SPORT-2013', 5.50, 0, '' );
+insert into product (id,name, description, category_id, product_code, price,discount_percent, image_path) values(48, '2017 Demarini CF9 SPRITE -11 31/20','Composite Fastpitch Softball Bat', 24, 'SPORT-2020', 78.50, 6, '' );
+insert into product (id,name, description, category_id, product_code, price,discount_percent, image_path) values(49, 'CORE Dark Blue SKATEBOARD TRUCKS','WHEELS, ABEC 5 BEARIN', 24, 'SPORT-7896', 24.99, 13, '' );
+insert into product (id,name, description, category_id, product_code, price,discount_percent, image_path) values(50, 'Element Skateboards','Peanuts Snoopy Joe Cool Appleyard Skateboard Deck', 24, 'SPORT-14789', 230.99, 0, '' );
+insert into product (id,name, description, category_id, product_code, price,discount_percent, image_path) values(51, 'Tommy Sandoval ','Zero Rasta Burning Deck Skateboard 8.25', 24, 'SPORT-10147', 100, 10, '' );
+insert into product (id,name, description, category_id, product_code, price,discount_percent, image_path) values(52, 'Skateboard 30" x 10"','No Fear long board Good Wheels and Deck Skateboarding', 24, 'SPORT-850', 450.50, 0, '' );
+
+ALTER SEQUENCE product_sequence RESTART WITH 53;
+
+
+/*
+       order_status table insert
+ */
+insert into Order_status (order_status_id,name, description ) values(1, 'PENDING', 'Order is waiting to sending');
+insert into Order_status (order_status_id,name, description ) values(2, 'CONFIRMED', 'Order is confirmed and send');
+insert into Order_status (order_status_id,name, description ) values(3, 'CANCELED', 'Order was cancel by the customer');
+insert into Order_status (order_status_id,name, description ) values(4, 'REFUSE', 'Something went wrong with the transaction');

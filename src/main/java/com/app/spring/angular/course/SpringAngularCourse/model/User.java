@@ -1,5 +1,6 @@
 package com.app.spring.angular.course.SpringAngularCourse.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import org.hibernate.annotations.Check;
 import javax.persistence.*;
@@ -25,7 +26,8 @@ public class User {
             allocationSize =1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE,
             generator = "user_sequence")
-    private Long id;
+    @Column(name = "user_id", nullable = false)
+    private Long id = 0L;
 
     @Column(name = "email", nullable = false)
     private String email;
@@ -36,21 +38,26 @@ public class User {
     @Column(name = "password", nullable = false)
     private String password;
 
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     @Column(name = "creation_day", nullable = false)
     private Date creationDay = new Date();
 
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     @Column(name = "last_update", nullable = false)
     private Date lastUpdate = new Date();
 
     @Column(name = "status", nullable = false)
     private String status;
 
-    @OneToOne
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name="role_id", nullable=false)
     private Role role;
-//
-//    @OneToOne
-//    private Customer customer;
 
-    private User(){}
+    @OneToOne(cascade = CascadeType.ALL , fetch = FetchType.LAZY)
+    @JoinColumn(name="customer_id")
+    private Customer customer;
+
+    public User(){}
+
 
 }
