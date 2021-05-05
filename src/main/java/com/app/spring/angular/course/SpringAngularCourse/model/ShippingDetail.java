@@ -2,6 +2,7 @@ package com.app.spring.angular.course.SpringAngularCourse.model;
 
 import lombok.Data;
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 /**
@@ -22,6 +23,7 @@ public class ShippingDetail {
             allocationSize =1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE,
             generator = "shipping_detail_sequence")
+    @Column(name = "shipping_detail_id", nullable = false)
     private Long id;
 
     @Column(name ="code", nullable = false)
@@ -31,9 +33,10 @@ public class ShippingDetail {
     private String destinationAddress;
 
     @Column(name ="delivery_date", nullable = false)
-    private Date deliveryDate;
+    private LocalDateTime deliveryDate;
 
-    @OneToOne
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name="destination_id", nullable=false)
     private Destination destination;
 
     @Column(name ="shipping_charge", nullable = false)

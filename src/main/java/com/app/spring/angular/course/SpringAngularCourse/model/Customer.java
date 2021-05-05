@@ -52,6 +52,18 @@ public class Customer {
 
     public Customer (){}
 
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "id=" + id +
+                ", customerCode='" + customerCode + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", address='" + address + '\'' +
+                ", birthday=" + birthday +
+                ", user=" + user.getId() +
+                '}';
+    }
 
-//private List<CustomerOrder> orders;
+    //private List<CustomerOrder> orders;
 }

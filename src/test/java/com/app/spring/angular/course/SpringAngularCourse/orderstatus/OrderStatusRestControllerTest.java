@@ -2,7 +2,6 @@ package com.app.spring.angular.course.SpringAngularCourse.orderstatus;
 
 import com.app.spring.angular.course.SpringAngularCourse.base.AbstractRestTest;
 import com.app.spring.angular.course.SpringAngularCourse.model.OrderStatus;
-import com.app.spring.angular.course.SpringAngularCourse.model.Role;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
@@ -11,7 +10,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -22,7 +20,7 @@ public class OrderStatusRestControllerTest extends AbstractRestTest{
 
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    private final String ResourcePath = "/order/status";
+    private final String ResourcePath = "/order/status" ;
 
     @Test
     @DisplayName("Executing test method tryToGetAllOrderStatus_thenStatus200 ")

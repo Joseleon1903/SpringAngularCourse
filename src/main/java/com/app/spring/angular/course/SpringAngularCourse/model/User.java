@@ -59,5 +59,18 @@ public class User {
 
     public User(){}
 
-
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", email='" + email + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", creationDay=" + creationDay +
+                ", lastUpdate=" + lastUpdate +
+                ", status='" + status + '\'' +
+                ", role=" + role.getId()+
+                ", customer=" + customer.getId() +
+                '}';
+    }
 }

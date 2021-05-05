@@ -2,6 +2,8 @@ package com.app.spring.angular.course.SpringAngularCourse.model;
 
 import lombok.Data;
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by jose de leon on 4/27/2021.
@@ -21,6 +23,7 @@ public class Product {
             allocationSize =1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE,
             generator = "product_sequence")
+    @Column(name = "product_id", nullable = false)
     private Long id;
 
     @Column(name = "name", nullable = false)
@@ -44,4 +47,6 @@ public class Product {
     @Column(name = "image_path", nullable = false)
     private String imagePath;
 
+    @ManyToMany(mappedBy = "products")
+    private Set<OrderDetail> employees = new HashSet<>();
 }

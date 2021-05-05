@@ -14,11 +14,11 @@ public class OrderStatus {
 
     @Id
     @SequenceGenerator(
-            name = "status_sequence",
-            sequenceName ="status_sequence" ,
+            name = "order_status_sequence",
+            sequenceName ="order_status_sequence" ,
             allocationSize =1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE,
-            generator = "status_sequence")
+            generator = "order_status_sequence")
     @Column(name = "order_status_id", nullable = false)
     private Long id;
 
