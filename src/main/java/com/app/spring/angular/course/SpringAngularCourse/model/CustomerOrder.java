@@ -62,4 +62,7 @@ public class CustomerOrder {
     @JoinColumn(name="order_status_id", nullable=false)
     private OrderStatus orderStatus;
 
+    @ManyToOne(fetch = FetchType.EAGER,  cascade = CascadeType.ALL)
+    @JoinColumn(name="payment_info_id")
+    private PaymentInfo paymentInfo;
 }

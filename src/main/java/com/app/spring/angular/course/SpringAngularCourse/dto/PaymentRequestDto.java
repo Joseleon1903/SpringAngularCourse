@@ -7,4 +7,21 @@ import lombok.Data;
  */
 @Data
 public class PaymentRequestDto {
+
+    private String orderCode;
+
+    public Integer paymentType;
+
+    public Integer cardType;
+
+    private String cardNumber;
+
+    private String cardHolderName;
+
+    private String accountNumber;
+
+    private String expireDate;
+
+    private String comment;
+
 }

@@ -129,5 +129,26 @@ public class ShoppingCardService {
 
     public void updatePaymentInfoTransaction(PaymentRequestDto paymentRequestDto) {
         logger.info("Entering in method paymentRequestDto");
+        logger.info("param: "+ paymentRequestDto);
+
+        logger.info("Found Customer Order ");
+
+        CustomerOrder customOrder = customerOrderRepository.findByOrderCode(paymentRequestDto.getOrderCode()).get();
+
+        logger.info("change status Customer Order ");
+
+        OrderStatus newStatus = orderStatusRepository.findById(2L).get();
+        customOrder.setOrderStatus(newStatus);
+
+        PaymentInfo info = new PaymentInfo();
+        info.setCardType(CardType.MASTERCARD);
+        info.setPaymentType(PaymentType.CREDIT_CARD);
+        info.setAccountNumber(paymentRequestDto.getAccountNumber());
+        info.setCardNumber(paymentRequestDto.getCardNumber());
+        info.setCardHolderName(paymentRequestDto.getCardHolderName());
+        info.setComment(paymentRequestDto.getComment());
+        info.setExpireDate(paymentRequestDto.getExpireDate());
+
+        customOrder.setPaymentInfo(info);
     }
 }

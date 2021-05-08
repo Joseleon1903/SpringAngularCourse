@@ -84,13 +84,22 @@ public class CustomerOrderSerializer extends StdSerializer<CustomerOrder> {
             jsonGenerator.writeEndObject();
         }
 
-        jsonGenerator.writeStringField("orderStatus", customerOrder.getOrderStatus().getName());
+        //payment
+        if(customerOrder.getPaymentInfo() != null){
+            jsonGenerator.writeObjectFieldStart("paymentInfo");
+            jsonGenerator.writeNumberField("id", customerOrder.getPaymentInfo().getId());
+            jsonGenerator.writeStringField("paymentType", customerOrder.getPaymentInfo().getPaymentType().name().toUpperCase());
+            jsonGenerator.writeStringField("cardType", customerOrder.getPaymentInfo().getCardType().name().toUpperCase());
 
+            jsonGenerator.writeStringField("cardNumber",  customerOrder.getPaymentInfo().getCardNumber());
+            jsonGenerator.writeStringField("cardHolderName",customerOrder.getPaymentInfo().getCardHolderName());
+            jsonGenerator.writeStringField("accountNumber", customerOrder.getPaymentInfo().getAccountNumber());
+            jsonGenerator.writeStringField("expireDate",  customerOrder.getPaymentInfo().getExpireDate());
+            jsonGenerator.writeStringField("comment", customerOrder.getPaymentInfo().getComment());
+            jsonGenerator.writeEndObject();
+        }
+        jsonGenerator.writeStringField("orderStatus", customerOrder.getOrderStatus().getName());
         jsonGenerator.writeEndObject();
 
     }
 }
-
-//    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-//    @JoinColumn(name="shipping_detail_id")
-//    private ShippingDetail shippingDetail;

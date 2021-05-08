@@ -5,5 +5,15 @@ package com.app.spring.angular.course.SpringAngularCourse.model;
  */
 public enum CardType {
 
-    VISA, MASTERCARD
+    VISA(1), MASTERCARD(2);
+
+    private final int cardType;
+
+    CardType(int cardType) {
+        this.cardType = cardType;
+    }
+
+    public int getCardType() {
+        return this.cardType;
+    }
 }
