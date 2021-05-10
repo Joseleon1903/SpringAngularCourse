@@ -54,7 +54,4 @@ public class OrderDetail {
                 ", totalPrice=" + totalPrice +
                 '}';
     }
-
-    // private PaymentInfo paymentInfo;
-
 }

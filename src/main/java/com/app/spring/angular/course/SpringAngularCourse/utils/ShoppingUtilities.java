@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * Created by jose de leon on 5/3/2021.
  */
-public class ShoppingUtilies {
+public class ShoppingUtilities {
 
     public static Double Itbis_tax = 0.30;
 

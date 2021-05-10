@@ -47,6 +47,4 @@ public class Product {
     @Column(name = "image_path", nullable = false)
     private String imagePath;
 
-    @ManyToMany(mappedBy = "products")
-    private Set<OrderDetail> employees = new HashSet<>();
 }

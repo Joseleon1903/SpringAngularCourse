@@ -1,10 +1,11 @@
 package com.app.spring.angular.course.SpringAngularCourse.service;
 
 import com.app.spring.angular.course.SpringAngularCourse.dto.*;
+import com.app.spring.angular.course.SpringAngularCourse.exception.*;
 import com.app.spring.angular.course.SpringAngularCourse.jparepository.*;
 import com.app.spring.angular.course.SpringAngularCourse.mapper.CustomerOrderSerializer;
 import com.app.spring.angular.course.SpringAngularCourse.model.*;
-import com.app.spring.angular.course.SpringAngularCourse.utils.ShoppingUtilies;
+import com.app.spring.angular.course.SpringAngularCourse.utils.ShoppingUtilities;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,20 +51,26 @@ public class ShoppingCardService {
         logger.info("Entering in shoppingCardPreviewDto");
 
         logger.info("find employee transaction ");
-        Employee tEmplyee = employeeRepository.findEmployeeById(shoppingCardPreviewDto.getEmployeeId()).get();
+        Employee tEmplyee = employeeRepository.findEmployeeById(shoppingCardPreviewDto.getEmployeeId()).orElseThrow(() -> new EmployeeNotFoundException());
+
         logger.info("find customer transaction ");
-        Customer tCustomer = customerRepository.findById(shoppingCardPreviewDto.getCustomerId()).get();
+        Customer tCustomer = customerRepository.findById(shoppingCardPreviewDto.getCustomerId()).orElseThrow(() -> new CustomerNotFoundException());
         logger.info("find status transaction ");
         OrderStatus tStatus= orderStatusRepository.findById(shoppingCardPreviewDto.getOrderStatusId()).get();
         CustomerOrder newOrder = new CustomerOrder();
         logger.info("find products transaction ");
         List<Product> entityProducts = new ArrayList<>();
         for (ProductDto prod : shoppingCardPreviewDto.getProducts()){
-
-            Product product = productRepository.findById(prod.getProductId()).get();
-            entityProducts.add(product);
+            if( productRepository.findById(prod.getProductId()).isPresent()){
+                Product product = productRepository.findById(prod.getProductId()).get();
+                entityProducts.add(product);
+            }
         }
         logger.info("create new order transaction ");
+
+        if(entityProducts.size() == 0){
+            throw new CheckoutProductNotFoundException();
+        }
 
         newOrder.setOrderCode(shoppingCardPreviewDto.getOrderCode());
         newOrder.setOrderNumber(shoppingCardPreviewDto.getOrderNumber());
@@ -79,11 +86,11 @@ public class ShoppingCardService {
                 tEmplyee.getName()));
 
         detail.getProducts().addAll(entityProducts);
-        Double totalProductsPrice = ShoppingUtilies.getTotalProductPrice(entityProducts);
+        Double totalProductsPrice = ShoppingUtilities.getTotalProductPrice(entityProducts);
         detail.setProductTotalPrice(totalProductsPrice);
-        Double taxCharge = ShoppingUtilies.getTaxCharge(totalProductsPrice);
+        Double taxCharge = ShoppingUtilities.getTaxCharge(totalProductsPrice);
         detail.setTaxCharge(taxCharge);
-        detail.setTotalPrice(ShoppingUtilies.getFinalPrice(totalProductsPrice, taxCharge));
+        detail.setTotalPrice(ShoppingUtilities.getFinalPrice(totalProductsPrice, taxCharge));
 
         logger.info("order detail transaction:  " + detail);
 
@@ -98,7 +105,7 @@ public class ShoppingCardService {
         response.setOrderNumber(shoppingCardPreviewDto.getOrderNumber());
         response.setProducts(shoppingCardPreviewDto.getProducts());
         response.setTaxCharge(taxCharge);
-        response.setTotalPrice(ShoppingUtilies.getFinalPrice(totalProductsPrice, taxCharge));
+        response.setTotalPrice(ShoppingUtilities.getFinalPrice(totalProductsPrice, taxCharge));
         response.setStatus(newOrder.getOrderStatus().getName());
         response.setProductTotalPrice(totalProductsPrice);
 
@@ -109,9 +116,9 @@ public class ShoppingCardService {
         logger.info("Entering in method updateShippingTransaction");
 
         logger.info("found customer order");
-        CustomerOrder customerOrder = customerOrderRepository.findByOrderCode(shippingRequestDto.getOrderCode()).get();
+        CustomerOrder customerOrder = customerOrderRepository.findByOrderCode(shippingRequestDto.getOrderCode()).orElseThrow( () -> new CustomerOrderNotFoundException());
         logger.info("found destination");
-        Destination destin = destinationRepository.findById(shippingRequestDto.getDestinationId()).get();
+        Destination destin = destinationRepository.findById(shippingRequestDto.getDestinationId()).orElseThrow( () -> new DestinationNotFoundException());
 
         ShippingDetail shippingD = new ShippingDetail();
 
@@ -133,7 +140,7 @@ public class ShoppingCardService {
 
         logger.info("Found Customer Order ");
 
-        CustomerOrder customOrder = customerOrderRepository.findByOrderCode(paymentRequestDto.getOrderCode()).get();
+        CustomerOrder customOrder = customerOrderRepository.findByOrderCode(paymentRequestDto.getOrderCode()).orElseThrow( () -> new CustomerOrderNotFoundException());
 
         logger.info("change status Customer Order ");
 
@@ -151,4 +158,5 @@ public class ShoppingCardService {
 
         customOrder.setPaymentInfo(info);
     }
+
 }
