@@ -40,4 +40,11 @@ public class Category {
     public Category(Long id) {
         this.id = id;
     }
+
+    public Category(Long id, String name, String code, boolean isActive) {
+        this.id = id;
+        this.name = name;
+        this.code = code;
+        this.isActive = isActive;
+    }
 }

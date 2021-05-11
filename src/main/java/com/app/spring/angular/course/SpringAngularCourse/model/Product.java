@@ -1,13 +1,15 @@
 package com.app.spring.angular.course.SpringAngularCourse.model;
 
+import com.app.spring.angular.course.SpringAngularCourse.mapper.ProductSerializer;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import lombok.Data;
+
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  * Created by jose de leon on 4/27/2021.
  */
+@JsonSerialize(using = ProductSerializer.class)
 @Data
 @Entity(name = "Product")
 @Table(name = "Product",
@@ -47,4 +49,20 @@ public class Product {
     @Column(name = "image_path", nullable = false)
     private String imagePath;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "review_id", referencedColumnName = "review_id")
+    private Review review;
+
+    public Product(){}
+
+    public Product(Long id, String name, String description, Category category, String productCode, Double price, Double discountPercent, String imagePath) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.category = category;
+        this.productCode = productCode;
+        this.price = price;
+        this.discountPercent = discountPercent;
+        this.imagePath = imagePath;
+    }
 }

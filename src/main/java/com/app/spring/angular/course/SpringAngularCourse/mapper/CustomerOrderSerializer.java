@@ -4,7 +4,6 @@ import com.app.spring.angular.course.SpringAngularCourse.model.CustomerOrder;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
-
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.time.format.DateTimeFormatter;
@@ -100,6 +99,5 @@ public class CustomerOrderSerializer extends StdSerializer<CustomerOrder> {
         }
         jsonGenerator.writeStringField("orderStatus", customerOrder.getOrderStatus().getName());
         jsonGenerator.writeEndObject();
-
     }
 }

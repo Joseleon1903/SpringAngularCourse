@@ -8,6 +8,7 @@
       <li class="nav-item active">
         <a (click)="onOpenModal(null, 'add')" class="nav-link" >Add Employee <span class="sr-only"></span></a>
       </li>
+      <li><a routerLink="../market/product" class="nav-link" >Market Online <span class="sr-only"></span></a></li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <input type="search" (ngModelChange)="searchEmployee(key.value)"  #key="ngModel" ngModel name="key" id="searchName" class="form-control mr-sm-2" placeholder="Search employees..." required>

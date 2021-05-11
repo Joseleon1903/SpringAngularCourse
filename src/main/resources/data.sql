@@ -193,9 +193,24 @@ insert into product (product_id,name, description, category_id, product_code, pr
 insert into product (product_id,name, description, category_id, product_code, price,discount_percent, image_path) values(49, 'CORE Dark Blue SKATEBOARD TRUCKS','WHEELS, ABEC 5 BEARIN', 24, 'SPORT-7896', 24.99, 13, 'http://naijainfolab.com.ng/wp-content/uploads/2020/05/ski-mask-sport-gadget.-.jpg' );
 insert into product (product_id,name, description, category_id, product_code, price,discount_percent, image_path) values(50, 'Element Skateboards','Peanuts Snoopy Joe Cool Appleyard Skateboard Deck', 24, 'SPORT-14789', 230.99, 0, 'https://images-na.ssl-images-amazon.com/images/I/51KiVm3-02L._AC_SX425_.jpg' );
 insert into product (product_id,name, description, category_id, product_code, price,discount_percent, image_path) values(51, 'Tommy Sandoval ','Zero Rasta Burning Deck Skateboard 8.25', 24, 'SPORT-10147', 100, 10, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdWloF1G2czK6VHW_b6TlX3zRZGyufJY56SA&usqp=CAU' );
-insert into product (product_id,name, description, category_id, product_code, price,discount_percent, image_path) values(52, 'Skateboard 30" x 10"','No Fear long board Good Wheels and Deck Skateboarding', 24, 'SPORT-850', 450.50, 0, 'https://www.giftsicle.com/wp-content/uploads/2020/03/best-tech-gifts-2021-new-latest-electronic-gadgets-for-men-women.png' );
+insert into product (product_id,name, description, category_id, product_code, price,discount_percent, image_path) values(52, 'Skateboard 30" x 10','No Fear long board Good Wheels and Deck Skateboarding', 24, 'SPORT-850', 450.50, 0, 'https://www.giftsicle.com/wp-content/uploads/2020/03/best-tech-gifts-2021-new-latest-electronic-gadgets-for-men-women.png' );
+--
 
-ALTER SEQUENCE product_sequence RESTART WITH 53;
+insert into product (product_id,name, description, category_id, product_code, price,discount_percent, image_path) values(53, 'Hand Knitted Pink','Mouse Hat For Your Cat/small Dog ,New', 23, 'PET-896', 14.50, 10, 'https://i.ebayimg.com/images/g/k4QAAOSwH8VgMQGQ/s-l1600.jpg' );
+insert into product (product_id,name, description, category_id, product_code, price,discount_percent, image_path) values(54, 'Joules Dog Coat','Size M. Olive Green Best In Field. Wax Jacket', 23, 'PET-85', 14.99, 0, 'https://www.ebay.com/itm/154448090654?hash=item23f5d2d61e:g:wX4AAOSwtGdgmW9o' );
+insert into product (product_id,name, description, category_id, product_code, price,discount_percent, image_path) values(55, 'Minnesota Vikings','Dog Family Holiday Sweater, Medium (20-25 lbs)', 23, 'PET-45', 44.99, 5, 'https://www.ebay.com/itm/114802054897?hash=item1ababc56f1:g:-UsAAOSwzulgmacH' );
+insert into product (product_id,name, description, category_id, product_code, price,discount_percent, image_path) values(56, 'Hand Knitted Pompom Buttercup','Flower Hat For Your Cat/small Dog ,New', 23, 'PET-475', 20.99, 0, 'https://www.ebay.com/itm/333996973798?hash=item4dc3c55ee6:g:YpwAAOSwoP1gMQLl' );
+insert into product (product_id,name, description, category_id, product_code, price,discount_percent, image_path) values(57, 'Doggie Duds','Confetti Sweater Green Small New', 23, 'PET-789', 5.99, 2, 'https://www.ebay.com/itm/274793097745?hash=item3ffaf1ea11:g:wCgAAOSwlAZadl0s' );
+insert into product (product_id,name, description, category_id, product_code, price,discount_percent, image_path) values(58, 'Hurtta Dog Expedition Parka','Sz 26"/65 cm Beetroot NWT Large Dogs', 23, 'PET-2013', 5.50, 0, 'https://www.ebay.com/itm/194117791176?hash=item2d32526dc8:g:PbAAAOSwOJ1gmZlN' );
+
+insert into product (product_id,name, description, category_id, product_code, price,discount_percent, image_path) values(59, 'HERITAGE CAGES CORFE','BUDGIE FINCH BIRD CAGE 30x23x39CM BUDGIES CANARY HOME PET', 23, 'PET-2020', 80.50, 6, 'https://i.ebayimg.com/thumbs/images/g/jlAAAOSw9M9dW78x/s-l200.jpg' );
+insert into product (product_id,name, description, category_id, product_code, price,discount_percent, image_path) values(60, 'Large Wrought Metal Bird Cage','Mobile Feeder with Rolling Stand Perches', 23, 'PET-7896', 90.99, 10, 'https://i.ebayimg.com/images/g/gHIAAOSwfKhgEd18/s-l1600.jpg' );
+insert into product (product_id,name, description, category_id, product_code, price,discount_percent, image_path) values(61, 'Parrot Toys Chew Hanging Rope','Small Ladder Stand Budgie Cockatiel Cage Bird Toy', 23, 'PET-149', 43.99, 0, 'https://i.ebayimg.com/images/g/QhsAAOSwUF1dHbnz/s-l1600.jpg' );
+insert into product (product_id,name, description, category_id, product_code, price,discount_percent, image_path) values(62, 'Trixie Bird Playground Natural Living','Zero Rasta Burning Deck Skateboard 8.25', 23, 'PET-09', 89.55, 10, 'https://i.ebayimg.com/images/g/7fgAAOSwcPFdMv2w/s-l640.jpg' );
+insert into product (product_id,name, description, category_id, product_code, price,discount_percent, image_path) values(63, 'Trixie Swinging Trapeze','With Bell Wood for Birds 12 × 13 Cm 5830', 23, 'PET-850', 33.99, 0, 'https://i.ebayimg.com/images/g/8Y0AAOSwc1FXa~UR/s-l1600.jpg' );
+
+
+ALTER SEQUENCE product_sequence RESTART WITH 64;
 
 
 /*

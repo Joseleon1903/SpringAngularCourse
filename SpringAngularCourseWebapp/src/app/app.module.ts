@@ -6,14 +6,16 @@ import {EmployeeService} from "./employee.service";
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
 
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserModule
   ],
   providers: [EmployeeService],
   bootstrap: [AppComponent]

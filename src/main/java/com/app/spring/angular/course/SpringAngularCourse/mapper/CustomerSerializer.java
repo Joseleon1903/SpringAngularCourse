@@ -23,10 +23,8 @@ public class CustomerSerializer extends StdSerializer<Customer> {
         super(t);
     }
 
-
     @Override
     public void serialize(Customer customer, JsonGenerator jsonGenerator, SerializerProvider serializerProvider) throws IOException {
-
         jsonGenerator.writeStartObject();
         jsonGenerator.writeNumberField("id", customer.getId());
         jsonGenerator.writeStringField("customerCode", customer.getCustomerCode());
@@ -39,7 +37,6 @@ public class CustomerSerializer extends StdSerializer<Customer> {
             jsonGenerator.writeNumberField("userId", customer.getUser().getId());
         }
         jsonGenerator.writeEndObject();
-
     }
 
 }
