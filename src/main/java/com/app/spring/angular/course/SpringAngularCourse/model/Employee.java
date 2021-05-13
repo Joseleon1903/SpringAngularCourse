@@ -11,7 +11,9 @@ import java.io.Serializable;
 @Data
 @Entity(name = "Employee")
 @Table(name = "Employee")
-public class Employee implements Serializable{
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "employee_type")
+public abstract class Employee implements Serializable{
 
 
     @Id
@@ -41,6 +43,18 @@ public class Employee implements Serializable{
 
     @Column(name = "employee_code" ,nullable = false, updatable = false)
     private String employeeCode;
+
+    public Employee(String name, String email, String jobTittle, String phone, String imageUrl, String employeeCode) {
+        this.name = name;
+        this.email = email;
+        this.jobTittle = jobTittle;
+        this.phone = phone;
+        this.imageUrl = imageUrl;
+        this.employeeCode = employeeCode;
+    }
+
+    public Employee() {
+    }
 
     @Override
     public String toString() {

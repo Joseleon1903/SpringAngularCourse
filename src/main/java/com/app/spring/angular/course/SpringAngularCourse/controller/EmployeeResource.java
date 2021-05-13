@@ -1,6 +1,8 @@
 package com.app.spring.angular.course.SpringAngularCourse.controller;
 
 import com.app.spring.angular.course.SpringAngularCourse.model.Employee;
+import com.app.spring.angular.course.SpringAngularCourse.model.FullTimeEmployee;
+import com.app.spring.angular.course.SpringAngularCourse.model.PartTimeEmployee;
 import com.app.spring.angular.course.SpringAngularCourse.service.EmployeeService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -32,15 +34,27 @@ public class EmployeeResource {
         return ResponseEntity.ok(employee);
     }
 
-    @PostMapping("/add")
-    public ResponseEntity<Employee> addEmployee(@RequestBody  Employee employee){
-        Employee employeeOut = employeeService.addEmployee(employee);
+    @PostMapping("/full/time/add")
+    public ResponseEntity<Employee> addFullTimeEmployee(@RequestBody FullTimeEmployee fullTimeEmployee){
+        Employee employeeOut = employeeService.addEmployee(fullTimeEmployee);
         return new ResponseEntity(employeeOut, HttpStatus.CREATED);
     }
 
-    @PutMapping("/update")
-    public ResponseEntity<Employee> updateEmployee(@RequestBody  Employee employee){
-        Employee employeeOut = employeeService.updateEmployee(employee);
+    @PostMapping("/part/time/add")
+    public ResponseEntity<Employee> addPartTimeEmployee(@RequestBody PartTimeEmployee partTimeEmployee){
+        Employee employeeOut = employeeService.addEmployee(partTimeEmployee);
+        return new ResponseEntity(employeeOut, HttpStatus.CREATED);
+    }
+
+    @PutMapping("/part/time/update")
+    public ResponseEntity<Employee> updatePartTimeEmployee(@RequestBody PartTimeEmployee partTimeEmployee){
+        Employee employeeOut = employeeService.updateEmployee(partTimeEmployee);
+        return new ResponseEntity(employeeOut, HttpStatus.CREATED);
+    }
+
+    @PutMapping("/full/time/update")
+    public ResponseEntity<Employee> updateFullTimeEmployee(@RequestBody FullTimeEmployee fullTimeEmployee){
+        Employee employeeOut = employeeService.updateEmployee(fullTimeEmployee);
         return new ResponseEntity(employeeOut, HttpStatus.CREATED);
     }
 
