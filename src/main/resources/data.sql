@@ -1,53 +1,53 @@
 /*
        Employee table insert
 */
-insert into Employee (employee_type, employee_id,name, email, job_title, phone, image_url, employee_code, salary )
+insert into Employee (employee_type, employee_id,name, email, job_title, phone, image_url, employee_code, salary, wallet_amount)
 VALUES ('FullTimeEmployee', 1, 'Carlos', 'carlosgEE@gmail.com','Developer', '809653214',
-'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSya5dwz7sppH6NGJVip5KpNHbO6feSmMVJoQ&usqp=CAU', '938547574888eUJHD0485', 2000);
+'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSya5dwz7sppH6NGJVip5KpNHbO6feSmMVJoQ&usqp=CAU', '938547574888eUJHD0485', 2000, 350);
 
-insert into Employee (employee_type, employee_id,name, email, job_title, phone, image_url, employee_code , salary)
+insert into Employee (employee_type, employee_id,name, email, job_title, phone, image_url, employee_code , salary, wallet_amount)
 VALUES ('FullTimeEmployee',2, 'Julia', 'Julia@gmail.com','Analist', '809653214',
-'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSya5dwz7sppH6NGJVip5KpNHbO6feSmMVJoQ&usqp=CAU', '938547574888eUJHD04857', 200);
+'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSya5dwz7sppH6NGJVip5KpNHbO6feSmMVJoQ&usqp=CAU', '938547574888eUJHD04857', 200, 400);
 
-insert into Employee (employee_type,employee_id,name, email, job_title, phone, image_url, employee_code , salary)
+insert into Employee (employee_type,employee_id,name, email, job_title, phone, image_url, employee_code , salary,wallet_amount)
 VALUES ('FullTimeEmployee',3, 'Maria', 'Maria@gmail.com','Developer', '809653214',
-'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSya5dwz7sppH6NGJVip5KpNHbO6feSmMVJoQ&usqp=CAU', '938547574888UJHD0485',2500);
+'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSya5dwz7sppH6NGJVip5KpNHbO6feSmMVJoQ&usqp=CAU', '938547574888UJHD0485',2500, 360);
 
-insert into Employee (employee_type,employee_id,name, email, job_title, phone, image_url, employee_code , salary)
+insert into Employee (employee_type,employee_id,name, email, job_title, phone, image_url, employee_code , salary, wallet_amount)
 VALUES ('FullTimeEmployee',4, 'Sandra', 'Sandra@gmail.com','Developer', '809653214',
-'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSya5dwz7sppH6NGJVip5KpNHbO6feSmMVJoQ&usqp=CAU', '938547574888eUJHD0485OPL',2300);
+'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSya5dwz7sppH6NGJVip5KpNHbO6feSmMVJoQ&usqp=CAU', '938547574888eUJHD0485OPL',2300, 896.20);
 
-insert into Employee (employee_type,employee_id,name, email, job_title, phone, image_url, employee_code, salary )
+insert into Employee (employee_type,employee_id,name, email, job_title, phone, image_url, employee_code, salary, wallet_amount )
 VALUES ('FullTimeEmployee',5, 'Sergio', 'Sergio@gmail.com','Developer', '809653214',
-'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSya5dwz7sppH6NGJVip5KpNHbO6feSmMVJoQ&usqp=CAU', '93854757488PO8eUJHD0485',2000);
+'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSya5dwz7sppH6NGJVip5KpNHbO6feSmMVJoQ&usqp=CAU', '93854757488PO8eUJHD0485',2000, 450);
 
-insert into Employee (employee_type,employee_id,name, email, job_title, phone, image_url, employee_code, salary )
+insert into Employee (employee_type,employee_id,name, email, job_title, phone, image_url, employee_code, salary, wallet_amount )
 VALUES ('FullTimeEmployee',6, 'Mister', 'Mister@gmail.com','UX', '809653214',
-'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSya5dwz7sppH6NGJVip5KpNHbO6feSmMVJoQ&usqp=CAU', '938547574888eUPOKLJHD0485',2000);
+'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSya5dwz7sppH6NGJVip5KpNHbO6feSmMVJoQ&usqp=CAU', '938547574888eUPOKLJHD0485',2000, 130);
 
-insert into Employee (employee_type,employee_id,name, email, job_title, phone, image_url, employee_code, salary )
+insert into Employee (employee_type,employee_id,name, email, job_title, phone, image_url, employee_code, salary , wallet_amount)
 VALUES ('FullTimeEmployee',7, 'Marta', 'Marta@gmail.com','Developer', '809653214',
-'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSya5dwz7sppH6NGJVip5KpNHbO6feSmMVJoQ&usqp=CAU', '938547574888eUJ896HD0485',2500);
+'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSya5dwz7sppH6NGJVip5KpNHbO6feSmMVJoQ&usqp=CAU', '938547574888eUJ896HD0485',2500, 460);
 
-insert into Employee (employee_type,employee_id,name, email, job_title, phone, image_url, employee_code, salary )
+insert into Employee (employee_type,employee_id,name, email, job_title, phone, image_url, employee_code, salary, wallet_amount )
 VALUES ('FullTimeEmployee',8, 'Carlos', 'carlosgEE@gmail.com','Developer', '809653214',
-'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSya5dwz7sppH6NGJVip5KpNHbO6feSmMVJoQ&usqp=CAU', '9385475747854888eUJHD0485', 2000);
+'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSya5dwz7sppH6NGJVip5KpNHbO6feSmMVJoQ&usqp=CAU', '9385475747854888eUJHD0485', 2000, 370.30);
 
-insert into Employee (employee_type,employee_id,name, email, job_title, phone, image_url, employee_code, salary )
+insert into Employee (employee_type,employee_id,name, email, job_title, phone, image_url, employee_code, salary, wallet_amount )
 VALUES ('FullTimeEmployee',9, 'Cintia', 'Cintia@gmail.com','Developer', '809653214',
-'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSya5dwz7sppH6NGJVip5KpNHbO6feSmMVJoQ&usqp=CAU', '9385475748oIOLKJ88eUJHD0485',2500);
+'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSya5dwz7sppH6NGJVip5KpNHbO6feSmMVJoQ&usqp=CAU', '9385475748oIOLKJ88eUJHD0485',2500, 500.00);
 
-insert into Employee (employee_type,employee_id,name, email, job_title, phone, image_url, employee_code, salary )
+insert into Employee (employee_type,employee_id,name, email, job_title, phone, image_url, employee_code, salary , wallet_amount)
 VALUES ('FullTimeEmployee',10, 'Carlos', 'carlosgEE@gmail.com','Developer', '809653214',
-'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSya5dwz7sppH6NGJVip5KpNHbO6feSmMVJoQ&usqp=CAU', '9385475ESVC74888eUJHD0485',2000);
+'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSya5dwz7sppH6NGJVip5KpNHbO6feSmMVJoQ&usqp=CAU', '9385475ESVC74888eUJHD0485',2000, 460);
 
-insert into Employee (employee_type,employee_id,name, email, job_title, phone, image_url, employee_code, salary )
+insert into Employee (employee_type,employee_id,name, email, job_title, phone, image_url, employee_code, salary, wallet_amount )
 VALUES ('FullTimeEmployee',11, 'Rubia', 'Rubia@gmail.com','Developer', '809653214',
-'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSya5dwz7sppH6NGJVip5KpNHbO6feSmMVJoQ&usqp=CAU', '938547574888eUJHD896520485',2000);
+'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSya5dwz7sppH6NGJVip5KpNHbO6feSmMVJoQ&usqp=CAU', '938547574888eUJHD896520485',2000, 370.20);
 
-insert into Employee (employee_type,employee_id,name, email, job_title, phone, image_url, employee_code, salary )
+insert into Employee (employee_type,employee_id,name, email, job_title, phone, image_url, employee_code, salary, wallet_amount )
 VALUES ('FullTimeEmployee',12, 'Elizabeth', 'Elizabeth@gmail.com','Quality', '809653214',
-'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSya5dwz7sppH6NGJVip5KpNHbO6feSmMVJoQ&usqp=CAU', '93854757LMNVCX4888eUJHD0485',2000);
+'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSya5dwz7sppH6NGJVip5KpNHbO6feSmMVJoQ&usqp=CAU', '93854757LMNVCX4888eUJHD0485',2000, 493.20);
 
 ALTER SEQUENCE employee_sequence RESTART WITH 13;
 

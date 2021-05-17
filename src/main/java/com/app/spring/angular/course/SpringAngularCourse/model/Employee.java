@@ -4,6 +4,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.math.BigDecimal;
 
 /**
  * Created by jose de leon on 4/19/2021.
@@ -24,25 +25,28 @@ public abstract class Employee implements Serializable{
     @GeneratedValue(strategy = GenerationType.SEQUENCE,
             generator = "employee_sequence")
     @Column(name = "employee_id", nullable = false)
-    private long id;
+    protected long id;
 
     @Column(name = "name", nullable = false)
-    private String name;
+    protected String name;
 
     @Column(name = "email", nullable = false)
-    private String email;
+    protected String email;
 
     @Column(name = "job_title", nullable = false)
-    private String jobTittle;
+    protected String jobTittle;
 
     @Column(name = "phone", nullable = false)
-    private String phone;
+    protected String phone;
 
     @Column(name = "image_url", nullable = false)
-    private String imageUrl;
+    protected String imageUrl;
 
     @Column(name = "employee_code" ,nullable = false, updatable = false)
-    private String employeeCode;
+    protected String employeeCode;
+
+    @Column(name = "wallet_amount", nullable = false)
+    protected BigDecimal walletAmount;
 
     public Employee(String name, String email, String jobTittle, String phone, String imageUrl, String employeeCode) {
         this.name = name;

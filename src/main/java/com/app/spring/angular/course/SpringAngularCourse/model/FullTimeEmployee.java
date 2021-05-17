@@ -24,4 +24,20 @@ public class FullTimeEmployee extends Employee{
 
     @Column(name = "salary")
     private BigDecimal salary;
+
+
+    @Override
+    public String toString() {
+        return "FullTimeEmployee{" +
+                "salary=" + salary +
+                ", id=" + id +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", jobTittle='" + jobTittle + '\'' +
+                ", phone='" + phone + '\'' +
+                ", imageUrl='" + imageUrl + '\'' +
+                ", employeeCode='" + employeeCode + '\'' +
+                ", walletAmount=" + walletAmount +
+                '}';
+    }
 }

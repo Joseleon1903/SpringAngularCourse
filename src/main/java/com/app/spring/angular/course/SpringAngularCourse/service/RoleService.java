@@ -3,6 +3,7 @@ package com.app.spring.angular.course.SpringAngularCourse.service;
 import com.app.spring.angular.course.SpringAngularCourse.jparepository.RoleRepository;
 import com.app.spring.angular.course.SpringAngularCourse.model.Role;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
@@ -21,6 +22,7 @@ public class RoleService {
         this.roleRepository= roleRepository;
     }
 
+    @Cacheable("roles")
     public List<Role> findAllRoles(){
        return roleRepository.findAll();
     }

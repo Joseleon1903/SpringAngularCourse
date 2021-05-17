@@ -3,6 +3,7 @@ package com.app.spring.angular.course.SpringAngularCourse.service;
 import com.app.spring.angular.course.SpringAngularCourse.jparepository.CustomerOrderRepository;
 import com.app.spring.angular.course.SpringAngularCourse.model.CustomerOrder;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -20,8 +21,8 @@ public class CustomerOrderService {
         this.customerOrderRepository = customerOrderRepository;
     }
 
-    public List<CustomerOrder> findAllCustomerOrders() {
-        return (List<CustomerOrder>) customerOrderRepository.findAll();
+    public List<CustomerOrder> findAllCustomerOrders(Pageable page) {
+        return customerOrderRepository.findAll(page).getContent();
     }
 
     public CustomerOrder findCustomerOrdersByCode(String code) {

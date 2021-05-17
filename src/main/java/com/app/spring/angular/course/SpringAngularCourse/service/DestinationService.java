@@ -4,6 +4,9 @@ import com.app.spring.angular.course.SpringAngularCourse.exception.DestinationNo
 import com.app.spring.angular.course.SpringAngularCourse.model.Destination;
 import com.app.spring.angular.course.SpringAngularCourse.jparepository.DestinationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import java.util.List;
 
@@ -20,10 +23,12 @@ public class DestinationService {
         this.destinationRepository= destinationRepository;
     }
 
+    @Cacheable("destinations")
     public List<Destination> findAllDestination(){
         return destinationRepository.findAll();
     }
 
+    @CacheEvict(value = "destinations", allEntries = true)
     public Destination createDestination(Destination destination) {
         destination.setId(0L);
         return destinationRepository.save(destination);

@@ -21,9 +21,11 @@ public class PaymentInfo {
     @Column(name = "payment_info_id", nullable = false)
     private long id;
 
+    @Enumerated
     @Column(name = "payment_type", nullable = false)
     private PaymentType paymentType;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "card_type", nullable = false)
     private CardType cardType;
 

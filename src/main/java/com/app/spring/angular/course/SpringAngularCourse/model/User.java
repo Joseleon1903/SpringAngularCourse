@@ -35,6 +35,9 @@ public class User {
     @Column(name = "username", nullable = false)
     private String username;
 
+    @Embedded
+    private UserPreference userPreference;
+
     @Column(name = "password", nullable = false)
     private String password;
 

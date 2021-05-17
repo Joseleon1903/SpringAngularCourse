@@ -5,6 +5,9 @@ import com.app.spring.angular.course.SpringAngularCourse.service.CustomerOrderSe
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,7 +33,16 @@ public class CustomerOrderResource {
 
     @GetMapping
     public ResponseEntity<List<CustomerOrder>> getAllCustomers(){
-        List<CustomerOrder> customers = customerOrderService.findAllCustomerOrders();
+        Pageable pageable = PageRequest.of(0,100, Sort.by("id").descending());
+        List<CustomerOrder> customers = customerOrderService.findAllCustomerOrders(pageable);
+        return ResponseEntity.ok(customers);
+    }
+
+    @GetMapping("/paginate")
+    public ResponseEntity<List<CustomerOrder>> getAllCustomersPage(@RequestParam("page") int page,
+                                                               @RequestParam("size") int size){
+        Pageable pageable = PageRequest.of(page,size, Sort.by("id").descending());
+        List<CustomerOrder> customers = customerOrderService.findAllCustomerOrders(pageable);
         return ResponseEntity.ok(customers);
     }
 
