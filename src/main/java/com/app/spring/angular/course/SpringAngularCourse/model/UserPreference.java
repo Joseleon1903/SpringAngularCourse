@@ -10,7 +10,7 @@ import javax.persistence.Embeddable;
 public class UserPreference {
 
     @Column(name = "receive_email_notification")
-    private boolean reciveEmailNotification;
+    private boolean receiveEmailNotification;
 
     @Column(name = "nick_name")
     private String nickname;

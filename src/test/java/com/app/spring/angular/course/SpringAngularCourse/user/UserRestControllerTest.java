@@ -167,6 +167,4 @@ public class UserRestControllerTest extends AbstractRestTest {
         assertEquals(200, status);
     }
 
-
-
 }

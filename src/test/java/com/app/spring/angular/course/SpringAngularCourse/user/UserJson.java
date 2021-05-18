@@ -1,6 +1,7 @@
 package com.app.spring.angular.course.SpringAngularCourse.user;
 
 import com.app.spring.angular.course.SpringAngularCourse.model.Role;
+import com.app.spring.angular.course.SpringAngularCourse.model.UserPreference;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
@@ -24,5 +25,6 @@ public class UserJson {
     private Role role;
     private CustomerJson customer;
 
+    private UserPreference userPreference;
 
 }
