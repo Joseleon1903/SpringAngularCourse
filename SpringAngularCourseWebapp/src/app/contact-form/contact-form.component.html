@@ -1,0 +1,53 @@
+<form id="contact-form" #f="ngForm"  (ngSubmit)="submit(f)">
+
+  <div ngModelGroup="contact" #contact="ngModelGroup">
+
+    <div *ngIf="!contact.valid"> contact first name is required</div>
+    <div class="form-group">
+      <label for="firstName">First name</label>
+      <input required ngModel minlength="3"  maxlength="10" name="firstName" #firstName="ngModel" (change)="log(firstName)" id="firstName" type="text" class="form-control">
+      <div class="alert alert-danger" *ngIf="firstName.touched && !firstName.valid">
+        <div *ngIf="firstName.errors.required">First name is required</div>
+        <div *ngIf="firstName.errors.minlength">First name need to had minimun {{firstName.errors.minlength.requiredLength}} characters</div>
+        <div *ngIf="firstName.errors.maxlength">First name need to had max 10 characters </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="comment">Comment</label>
+    <textarea ngModel name="comment" id="comment" cols="30" rows="10" class="form-control"> </textarea>
+  </div>
+
+  <div class="checkbox">
+    <label>
+      subscribe to email checklist
+    <input type="checkbox" ngModel name="isSubscribe">
+    </label>
+  </div>
+
+  <div class="form-group">
+    <label for="contactMethod">Contact Method</label>
+    <select ngModel name="contactMethod" id="contactMethod" class="form-control">
+      <option *ngFor="let method of contactMethod" [ngValue]="method">{{method.name}}</option>
+    </select>
+
+  </div>
+
+  <div class="radio">
+
+    <label *ngFor="let sex of contactSex">
+      <input ngModel type="radio" name="contactSex" [value]="sex.id">
+      {{sex.name}}
+    </label>
+
+
+  </div>
+
+
+  <p>{{f.value | json}}</p>
+
+
+  <button class="btn btn-primary" [disabled]="!f.valid" >Submit</button>
+
+</form>

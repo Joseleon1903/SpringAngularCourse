@@ -4,6 +4,9 @@ import {EmployeeService} from "./employee.service";
 import {HttpErrorResponse} from "@angular/common/http";
 import {NgForm} from "@angular/forms";
 
+const FULL_TIME = 'FULL_TIME';
+const PART_TIME = 'PART_TIME';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -13,9 +16,16 @@ export class AppComponent implements OnInit{
 
   title = 'SpringAngularCourseWebapp';
 
+  employeeType = FULL_TIME;
+
   public employees : Employee[];
   public editEmployee : Employee;
   public deleteEmployee : Employee;
+
+  post  = {
+    title: 'Work hard, sleep less',
+    isFavourite: true
+  };
 
   constructor(private employeeService : EmployeeService){
     this.employees = [];
@@ -32,7 +42,6 @@ export class AppComponent implements OnInit{
       (response : Employee[]) =>{
         this.employees = response;
         console.log(this.employees);
-
     },
       (error: HttpErrorResponse) =>{
         alert(error.message);
@@ -94,15 +103,41 @@ export class AppComponent implements OnInit{
 
   public onAddEmployee(addForm : NgForm){
     document.getElementById('add-employee-form').click();
-    this.employeeService.addEmployees(addForm.value).subscribe(
-      (response:Employee)=> {
-        console.log("response:"+response);
-        this.getEmployees();
-      },
-      (error: HttpErrorResponse)=>{
-        alert(error.message);
-      }
-    );
+    console.log('employee Type :' + this.employeeType);
+
+    if(this.employeeType == FULL_TIME){
+      this.employeeService.addEmployeesFullTime(addForm.value).subscribe(
+        (response:Employee)=> {
+          console.log("response:"+response);
+          this.getEmployees();
+        },
+        (error: HttpErrorResponse)=>{
+          alert(error.message);
+        }
+      );
+    }
+
+    if(this.employeeType == PART_TIME){
+
+      this.employeeService.addEmployeesPartTime(addForm.value).subscribe(
+        (response:Employee)=> {
+          console.log("response:"+response);
+          this.getEmployees();
+        },
+        (error: HttpErrorResponse)=>{
+          alert(error.message);
+        }
+      );
+    }
+
+  }
+
+  onChangeEmployeeType(chooser: number){
+    if(chooser == 1){
+      this.employeeType = PART_TIME;
+    }else if(chooser == 2){
+      this.employeeType = FULL_TIME;
+    }
   }
 
   public onUpdateEmployee(employee : Employee) : void{
@@ -129,6 +164,13 @@ export class AppComponent implements OnInit{
         alert(error.message);
       }
     );
+  }
+
+  onPostChange(isActive:boolean){
+
+    console.log('post component change');
+    console.log("isActive Image param : "+isActive);
+
   }
 
 

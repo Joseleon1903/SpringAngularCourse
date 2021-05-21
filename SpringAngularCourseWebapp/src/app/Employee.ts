@@ -7,4 +7,7 @@ export interface Employee{
   phone:string;
   imageUrl: string;
   employeeCode:string;
+  walletAmount: number;
+  salary: number;
+  hourlyWage:number
 }
