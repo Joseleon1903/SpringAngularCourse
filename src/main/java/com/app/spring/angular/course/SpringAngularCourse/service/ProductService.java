@@ -6,6 +6,7 @@ import com.app.spring.angular.course.SpringAngularCourse.jparepository.ProductRe
 import com.app.spring.angular.course.SpringAngularCourse.model.Product;
 import com.app.spring.angular.course.SpringAngularCourse.model.Review;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -64,5 +65,9 @@ public class ProductService {
         reviewEntity.setDislikeCounter(review.getDislikeCounter());
         prod.setReview(reviewEntity);
         return prod;
+    }
+
+    public List<Product> getPaginatedByName(String name, PageRequest pages) {
+        return productRepository.findByProductName(name, pages);
     }
 }

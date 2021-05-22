@@ -2,8 +2,11 @@ package com.app.spring.angular.course.SpringAngularCourse.controller;
 
 import com.app.spring.angular.course.SpringAngularCourse.dto.ProductReview;
 import com.app.spring.angular.course.SpringAngularCourse.model.Product;
+import com.app.spring.angular.course.SpringAngularCourse.model.TransactionHistory;
 import com.app.spring.angular.course.SpringAngularCourse.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -58,6 +61,15 @@ public class ProductResource {
     public ResponseEntity<Product> postProduct(@RequestBody ProductReview review){
         Product productOut = productService.addReviewProduct(review);
         return new ResponseEntity(productOut, HttpStatus.CREATED);
+    }
+
+    @GetMapping("/paginated")
+    public ResponseEntity<List<Product>> getPaginatedProducts(@RequestParam("page") int page,
+                                                                             @RequestParam("size") int size,
+                                                                             @RequestParam(value = "name", required = false) String name){
+        PageRequest pages = PageRequest.of(page, size, Sort.by("id").ascending());
+        List<Product> response = productService.getPaginatedByName(name, pages);
+        return ResponseEntity.ok(response);
     }
 
 
