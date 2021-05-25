@@ -10,7 +10,7 @@
       </li>
       <li><a class="nav-link" routerLink="/product/manager" >Product manager<span class="sr-only"></span></a></li>
       <li><a class="nav-link" routerLink="/employee" >Employee <span class="sr-only"></span></a></li>
-      <li><a class="nav-link" [routerLink]="['/user/profile', username]" >User profile <span class="sr-only"></span></a></li>
+      <li *ngIf="IsUserLoggedIn()" ><a class="nav-link" [routerLink]="['/user/profile', username]" >User profile <span class="sr-only"></span></a></li>
     </ul>
   </div>
 
@@ -31,6 +31,5 @@
 
 </nav>
 
-<router-outlet></router-outlet>
-
-
+<!--<router-outlet></router-outlet>-->
+<todos></todos>

@@ -34,7 +34,6 @@ export class ProductComponent implements OnInit {
     this.loadCategory();
   }
 
-
   loadCategory(){
 
     this.productService.getAllCategory()

@@ -1,1 +1,105 @@
-<p>welcome {{username}} </p>
+<main class="dash-content">
+  <div class="container-fluid">
+    <h1 class="dash-title">User profile</h1>
+
+    <!-- put your rows / columns here -->
+    <div class="row">
+
+      <!--user attribute column column-->
+      <div class="col-xl-4">
+        <div class="card easion-card">
+          <div class="card-header">
+            <div class="easion-card-icon">
+              <i class="fas fa-bell"></i>
+            </div>
+            <div class="easion-card-title"> User Detail: {{username}}</div>
+          </div>
+          <div class="card-body">
+
+            <img src="https://st4.depositphotos.com/12985790/i/600/depositphotos_227587512-stock-photo-profile-portrait-african-american-businessman.jpg" class="profile-image rounded " alt="No profile Image">
+
+            <div class="card-body ">
+              <div class="notifications">
+                <a class="notification">
+
+                  <div class="notification-text">Username </div>
+                  <span class="notification-time">{{user.username}} </span>
+                </a>
+                <a class="notification">
+                  <div class="notification-text">Email</div>
+                  <span class="notification-time">{{user.email}}</span>
+                </a>
+                <a class="notification">
+                  <div class="notification-text">Creation Day</div>
+                  <span class="notification-time">{{user.creationDay | date}}</span>
+                </a>
+                <a class="notification">
+                <div class="notification-text">Role</div>
+                <span class="notification-time">{{user.role.roleName}}</span>
+                </a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--user customer attribute form column-->
+      <div class="col-xl-6">
+        <div class="card easion-card">
+          <div class="card-header">
+            <div class="easion-card-icon">
+              <i class="fas fa-chart-bar"></i>
+            </div>
+            <div class="easion-card-title"> User Customer Detail</div>
+          </div>
+          <div class="card-body ">
+            <form>
+
+              <div class="form-group row">
+                <label for="profileUrl" class="col-sm-2 col-form-label">Profile Url</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="profileUrl" placeholder="Profile url">
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="firstName" class="col-sm-2 col-form-label">First Name</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="firstName" placeholder="First name">
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="lastName" class="col-sm-2 col-form-label">Last name</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="lastName" placeholder="Last name">
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="address" class="col-sm-2 col-form-label">Address</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="address" placeholder="Address">
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <div class="col-sm-10">
+                  <button type="submit" class="btn btn-primary">Update</button>
+                </div>
+              </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
+      <!--customer detila from end-->
+
+
+    </div>
+
+
+
+  </div>
+</main>

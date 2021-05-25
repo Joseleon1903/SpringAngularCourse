@@ -60,7 +60,7 @@ export class ProductService{
   }
 
   addProduct(product:Product){
-    return this.http.get(`${this.apiServerUrl}/product/create`).pipe(
+    return this.http.post(`${this.apiServerUrl}/product/create`,product ).pipe(
       // "catchError" instead "catch"
       catchError(error => {
         return Observable.throw(new AppError(error));

@@ -1,6 +1,6 @@
 import {ErrorHandler, NgModule} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import {BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import {EmployeeService} from "./employee/employee.service";
 import {HttpClientModule} from "@angular/common/http";
@@ -25,6 +25,10 @@ import { LoginComponent } from './login/login.component';
 import { CreateProfileComponent } from './create-profile/create-profile.component';
 import { ProductManagerComponent } from './product-manager/product-manager.component';
 import {AuthService} from "./auth/authorization.service";
+import { PanelBannerComponent } from './component/panel-banner/panel-banner.component';
+import {UserService} from "./user-profile/UserService.services";
+import {TodosComponent} from "./animation/todos/todos.component";
+import {ZippyComponent} from "./animation/zippy/zippy.component";
 
 @NgModule({
   declarations: [
@@ -43,7 +47,10 @@ import {AuthService} from "./auth/authorization.service";
     UserProfileComponent,
     LoginComponent,
     CreateProfileComponent,
-    ProductManagerComponent
+    ProductManagerComponent,
+    PanelBannerComponent,
+    TodosComponent,
+    ZippyComponent
   ],
   imports: [
     BrowserModule,
@@ -51,6 +58,7 @@ import {AuthService} from "./auth/authorization.service";
     FormsModule,
     BrowserModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
     RouterModule.forRoot([
       {
         path: '',
@@ -87,6 +95,7 @@ import {AuthService} from "./auth/authorization.service";
     DestinationService,
     ProductService,
     AuthService,
+    UserService,
     {provide: ErrorHandler, useClass: AppErrorHandler}],
   bootstrap: [AppComponent]
 })

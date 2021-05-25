@@ -20,6 +20,8 @@ export class EmployeeComponent implements OnInit {
   public editEmployee : Employee;
   public deleteEmployee : Employee;
 
+  public addEmployee: Employee;
+
   post  = {
     title: 'Work hard, sleep less',
     isFavourite: true

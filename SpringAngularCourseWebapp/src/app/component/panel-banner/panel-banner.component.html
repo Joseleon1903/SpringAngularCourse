@@ -1,0 +1,12 @@
+<div id="modal-banner" class="modal-banner" style="display: block;" *ngIf="showModal" >
+  <!-- Modal content -->
+  <div class="card easion-card modal-content">
+    <div [class]="getClassStyle()" >
+      <div class="easion-card-title"> {{banner?.title}} </div>
+    </div>
+    <div class="card-body ">
+      {{banner?.content}}
+    </div>
+    <div class="card-bottom"> <button type="button" (click)="closeModal()" class="btn btn-secondary mb-1">Close</button></div>
+  </div>
+</div>

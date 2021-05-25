@@ -1,7 +1,7 @@
 
 <div class="container" id="main-container">
 
-  <div class="row col-6">
+  <!--<div class="row col-6">-->
 
     <!--<product></product>-->
 
@@ -9,7 +9,7 @@
 
     <!--<singup-form></singup-form>-->
 
-  </div>
+  <!--</div>-->
 
   <!--<bootstrap-panel>-->
   <!--<div class="heading">Heading</div>-->
@@ -20,10 +20,22 @@
 
   <!--</bootstrap-panel>-->
 
-  <app-post-image [is-favorite]="post.isFavourite" [title]="post.title"  (changeOutput)="onPostChange($event)"></app-post-image>
+  <!--<app-post-image [is-favorite]="post.isFavourite" [title]="post.title"  (changeOutput)="onPostChange($event)"></app-post-image>-->
 
-  <label>Telephone number</label>
-  <input type="text" [appInputFormat]="'uppercase'">
+  <!--<label>Telephone number</label>-->
+  <!--<input type="text" [appInputFormat]="'uppercase'">-->
+
+  <div class="row" id="product-form">
+
+    <div class="col-xl-12">
+      <div class="card easion-card">
+        <div class="card-body ">
+            <button type="button" (click)="onOpenModal(addEmployee, 'add')" class="btn btn-primary btn-lg mb-1">Add Employee</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
 
   <div class="row">
     <div *ngFor="let employee of employees" class="card-border col-md-6 col-xl-3">
