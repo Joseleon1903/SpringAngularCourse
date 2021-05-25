@@ -12,6 +12,8 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
+import java.math.BigDecimal;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -30,8 +32,8 @@ public class ProductRestControllerTest extends AbstractRestTest {
         product.setDescription("Test Description");
         product.setName("Test Name");
         product.setProductCode("TEST-7896632");
-        product.setPrice(25.30D);
-        product.setDiscountPercent(10.10D);
+        product.setPrice(new BigDecimal(25.30));
+        product.setDiscountPercent(new BigDecimal(10.10));
         product.setImagePath("www.testImage.jpg");
         Category category = new Category();
         category.setId(5L);

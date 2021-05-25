@@ -5,11 +5,15 @@ import com.app.spring.angular.course.SpringAngularCourse.exception.ProductNotFou
 import com.app.spring.angular.course.SpringAngularCourse.jparepository.ProductRepository;
 import com.app.spring.angular.course.SpringAngularCourse.model.Product;
 import com.app.spring.angular.course.SpringAngularCourse.model.Review;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -17,6 +21,8 @@ import java.util.List;
  */
 @Service
 public class ProductService {
+
+    private Logger logger = LoggerFactory.getLogger(this.getClass());
 
     private final ProductRepository productRepository;
 
@@ -69,5 +75,21 @@ public class ProductService {
 
     public List<Product> getPaginatedByName(String name, PageRequest pages) {
         return productRepository.findByProductName(name, pages);
+    }
+
+    public List<Product> getPaginatedFiltered(String categoryId, String minPrice, String maxPrice, String keyWord, PageRequest pages) {
+        logger.info("entering in method getPaginatedFiltered");
+        logger.info("param :"+categoryId );
+        Long category = (categoryId != null)? Long.parseLong(categoryId) : null;
+        BigDecimal minPriceNumber = (minPrice != null)? new BigDecimal(minPrice) : null;
+        BigDecimal maxPriceNumber = (maxPrice != null)? new BigDecimal(maxPrice) : null;
+        logger.info("param :"+ minPrice);
+        logger.info("param :"+ maxPrice);
+        logger.info("param :"+ keyWord);
+        return productRepository.findByProductWithFilter(category,minPriceNumber, maxPriceNumber,keyWord , pages);
+    }
+
+    public Product findById(Long productId) {
+        return productRepository.findById(productId).get();
     }
 }

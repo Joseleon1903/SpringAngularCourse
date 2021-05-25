@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 
 /**
  * Created by jose de leon on 4/27/2021.
@@ -41,10 +42,10 @@ public class Product {
     private String productCode;
 
     @Column(name = "price", nullable = false)
-    private Double price;
+    private BigDecimal price;
 
     @Column(name = "discount_percent", nullable = false)
-    private Double discountPercent;
+    private BigDecimal discountPercent;
 
     @Column(name = "image_path", nullable = false)
     private String imagePath;
@@ -55,7 +56,7 @@ public class Product {
 
     public Product(){}
 
-    public Product(Long id, String name, String description, Category category, String productCode, Double price, Double discountPercent, String imagePath) {
+    public Product(Long id, String name, String description, Category category, String productCode, BigDecimal price, BigDecimal discountPercent, String imagePath) {
         this.id = id;
         this.name = name;
         this.description = description;

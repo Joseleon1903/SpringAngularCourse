@@ -11,6 +11,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -86,9 +88,9 @@ public class ShoppingCardService {
                 tEmplyee.getName()));
 
         detail.getProducts().addAll(entityProducts);
-        Double totalProductsPrice = ShoppingUtilities.getTotalProductPrice(entityProducts);
+        BigDecimal totalProductsPrice = ShoppingUtilities.getTotalProductPrice(entityProducts);
         detail.setProductTotalPrice(totalProductsPrice);
-        Double taxCharge = ShoppingUtilities.getTaxCharge(totalProductsPrice);
+        BigDecimal taxCharge = ShoppingUtilities.getTaxCharge(totalProductsPrice);
         detail.setTaxCharge(taxCharge);
         detail.setTotalPrice(ShoppingUtilities.getFinalPrice(totalProductsPrice, taxCharge));
 

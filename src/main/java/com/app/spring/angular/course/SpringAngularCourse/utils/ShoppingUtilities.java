@@ -1,6 +1,8 @@
 package com.app.spring.angular.course.SpringAngularCourse.utils;
 
 import com.app.spring.angular.course.SpringAngularCourse.model.Product;
+
+import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.util.List;
 
@@ -9,28 +11,28 @@ import java.util.List;
  */
 public class ShoppingUtilities {
 
-    public static Double Itbis_tax = 0.30;
+    public static BigDecimal Itbis_tax = new BigDecimal(0.30);
 
     private static DecimalFormat decimalFormat = new DecimalFormat("#.##");
 
-    public static Double getTotalProductPrice(List<Product> products){
-        Double tot = 0D;
+    public static BigDecimal getTotalProductPrice(List<Product> products){
+        BigDecimal tot = BigDecimal.ZERO;
         for (Product p : products){
-            Double price = p.getPrice();
-            Double discont = p.getDiscountPercent() /100;
-            Double finalPrice = price - (discont * price);
-            tot += finalPrice;
+            BigDecimal price = p.getPrice();
+            BigDecimal discont = p.getDiscountPercent().divide(new BigDecimal(100));
+            BigDecimal finalPrice = price.subtract(discont.multiply(price));
+            tot = tot.add(finalPrice);
         }
-        return Double.parseDouble(decimalFormat.format(tot));
+        return tot;
     }
 
-    public static Double getTaxCharge(Double totalPrice){
-        Double itbis = totalPrice -  (totalPrice * Itbis_tax);
-        return Double.parseDouble(decimalFormat.format(itbis));
+    public static BigDecimal getTaxCharge(BigDecimal totalPrice){
+        BigDecimal itbis = totalPrice.subtract(totalPrice.multiply(Itbis_tax)) ;
+        return itbis;
     }
 
-    public static Double getFinalPrice(Double totalPrice, Double taxCharge){
-        Double outDouble = totalPrice + taxCharge;
-        return Double.parseDouble(decimalFormat.format(outDouble));
+    public static BigDecimal getFinalPrice(BigDecimal totalPrice, BigDecimal taxCharge){
+        BigDecimal outDouble = totalPrice.add(taxCharge);
+        return outDouble;
     }
 }

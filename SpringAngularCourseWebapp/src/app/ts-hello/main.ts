@@ -85,9 +85,9 @@ class CoordinateOperation{
 }
 console.log("generate point ");
 
-let PointMadrid :Point = {x : 50, y:30}
+let PointMadrid :Point = {x : 50, y:30};
 
-let PointVenecia :Point = {x : 30, y:20}
+let PointVenecia :Point = {x : 30, y:20};
 
 console.log("instanciate class an execute method ");
 

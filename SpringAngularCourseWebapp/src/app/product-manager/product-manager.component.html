@@ -1,0 +1,130 @@
+<div class="container-fluid" id="product-manager">
+
+  <div class="row" style="margin-top: 15px">
+    <div class="col-xl-12">
+      <div class="card easion-card">
+        <div class="card-header">
+          <div class="easion-card-icon">
+            <i class="fas fa-table"></i>
+          </div>
+          <div class="easion-card-title">Product System Manager</div>
+        </div>
+        <div class="card-body ">
+          <table class="table table-hover table-in-card">
+            <thead>
+            <tr>
+              <th scope="col">Id</th>
+              <th scope="col">Product name</th>
+              <th scope="col">Product code</th>
+              <th scope="col">Category name</th>
+              <th scope="col">Category code</th>
+              <th scope="col">Price</th>
+              <th scope="col">Discount</th>
+              <th scope="col">Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let product of productList">
+              <td>{{product.id}}</td>
+              <td>{{product.name}}</td>
+              <td>{{product.productCode}}</td>
+              <td>{{product.category.name}}</td>
+              <td>{{product.category.code}}</td>
+              <td>{{product.price}}</td>
+              <td>{{product.discountPercent}}</td>
+              <td><button type="button" class="btn btn-primary mb-1" (click)="openEditModal(product.id)">Edit</button></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card easion-card">
+    <div class="card-header">
+      <div class="easion-card-icon">
+        <i class="fas fa-chart-bar"></i>
+      </div>
+      <div class="easion-card-title">
+        <form class="form-inline float-sm-right">
+          <label>Pagination</label>
+          <div class="btn-group ml-2 mb-1" role="group" aria-label="First group">
+            <button type="button" class="btn btn-secondary" *ngFor="let pageNumber of pageIndex"  (click)="getProductInSystemWithPage(pageNumber)" >{{pageNumber}}</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<!--&lt;!&ndash; modal edit product &ndash;&gt;-->
+<div class="modal fade" id="product-edit-model" tabindex="-1" role="dialog" aria-labelledby="product-model" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="deleteModelLabel">Product Detail</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <form #editForm="ngForm" (ngSubmit)="submitUpdateProduct(editForm)">
+
+          <div class="col-xl-12">
+            <div class="card easion-card">
+
+              <div class="card-body">
+
+                  <div class="form-group">
+                    <label> <p>Product Code: <mark>{{productEdit?.productCode}}</mark></p> </label> <br>
+                    <label> <p>Product Category: <mark>{{productEdit?.category.name}}</mark></p> </label> <br>
+                    <label> <p>Product Category Code:<mark>{{productEdit?.category.code}}</mark></p>  </label>
+                  </div>
+                  <div class="form-group">
+                    <label for="productName">Product name</label>
+                    <input type="text" ngModel="{{productEdit?.name}}" name="name" class="form-control" id="productName" placeholder="product name" required>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="productDescription">Product description</label>
+                    <input type="text" ngModel="{{productEdit?.description}}" name="description" class="form-control" id="productDescription"  placeholder="product description" required>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="productPrice">Product price</label>
+                    <input type="text" ngModel="{{productEdit?.price}}" name="price" class="form-control" id="productPrice"  placeholder="product price" required>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="productDiscount">Product discount</label>
+                    <input type="text" ngModel="{{productEdit?.discountPercent}}" name="discountPercent" class="form-control" id="productDiscount"  placeholder="product discount" required>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="productUrl">Product url</label>
+                    <input type="text" ngModel="{{productEdit?.imagePath}}" name="imagePath" class="form-control" id="productUrl"  placeholder="product url" required>
+                  </div>
+
+                  <div class="form-group">
+                    <img [src]="productEdit?.imagePath" style="width: 100%; height: 25%;">
+                  </div>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Update</button>
+            <button type="button" class="btn btn-primary" data-dismiss="modal" id="close-modal-btn" hidden></button>
+
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

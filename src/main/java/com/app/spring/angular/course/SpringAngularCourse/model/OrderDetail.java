@@ -2,6 +2,7 @@ package com.app.spring.angular.course.SpringAngularCourse.model;
 
 import lombok.Data;
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -35,13 +36,13 @@ public class OrderDetail {
    private Set<Product> products = new HashSet<>();
 
     @Column(name = "product_total_price", nullable = false)
-    private Double productTotalPrice;
+    private BigDecimal productTotalPrice;
 
     @Column(name = "tax_charge", nullable = false)
-    private Double taxCharge;
+    private BigDecimal taxCharge;
 
     @Column(name = "total_price", nullable = false)
-    private Double totalPrice;
+    private BigDecimal totalPrice;
 
     @Override
     public String toString() {

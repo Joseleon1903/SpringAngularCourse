@@ -4,6 +4,8 @@ import com.app.spring.angular.course.SpringAngularCourse.dto.ProductReview;
 import com.app.spring.angular.course.SpringAngularCourse.model.Product;
 import com.app.spring.angular.course.SpringAngularCourse.model.TransactionHistory;
 import com.app.spring.angular.course.SpringAngularCourse.service.ProductService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
@@ -19,6 +21,8 @@ import java.util.List;
 @RestController
 @RequestMapping("/product")
 public class ProductResource {
+
+    private Logger logger = LoggerFactory.getLogger(this.getClass());
 
     private final ProductService productService;
 
@@ -37,6 +41,12 @@ public class ProductResource {
     public ResponseEntity<List<Product>> getProductsByCategory(@PathVariable(value = "categoryId") Long categoryId){
         List<Product> products = productService.findByCategoryId(categoryId);
         return ResponseEntity.ok( products);
+    }
+
+    @GetMapping("/{productId}")
+    public ResponseEntity<Product> getProductsByProductId(@PathVariable(value = "productId") Long productId){
+        Product product = productService.findById(productId);
+        return ResponseEntity.ok(product);
     }
 
     @PutMapping
@@ -69,6 +79,19 @@ public class ProductResource {
                                                                              @RequestParam(value = "name", required = false) String name){
         PageRequest pages = PageRequest.of(page, size, Sort.by("id").ascending());
         List<Product> response = productService.getPaginatedByName(name, pages);
+        return ResponseEntity.ok(response);
+    }
+
+    @GetMapping("/paginated/filter")
+    public ResponseEntity<List<Product>> getPaginatedFilteredProducts(@RequestParam("page") int page,
+                                                              @RequestParam("size") int size,
+                                                              @RequestParam(value = "categoryId", required = false)  String categoryId,
+                                                              @RequestParam(value = "minPrice", required = false)  String minPrice,
+                                                              @RequestParam(value = "maxPrice", required = false)  String maxPrice,
+                                                              @RequestParam(value = "keyword", required = false) String keyWord){
+        PageRequest pages = PageRequest.of(page, size, Sort.by("id").ascending());
+
+        List<Product> response = productService.getPaginatedFiltered(categoryId,minPrice,maxPrice, keyWord, pages);
         return ResponseEntity.ok(response);
     }
 

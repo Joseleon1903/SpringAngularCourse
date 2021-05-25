@@ -9,13 +9,13 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class UserPreference {
 
-    @Column(name = "receive_email_notification")
+    @Column(name = "receive_email_notification", nullable = true)
     private boolean receiveEmailNotification;
 
-    @Column(name = "nick_name")
+    @Column(name = "nick_name", nullable = true)
     private String nickname;
 
-    @Column(name = "share_enable")
+    @Column(name = "share_enable", nullable = true)
     private boolean shareEnable;
 
 }

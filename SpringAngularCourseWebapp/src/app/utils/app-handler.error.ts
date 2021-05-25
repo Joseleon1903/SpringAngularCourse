@@ -4,7 +4,7 @@ export class AppErrorHandler implements ErrorHandler{
 
 
   handleError(error: any): void {
-    alert('internal server error');
+    //alert('internal server error');
     console.log(error);
   }
 

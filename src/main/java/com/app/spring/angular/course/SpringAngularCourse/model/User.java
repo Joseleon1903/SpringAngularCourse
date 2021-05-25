@@ -3,7 +3,10 @@ package com.app.spring.angular.course.SpringAngularCourse.model;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import org.hibernate.annotations.Check;
+import org.hibernate.annotations.CreationTimestamp;
+
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 /**
@@ -35,19 +38,24 @@ public class User {
     @Column(name = "username", nullable = false)
     private String username;
 
+    @Column(name = "picture_url", nullable = false)
+    private String pictureUrl;
+
     @Embedded
     private UserPreference userPreference;
 
     @Column(name = "password", nullable = false)
     private String password;
 
+    @CreationTimestamp
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     @Column(name = "creation_day", nullable = false)
-    private Date creationDay = new Date();
+    private LocalDateTime creationDay;
 
+    @CreationTimestamp
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     @Column(name = "last_update", nullable = false)
-    private Date lastUpdate = new Date();
+    private LocalDateTime lastUpdate;
 
     @Column(name = "status", nullable = false)
     private String status;
@@ -73,7 +81,7 @@ public class User {
                 ", lastUpdate=" + lastUpdate +
                 ", status='" + status + '\'' +
                 ", role=" + role.getId()+
-                ", customer=" + customer.getId() +
+                ", customer=" + customer != null ? customer.getId()+"" : "null" +
                 '}';
     }
 }

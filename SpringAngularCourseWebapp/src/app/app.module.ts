@@ -18,10 +18,13 @@ import {ProductService} from "./product/product.services";
 import {AppErrorHandler} from "./utils/app-handler.error";
 import {RouterModule} from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { MarkertplaceComponent } from './markertplace/markertplace.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { EmployeeComponent } from './employee/employee.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { LoginComponent } from './login/login.component';
+import { CreateProfileComponent } from './create-profile/create-profile.component';
+import { ProductManagerComponent } from './product-manager/product-manager.component';
+import {AuthService} from "./auth/authorization.service";
 
 @NgModule({
   declarations: [
@@ -35,10 +38,12 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     SingupFormComponent,
     ProductComponent,
     HomeComponent,
-    MarkertplaceComponent,
     NotFoundComponent,
     EmployeeComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    LoginComponent,
+    CreateProfileComponent,
+    ProductManagerComponent
   ],
   imports: [
     BrowserModule,
@@ -52,12 +57,20 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
         component: HomeComponent
       },
       {
-        path: 'marketplace',
-        component: MarkertplaceComponent
-      },
-      {
         path: 'employee',
         component: EmployeeComponent
+      },
+      {
+        path: 'product/manager',
+        component: ProductManagerComponent
+      },
+      {
+        path: 'login',
+        component: LoginComponent
+      },
+      {
+        path: 'user/creation',
+        component: CreateProfileComponent
       },
       {
         path: 'user/profile/:username',
@@ -67,13 +80,13 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
         path: '**',
         component: NotFoundComponent
       },
-
     ])
   ],
   providers: [
     EmployeeService,
     DestinationService,
     ProductService,
+    AuthService,
     {provide: ErrorHandler, useClass: AppErrorHandler}],
   bootstrap: [AppComponent]
 })

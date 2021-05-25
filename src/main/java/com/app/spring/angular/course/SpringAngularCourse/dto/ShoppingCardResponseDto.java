@@ -2,6 +2,8 @@ package com.app.spring.angular.course.SpringAngularCourse.dto;
 
 import lombok.Data;
 
+import java.math.BigDecimal;
+
 /**
  * Created by jose de leon on 5/3/2021.
  */
@@ -16,10 +18,10 @@ public class ShoppingCardResponseDto {
 
     private String status;
 
-    private Double productTotalPrice;
+    private BigDecimal productTotalPrice;
 
-    private Double taxCharge;
+    private BigDecimal taxCharge;
 
-    private Double totalPrice;
+    private BigDecimal totalPrice;
 
 }

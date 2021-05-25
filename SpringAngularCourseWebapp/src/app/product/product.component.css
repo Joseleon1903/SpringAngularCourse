@@ -1,0 +1,37 @@
+#product-item{
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+#product-form{
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+#center-content {
+  margin: auto;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  width: 70%;
+  padding: 10px;
+}
+
+#product-image{
+  width: 100%;
+  height: 220px;
+}
+
+.card-footer button{
+  float: right;
+  margin-right: 10px;
+}
+
+#form-role, #form-min-price, #form-max-price, form-keyword-price {
+  margin-right: 10px;
+}
+
+.form-inline > button{
+
+  margin-left: 20px;
+
+}

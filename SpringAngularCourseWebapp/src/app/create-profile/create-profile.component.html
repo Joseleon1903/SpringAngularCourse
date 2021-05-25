@@ -1,0 +1,58 @@
+
+<div class="form-screen" style="padding-top: 10px">
+
+  <div class="col-xl-6">
+    <div class="card easion-card">
+      <div class="card-header bg-success text-white">
+        <div class="easion-card-icon">
+          <i class="fas fa-chart-bar"></i>
+        </div>
+        <div class="easion-card-title"> <h3>Create new user</h3>  </div>
+      </div>
+      <div class="card-body ">
+
+        <!--form init-->
+        <form  #formInput="ngForm"  (ngSubmit)="submitForm(formInput)">
+
+          <div class="form-group">
+            <label for="form-email">Email</label>
+            <input ngModel name="email" type="email" class="form-control" id="form-email" placeholder="name@example.com" required>
+          </div>
+
+          <div class="form-group">
+            <label for="form-username">Username</label>
+            <input ngModel name="username" type="text" class="form-control" id="form-username" placeholder="username" required>
+          </div>
+
+          <div class="form-group">
+            <label for="form-password">Password</label>
+            <input ngModel name="password" type="password" class="form-control" id="form-password" placeholder="password" required>
+          </div>
+
+          <div class="form-group">
+            <label for="form-repeat-password">Repeat Password</label>
+            <input ngModel name="repeat-password" type="password" class="form-control" id="form-repeat-password" placeholder="confirm password" required>
+          </div>
+
+          <div class="form-group">
+            <label for="form-role">Role</label>
+            <select ngModel name="role" class="form-control" id="form-role">
+              <option *ngFor="let rol of roles" [ngValue]="rol.id">{{rol.roleName}}</option>
+            </select>
+          </div>
+
+          <div class="form-group" style="display: none">
+            <input ngModel name="status" type="text" class="form-control" id="form-status" value="ACTIVE">
+          </div>
+
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+        <!--form end-->
+uct
+      </div>
+    </div>
+
+  </div>
+
+</div>

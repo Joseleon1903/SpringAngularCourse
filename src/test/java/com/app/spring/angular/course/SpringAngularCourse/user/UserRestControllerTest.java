@@ -13,6 +13,7 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -30,8 +31,8 @@ public class UserRestControllerTest extends AbstractRestTest {
         User user = new User();
         user.setUsername("Test");
         user.setEmail("Test@test.com");
-        user.setCreationDay(new Date());
-        user.setLastUpdate(new Date());
+        user.setCreationDay(LocalDateTime.now());
+        user.setLastUpdate(LocalDateTime.now());
         user.setPassword("testPassword");
         user.setStatus("ACTIVE");
         Role role = new Role(1L);

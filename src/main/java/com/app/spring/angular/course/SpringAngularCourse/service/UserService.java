@@ -8,6 +8,7 @@ import com.app.spring.angular.course.SpringAngularCourse.model.User;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -37,6 +38,8 @@ public class UserService {
 
     public User registerUser(User user){
 
+        user.setStatus("ACTIVE");
+//        user.setCreationDay(new Date());
         if(userRepository.findByUsernameOrEmail(user.getUsername(), user.getEmail()).isPresent()){
             throw new UserNotFoundException("user already register");
         }

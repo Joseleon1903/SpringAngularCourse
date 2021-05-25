@@ -19,7 +19,7 @@ export class EmployeeService{
   }
 
   public addEmployeesFullTime(employee:Employee): Observable<Employee>{
-    return this.http.post<Employee>(`${this.apiServerUrl}/employee/full/time//add`, employee)
+    return this.http.post<Employee>(`${this.apiServerUrl}/employee/full/time/add`, employee)
   }
 
   public addEmployeesPartTime(employee:Employee): Observable<Employee>{

@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" style="color:white;">Employee Manager</a>
+  <a [routerLink]="['/']" class="navbar-brand" style="color:white;">Angular App</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -8,12 +8,27 @@
       <li class="nav-item active">
         <a class="nav-link" routerLink="/">Home <span class="sr-only"></span></a>
       </li>
-      <li><a class="nav-link" routerLink="/marketplace" >Market place online <span class="sr-only"></span></a></li>
+      <li><a class="nav-link" routerLink="/product/manager" >Product manager<span class="sr-only"></span></a></li>
       <li><a class="nav-link" routerLink="/employee" >Employee <span class="sr-only"></span></a></li>
       <li><a class="nav-link" [routerLink]="['/user/profile', username]" >User profile <span class="sr-only"></span></a></li>
-
     </ul>
   </div>
+
+  <div style="display:inline-block; padding: 2px;">
+    <div class="profile-info stats-light" *ngIf="IsUserLoggedIn()">
+      <h5> {{username}}
+        <img [src]="profileUrl" alt="No Image Found" style="height: 40px; width: 40px; padding: 2px; margin: 2px;">
+      <a *ngIf="IsUserLoggedIn()"  (click)="logoutUser()" style="margin: 2px;">
+        <button type="button" class="btn btn-warning mb-1">Logout</button>
+      </a>
+      </h5>
+    </div>
+
+    <a *ngIf="!IsUserLoggedIn()" [routerLink]="['/login']" style="display:inline;">
+      <button type="button" class="btn btn-warning mb-1">Login</button>
+    </a>
+  </div>
+
 </nav>
 
 <router-outlet></router-outlet>

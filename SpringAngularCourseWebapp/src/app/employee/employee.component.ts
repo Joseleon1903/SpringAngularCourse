@@ -79,7 +79,6 @@ export class EmployeeComponent implements OnInit {
     button.setAttribute('data-toggle','modal');
 
     if(mode == 'add'){
-
       button.setAttribute('data-target','#addEmployeeModal');
     }
 
