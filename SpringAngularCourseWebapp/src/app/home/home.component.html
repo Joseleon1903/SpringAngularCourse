@@ -1,8 +1,127 @@
-<div class="form-screen" id="content-adjust">
+<div class="form-screen" id="content-adjust" (window:scroll)="OnScrollProduct($event)" >
 
 
-  <product-market></product-market>
+  <product-market [size]="sizeList" (onPressDetail)="onPressProductViewDetail($event)" (onPressShipping)="onPressProductAddShipping($event)"></product-market>
+
+  <div class="col-xl-10">
+    <div class="card easion-card">
+      <div class="card-header">
+          <button type="button" (click)="moreProductBtn()" class="btn btn-secondary btn-lg btn-block mb-1">Show more</button>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
 
 </div>
 
+<!--open view product modal-->
+<div class="modal fade" id="product-car-model" tabindex="-1" role="dialog" aria-labelledby="product-model" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="deleteModelLabel">Product Detail</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+          <div class="col-xl-12">
+            <div class="card easion-card">
+
+              <div class="card-body">
+
+                <div class="form-group">
+                  <label> <p>Product Code: <mark>{{currentProduct?.productCode}}</mark></p> </label> <br>
+                  <label> <p>Product Category: <mark>{{currentProduct?.category.name}}</mark></p> </label> <br>
+                  <label> <p>Product Category Code:<mark>{{currentProduct?.category.code}}</mark></p>  </label>
+                </div>
+
+                <div class="form-group">
+                  <label for="productName">Product name</label>
+                  <input type="text"  name="name" class="form-control" id="productName" placeholder="product name" disabled>
+                </div>
+
+                <div class="form-group">
+                  <label for="productDescription">Product description</label>
+                  <input type="text" ngModel="{{currentProduct?.description}}" name="description" class="form-control" id="productDescription"  placeholder="product description" disabled>
+                </div>
+
+                <div class="form-group">
+                  <label for="productPrice">Product price</label>
+                  <input type="text" ngModel="{{currentProduct?.price}}" name="price" class="form-control" id="productPrice"  placeholder="product price" disabled>
+                </div>
+
+                <div class="form-group">
+                  <label for="productDiscount">Product discount</label>
+                  <input type="text" ngModel="{{currentProduct?.discountPercent}}" name="discountPercent" class="form-control" id="productDiscount"  placeholder="product discount" disabled>
+                </div>
+
+                <div class="form-group">
+                  <label for="productUrl">Product url</label>
+                  <input type="text" ngModel="{{currentProduct?.imagePath}}" name="imagePath" class="form-control" id="productUrl"  placeholder="product url" disabled>
+                </div>
+
+                <div class="form-group">
+                  <img [src]="currentProduct?.imagePath" style="width: 100%; height: 25%;">
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" (click)="closeModalViewProduct()"> Close detail</button>
+            <button class="btn btn-primary" data-dismiss="modal" id="close-modal-btn" hidden></button>
+          </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--open view product modal-->
+<div class="modal fade" id="product-shipping-model" tabindex="-1" role="dialog" aria-labelledby="product-model" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="deleteModelLabel">Product Shipping</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <div class="col-xl-12" *ngIf="shippingMode == 'Init'">
+
+          <div class="form-group">
+            <label> <p>Customer Id: <mark> 1 </mark></p> </label> <br>
+            <label> <p>Customer name: <mark> customer name </mark></p> </label> <br>
+
+            <label> <p>Employee id: <mark> 1 </mark></p> </label> <br>
+            <label> <p>employee name <mark> employee name</mark></p>  </label>
+          </div>
+
+          <div class="form-group">
+            <label> <p>Product name: <mark> 1 </mark></p> </label> <br>
+            <label> <p>Product  Code: <mark> product Code </mark></p> </label> <br>
+
+          </div>
+
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" (click)="nextModalProductShipping()"> Close detail</button>
+          <button class="btn btn-primary" data-dismiss="modal" id="close-modal-btn" hidden></button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
 

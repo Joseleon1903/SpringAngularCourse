@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, Output, EventEmitter} from '@angular/core';
 import {ProductService} from "../product/product.services";
 import {Product} from "../product/Product";
 import {Pagination} from "../utils/Pagination";
@@ -200,6 +200,5 @@ export class ProductManagerComponent implements OnInit {
   closeModalBanner(){
     this.activeErrorBanner = false;
   }
-
 
 }

@@ -29,6 +29,9 @@ import { PanelBannerComponent } from './component/panel-banner/panel-banner.comp
 import {UserService} from "./user-profile/UserService.services";
 import {TodosComponent} from "./animation/todos/todos.component";
 import {ZippyComponent} from "./animation/zippy/zippy.component";
+import {NgRedux, NgReduxModule} from "ng2-redux";
+import {IAppState, INITIAL_STATE, rootReducer} from "./redux/IAppState";
+import { ReduxDemoComponent } from './redux/redux-demo/redux-demo.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +53,8 @@ import {ZippyComponent} from "./animation/zippy/zippy.component";
     ProductManagerComponent,
     PanelBannerComponent,
     TodosComponent,
-    ZippyComponent
+    ZippyComponent,
+    ReduxDemoComponent
   ],
   imports: [
     BrowserModule,
@@ -59,6 +63,7 @@ import {ZippyComponent} from "./animation/zippy/zippy.component";
     BrowserModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    NgReduxModule,
     RouterModule.forRoot([
       {
         path: '',
@@ -99,4 +104,9 @@ import {ZippyComponent} from "./animation/zippy/zippy.component";
     {provide: ErrorHandler, useClass: AppErrorHandler}],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+
+  constructor(ngRedux: NgRedux<IAppState>){
+    ngRedux.configureStore(rootReducer, INITIAL_STATE );
+  }
+}

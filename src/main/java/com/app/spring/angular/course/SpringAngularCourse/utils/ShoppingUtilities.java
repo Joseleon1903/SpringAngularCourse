@@ -23,16 +23,19 @@ public class ShoppingUtilities {
             BigDecimal finalPrice = price.subtract(discont.multiply(price));
             tot = tot.add(finalPrice);
         }
+        tot = tot.setScale(2, BigDecimal.ROUND_HALF_UP);
         return tot;
     }
 
     public static BigDecimal getTaxCharge(BigDecimal totalPrice){
         BigDecimal itbis = totalPrice.subtract(totalPrice.multiply(Itbis_tax)) ;
+        itbis = itbis.setScale(2, BigDecimal.ROUND_HALF_UP);
         return itbis;
     }
 
     public static BigDecimal getFinalPrice(BigDecimal totalPrice, BigDecimal taxCharge){
         BigDecimal outDouble = totalPrice.add(taxCharge);
+        outDouble = outDouble.setScale(2, BigDecimal.ROUND_HALF_UP);
         return outDouble;
     }
 }

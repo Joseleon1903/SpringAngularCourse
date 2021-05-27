@@ -1,5 +1,5 @@
 
-import {animate, keyframes, style, transition, trigger} from "@angular/animations";
+import {animate, animation, keyframes, state, style, transition, trigger, useAnimation} from "@angular/animations";
 
 export let fade= trigger('fade', [
 
@@ -34,17 +34,18 @@ export const bounceIn = trigger('bounceIn', [
   ])
 ]);
 
-export const advanceBounceIn = trigger('advanceBounceIn', [
-  transition(':enter', [
-    style({ transform: 'scale(0.5)', opacity: 0 }),
-    animate('0.5s cubic-bezier(.8, -0.6, 0.2, 1.5)',
-      keyframes([
-      style({ opacity: 0, transform: 'translate3d(0, 3000px, 0)', scaleY:5 }),
-      style({  opacity: 1, transform: 'translate3d(0, -20px, 0)', scaleY: 0.9}),
-      style({ transform: 'translate3d(0, 10px, 0)', scaleY:0.95 }),
-      style({ transform: 'translate3d(0, -5px, 0)', scaleY:0.985}),
-        style({ transform:'translate3d(0, 0, 0)'})
-      ]))
+export let fadeInAnimation = animation([
+  style({opacity:0}),
+  animate(2000)
+]);
+
+export let fadeParam = trigger('fadeP', [
+
+  transition(':enter',
+    useAnimation(fadeInAnimation)
+  ),
+  transition(':leave', [
+    animate(2000)
   ])
 ]);
 

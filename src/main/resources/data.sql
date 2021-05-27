@@ -131,7 +131,7 @@ ALTER SEQUENCE role_sequence RESTART WITH 4;
        default admin user table insert
  */
 insert into Customer  (customer_id, customer_code,first_name, last_name, address, birthday ) VALUES (1, 'ADMIN_CODE', 'administrator', 'system administrator','NONE',CURRENT_TIMESTAMP() );
-insert into Sys_User  (user_id, email,username, password, creation_day, last_update, status, role_id, customer_id, picture_url) VALUES (1, 'SysAdmin@admin.com', 'admin', 'admin01',CURRENT_TIMESTAMP(),CURRENT_TIMESTAMP(), 'ACTIVE', 2 , 1 , 'https://st4.depositphotos.com/12985790/i/600/depositphotos_227587512-stock-photo-profile-portrait-african-american-businessman.jpg');
+insert into Sys_User  (user_id, email,username, password, creation_day, last_update, status, role_id, customer_id, picture_url, receive_email_notification, share_enable, nick_name) VALUES (1, 'SysAdmin@admin.com', 'admin', 'admin01',CURRENT_TIMESTAMP(),CURRENT_TIMESTAMP(), 'ACTIVE', 2 , 1 , 'https://st4.depositphotos.com/12985790/i/600/depositphotos_227587512-stock-photo-profile-portrait-african-american-businessman.jpg', false,false, '');
 
 ALTER SEQUENCE user_sequence RESTART WITH 2;
 ALTER SEQUENCE customer_sequence RESTART WITH 2;

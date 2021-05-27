@@ -1,20 +1,19 @@
 import { Component } from '@angular/core';
-import {advanceBounceIn, bounceIn, fade, slideLeft} from "src/app/animation/todos/Animations";
+import {bounceIn, fade, fadeParam, slideLeft} from "src/app/animation/todos/Animations";
 
 @Component({
   selector: 'todos',
   templateUrl: './todos.component.html',
   styleUrls: ['./todos.component.css'],
   animations:[
-    fade,
-    slideLeft,
-    bounceIn
+    bounceIn,
+    fadeParam
   ]
 })
 export class TodosComponent {
 
   items: any[] = [
-    'Wash the dishes'];
+    'Wash the dishes', 'Walking in the Street', 'Eat an apple'];
 
   addItem(input: HTMLInputElement) {
     this.items.splice(0, 0, input.value);

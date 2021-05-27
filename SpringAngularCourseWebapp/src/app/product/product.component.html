@@ -80,9 +80,9 @@
 
         <h6 style="text-align: center; text-justify: auto;">Price: $ {{product.price}}
 
-        <button type="button" class="btn btn-info mb-1" >View detail</button>
+        <button type="button" (click)="onPressDetailProduct(product)" class="btn btn-info mb-1" >View detail</button>
 
-        <button type="button" class="btn btn-success mb-1">Add to Car</button>
+        <button type="button" (click)="onPressAddCarProduct(product)" class="btn btn-success mb-1">Add to Car</button>
 
         </h6>
 

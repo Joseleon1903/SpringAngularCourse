@@ -20,4 +20,8 @@ export class UserService {
     return this.http.get<User>(`${this.apiServerUrl}/user/find`, {params});
   }
 
+  putUserUpdate(user: User):Observable<User>{
+    return this.http.put<User>(`${this.apiServerUrl}/user/update`, user);
+  }
+
 }

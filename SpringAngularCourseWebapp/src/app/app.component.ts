@@ -1,4 +1,4 @@
-import {Component, DoCheck, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import {Component, DoCheck, OnChanges, OnInit} from '@angular/core';
 import {AuthService} from "./auth/authorization.service";
 
 @Component({

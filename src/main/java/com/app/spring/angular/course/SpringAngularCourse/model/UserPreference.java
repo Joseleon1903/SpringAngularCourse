@@ -1,11 +1,14 @@
 package com.app.spring.angular.course.SpringAngularCourse.model;
 
+import lombok.Data;
+
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
 /**
  * Created by jose de leon on 5/17/2021.
  */
+@Data
 @Embeddable
 public class UserPreference {
 
