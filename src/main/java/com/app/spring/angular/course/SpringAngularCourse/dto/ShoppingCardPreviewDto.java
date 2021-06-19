@@ -16,7 +16,7 @@ public class ShoppingCardPreviewDto {
 
     private Long employeeId;
 
-    private ProductDto[] products;
+    private Long productId;
 
     private Long orderStatusId;
 

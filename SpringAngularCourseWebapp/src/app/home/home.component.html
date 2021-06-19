@@ -19,7 +19,7 @@
 </div>
 
 <!--open view product modal-->
-<div class="modal fade" id="product-car-model" tabindex="-1" role="dialog" aria-labelledby="product-model" aria-hidden="true">
+<div class="modal fade" id="product-detail-model" tabindex="-1" role="dialog" aria-labelledby="product-model" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -95,32 +95,154 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
+      <form #f="ngForm"  (ngSubmit)="nextModalProductShipping(f)">
 
-        <div class="col-xl-12" *ngIf="shippingMode == 'Init'">
+        <!--switch case shipping modal -->
+      <div class="modal-body"  [ngSwitch]="switchShippingMode" >
 
-          <div class="form-group">
-            <label> <p>Customer Id: <mark> 1 </mark></p> </label> <br>
-            <label> <p>Customer name: <mark> customer name </mark></p> </label> <br>
+        <!--switch case  LOAD_SHIPPING -->
+        <div class="col-xl-12" *ngSwitchCase="'LOAD_SHIPPING'">
 
-            <label> <p>Employee id: <mark> 1 </mark></p> </label> <br>
-            <label> <p>employee name <mark> employee name</mark></p>  </label>
+          <div class="form-group" >
+            <label> <p>Customer Id: <mark> {{customerId | async}}</mark></p> </label> <br>
+            <label> <p>Customer name: <mark> {{ customerName | async}} </mark></p> </label> <br>
+
+            <label> <p>Employee id: <mark> {{employeeId | async}} </mark></p> </label> <br>
+            <label> <p>employee name <mark> {{employeeName | async}}</mark></p>  </label>
           </div>
 
           <div class="form-group">
-            <label> <p>Product name: <mark> 1 </mark></p> </label> <br>
-            <label> <p>Product  Code: <mark> product Code </mark></p> </label> <br>
+            <label> <p>Product name: <mark> {{productName | async}} </mark></p> </label> <br>
+            <label> <p>Product  Code: <mark> {{productCode | async }} </mark></p> </label> <br>
 
           </div>
 
+        </div>
+
+        <!--switch case  CHOOSE_DESTINATION -->
+        <div class="col-xl-12" *ngSwitchCase="'CHOOSE_DESTINATION'">
+
+          <div class="form-group" >
+
+            <label>Choose Destination Shipping</label>
+
+            <div class="form-group">
+              <label> <p>Order code <mark> {{orderDetailCode | async}} </mark></p> </label> <br>
+              <label> <p>Order number <mark> {{orderDetailNumber | async}} </mark></p> </label> <br>
+
+              <label> <p>Product total price <mark> {{orderDetailTotalPrice | async}} </mark></p> </label> <br>
+              <label> <p>Tax charge <mark> {{orderDetailTaxCharge | async}} </mark></p> </label> <br>
+              <label> <p>Total price <mark> {{productTotalPrice | async}} </mark></p> </label> <br>
+
+            </div>
+
+            <div class="form-group">
+              <label for="form-role">Destination</label>
+              <select name="destinationId" ngModel  class="form-control" id="form-role">
+                <option *ngFor="let dest of destinationList" [ngValue]="dest.id">{{dest.name}}</option>
+              </select>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!--switch case  CHOOSE_DESTINATION -->
+        <div class="col-xl-12" *ngSwitchCase="'CHOOSE_PAYMENT'">
+
+          <div class="form-group" >
+
+            <label>Choose Payment Shipping</label>
+
+              <div class="form-group" >
+
+                <label> <p>Order code <mark> {{orderDetailCode | async}} </mark></p> </label> <br>
+                <label> <p>Order number <mark> {{orderDetailNumber | async}} </mark></p> </label> <br>
+
+              </div>
+
+              <!--payment type -->
+              <div class="form-group">
+                <label for="paymentType" >Payment Type</label>
+                <select class="form-control" id="paymentType" name="paymentType" ngModel>
+                  <option value="1">Debit</option>
+                  <option value="2">Credit</option>
+                </select>
+              </div>
+
+            <!--payment type -->
+            <div class="form-group">
+              <label for="cardType">Card Type</label>
+              <select class="form-control" id="cardType" name="cardType" ngModel>
+                <option value="1">Visa</option>
+                <option value="2">Mastercard</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="cardNumber">Card Number</label>
+              <input type="number" name="cardNumber" ngModel class="form-control" id="cardNumber" placeholder="Card Number">
+            </div>
+
+            <div class="form-group">
+              <label for="cardHolderName">Card Holder Name</label>
+              <input type="text" name="cardHolderName" ngModel class="form-control" id="cardHolderName" placeholder="Card Holder Name">
+            </div>
+
+            <div class="form-group">
+              <label for="accountNumber">Account Number</label>
+              <input type="number" name="accountNumber" ngModel class="form-control" id="accountNumber" placeholder="Account Number">
+            </div>
+
+            <div class="form-group">
+              <label for="expireDate">Expiration Date</label>
+              <input type="text" name="expireDate" ngModel class="form-control" id="expireDate" placeholder="00/00">
+            </div>
+
+            <div class="form-group">
+              <label for="comment">Comment</label>
+              <input type="text" name="comment" ngModel class="form-control" id="comment" placeholder="Commentary">
+            </div>
+
+          </div>
+
+        </div>
+
+        <!--transaction result -->
+        <div class="col-xl-12" *ngSwitchCase="'TRANSACTION_INFO'">
+
+          <div class="form-group" >
+
+            <label>Shipping Transaction result</label>
+
+            <div class="form-group">
+              <label> <p>Order code <mark> {{orderDetailCode | async}} </mark></p> </label> <br>
+              <label> <p>Order number <mark> {{orderDetailNumber | async}} </mark></p> </label> <br>
+
+              <label>  </label> <br>
+              <label> </label> <br>
+              <label>  </label> <br>
+
+              <div class="form-group">
+                <div class="stats stats-success">
+                  <h3 class="stats-title"> Success </h3>
+                  <p>Tax charge <mark> {{orderDetailTaxCharge | async}} </mark></p>
+                  <p>Total price <mark> {{productTotalPrice | async}} </mark></p>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
         </div>
 
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary" (click)="nextModalProductShipping()"> Close detail</button>
-          <button class="btn btn-primary" data-dismiss="modal" id="close-modal-btn" hidden></button>
+          <button type="submit" class="btn btn-primary" *ngIf="switchShippingMode != 'TRANSACTION_INFO'" > Next</button>
+          <button class="btn btn-primary" data-dismiss="modal" id="close-modal-btn" *ngIf="switchShippingMode == 'TRANSACTION_INFO'"> Close</button>
         </div>
 
       </div>
+      </form>
     </div>
   </div>
 </div>

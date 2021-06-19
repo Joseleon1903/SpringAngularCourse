@@ -30,8 +30,10 @@ import {UserService} from "./user-profile/UserService.services";
 import {TodosComponent} from "./animation/todos/todos.component";
 import {ZippyComponent} from "./animation/zippy/zippy.component";
 import {NgRedux, NgReduxModule} from "ng2-redux";
-import {IAppState, INITIAL_STATE, rootReducer} from "./redux/IAppState";
 import { ReduxDemoComponent } from './redux/redux-demo/redux-demo.component';
+import {IHomeState, INITIAL_STATE, rootReducer} from "./home/redux/IHomeState";
+import {ShippingService} from "./home/shipping/ShippingService.service";
+import {HomeService} from "./home/HomeService.service";
 
 @NgModule({
   declarations: [
@@ -101,12 +103,14 @@ import { ReduxDemoComponent } from './redux/redux-demo/redux-demo.component';
     ProductService,
     AuthService,
     UserService,
+    ShippingService,
+    HomeService,
     {provide: ErrorHandler, useClass: AppErrorHandler}],
   bootstrap: [AppComponent]
 })
 export class AppModule {
 
-  constructor(ngRedux: NgRedux<IAppState>){
+  constructor(ngRedux: NgRedux<IHomeState>){
     ngRedux.configureStore(rootReducer, INITIAL_STATE );
   }
 }

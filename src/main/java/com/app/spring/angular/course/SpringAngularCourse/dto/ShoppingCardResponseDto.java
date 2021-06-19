@@ -14,7 +14,7 @@ public class ShoppingCardResponseDto {
 
     private String orderNumber;
 
-    private ProductDto[] products;
+    private Long productId;
 
     private String status;
 

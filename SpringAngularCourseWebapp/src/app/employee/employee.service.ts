@@ -7,7 +7,6 @@ import {environment} from "../../environments/environment";
 @Injectable({
   providedIn:'root'
 })
-
 export class EmployeeService{
 
   private apiServerUrl = environment.apiBaseUrl;
@@ -16,6 +15,10 @@ export class EmployeeService{
 
   public getEmployees(): Observable<Employee[]>{
     return this.http.get<Employee[]>(`${this.apiServerUrl}/employee`)
+  }
+
+  public getEmployeeById(id: number): Observable<Employee>{
+    return this.http.get<Employee>(`${this.apiServerUrl}/employee/find/${id}`)
   }
 
   public addEmployeesFullTime(employee:Employee): Observable<Employee>{

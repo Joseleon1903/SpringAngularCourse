@@ -62,12 +62,12 @@ public class ShoppingCardService {
         CustomerOrder newOrder = new CustomerOrder();
         logger.info("find products transaction ");
         List<Product> entityProducts = new ArrayList<>();
-        for (ProductDto prod : shoppingCardPreviewDto.getProducts()){
-            if( productRepository.findById(prod.getProductId()).isPresent()){
-                Product product = productRepository.findById(prod.getProductId()).get();
-                entityProducts.add(product);
-            }
+
+        if(productRepository.findById(shoppingCardPreviewDto.getProductId()).isPresent()){
+            Product product =productRepository.findById(shoppingCardPreviewDto.getProductId()).get();
+            entityProducts.add(product);
         }
+
         logger.info("create new order transaction ");
 
         if(entityProducts.size() == 0){
@@ -105,7 +105,7 @@ public class ShoppingCardService {
         ShoppingCardResponseDto response =  new ShoppingCardResponseDto();
         response.setOrderCode(shoppingCardPreviewDto.getOrderCode());
         response.setOrderNumber(shoppingCardPreviewDto.getOrderNumber());
-        response.setProducts(shoppingCardPreviewDto.getProducts());
+        response.setProductId(shoppingCardPreviewDto.getProductId());
         response.setTaxCharge(taxCharge);
         response.setTotalPrice(ShoppingUtilities.getFinalPrice(totalProductsPrice, taxCharge));
         response.setStatus(newOrder.getOrderStatus().getName());

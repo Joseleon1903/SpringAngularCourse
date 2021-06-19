@@ -171,4 +171,6 @@ export class EmployeeComponent implements OnInit {
     console.log("isActive Image param : "+isActive);
 
   }
+
+
 }

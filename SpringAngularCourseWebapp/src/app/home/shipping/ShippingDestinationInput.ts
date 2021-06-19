@@ -4,7 +4,6 @@ export interface ShippingDestinationInput{
   orderNumber: string;
   shippingCode: string;
   destinationId: number;
-  destinationName: string;
   deliveryDate: string;
 
 }
