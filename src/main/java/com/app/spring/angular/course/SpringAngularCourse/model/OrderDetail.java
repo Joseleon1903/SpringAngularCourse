@@ -10,7 +10,7 @@ import java.util.Set;
  * Created by jose de leon on 4/27/2021.
  */
 @Data
-@Entity(name = "Order_detail")
+@Entity(name = "OrderDetail")
 @Table(name = "Order_detail")
 public class OrderDetail {
 

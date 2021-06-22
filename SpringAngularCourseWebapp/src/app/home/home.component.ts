@@ -134,9 +134,18 @@ export class HomeComponent implements OnInit {
 
   }
 
+  onPressclose(){
+    this.switchShippingMode = '';
+  }
+
   onPressProductAddShipping(product: Product){
 
+    if(this.switchShippingMode =='TRANSACTION_INFO'){
+      this.switchShippingMode= 'LOAD_SHIPPING';
+    }
+
     if(this.authService.isLoggedIn()){
+
       console.log("entering in  method onPressProductAddShipping");
       console.log("param: "+product.name);
       this.currentProduct = product;
@@ -155,11 +164,6 @@ export class HomeComponent implements OnInit {
     else{
       alert("user is not logger");
     }
-
-  }
-
-  onCloseModal(){
-
 
   }
 

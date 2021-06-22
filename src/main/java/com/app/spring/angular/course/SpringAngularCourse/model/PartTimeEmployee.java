@@ -10,7 +10,7 @@ import java.math.BigDecimal;
  * Created by jose de leon on 5/13/2021.
  */
 @Data
-@Entity
+@Entity(name = "PartTimeEmployee")
 public class PartTimeEmployee extends Employee{
 
     protected PartTimeEmployee(){

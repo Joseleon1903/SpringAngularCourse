@@ -1,25 +1,33 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {EmployeeComponent} from "./employee.component";
+import {EmployeeService} from "./employee.service";
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/from';
+import {Employee} from "./Employee";
 
-import { EmployeeComponent } from './employee.component';
+describe('EmployeeComponent', ()=>{
 
-describe('EmployeeComponent', () => {
-  let component: EmployeeComponent;
-  let fixture: ComponentFixture<EmployeeComponent>;
+  let component : EmployeeComponent;
+  let service : EmployeeService;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ EmployeeComponent ]
-    })
-    .compileComponents();
+  beforeEach(()=>{
+    service =  new EmployeeService(null);
+    component =  new EmployeeComponent(service);
+
   });
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(EmployeeComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+  it('should return a list of employee from de service ', () =>{
+
+    let employees : Employee[] = [{id : 1, name: 'mario', email:'mario@test.com'},
+      {id : 2, name: 'silvio', email:'silvio@test.com'}];
+
+    spyOn(service, 'getEmployees').and.callFake( () => {
+      return Observable.from([employees]);
+    });
+
+    component.getEmployees();
+
+    expect(component.employees.length).toBeGreaterThan(0);
+
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
 });

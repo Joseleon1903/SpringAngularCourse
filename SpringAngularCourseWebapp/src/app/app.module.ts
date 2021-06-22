@@ -34,6 +34,8 @@ import { ReduxDemoComponent } from './redux/redux-demo/redux-demo.component';
 import {IHomeState, INITIAL_STATE, rootReducer} from "./home/redux/IHomeState";
 import {ShippingService} from "./home/shipping/ShippingService.service";
 import {HomeService} from "./home/HomeService.service";
+import { ShippingHistoryComponent } from './shipping-history/shipping-history.component';
+import {ShippingHistoryService} from "./shipping-history/shippinghistory.service";
 
 @NgModule({
   declarations: [
@@ -56,7 +58,8 @@ import {HomeService} from "./home/HomeService.service";
     PanelBannerComponent,
     TodosComponent,
     ZippyComponent,
-    ReduxDemoComponent
+    ReduxDemoComponent,
+    ShippingHistoryComponent
   ],
   imports: [
     BrowserModule,
@@ -78,6 +81,10 @@ import {HomeService} from "./home/HomeService.service";
       {
         path: 'product/manager',
         component: ProductManagerComponent
+      },
+      {
+        path: 'history/shipping',
+        component: ShippingHistoryComponent
       },
       {
         path: 'login',
@@ -104,6 +111,7 @@ import {HomeService} from "./home/HomeService.service";
     AuthService,
     UserService,
     ShippingService,
+    ShippingHistoryService,
     HomeService,
     {provide: ErrorHandler, useClass: AppErrorHandler}],
   bootstrap: [AppComponent]

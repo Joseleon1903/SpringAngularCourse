@@ -7,7 +7,7 @@ import javax.persistence.*;
  * Created by jose de leon on 4/27/2021.
  */
 @Data
-@Entity(name = "Payment_info")
+@Entity(name = "PaymentInfo")
 @Table(name = "Payment_info")
 public class PaymentInfo {
 

@@ -1,0 +1,70 @@
+<div class="container-fluid" id="product-manager">
+
+  <div class="row" style="margin-top: 15px">
+    <div class="col-xl-12">
+      <div class="card easion-card">
+        <div class="card-header">
+          <div class="easion-card-title">Shipping history transaction</div>
+        </div>
+        <div class="card-body ">
+          <table class="table table-hover table-in-card">
+            <thead>
+            <tr>
+              <th scope="col">Order Code</th>
+              <th scope="col">Order Number</th>
+              <th scope="col">Order Creation Date</th>
+              <th scope="col">Status</th>
+              <th scope="col">Customer Code</th>
+              <th scope="col">Employee Code</th>
+              <th scope="col">Total Price</th>
+              <th scope="col">Card Type</th>
+              <th scope="col">Payment Type</th>
+              <th scope="col">Shipping Code</th>
+              <th scope="col">Delivery Date</th>
+              <th scope="col">Destination Name</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let shipping of shippingTransactionList">
+              <td>{{shipping.orderCode}}</td>
+              <td>{{shipping.orderNumber}}</td>
+              <td>{{shipping.creationDate}}</td>
+              <td>{{shipping.status}}</td>
+              <td>{{shipping.customerCode}}</td>
+              <td>{{shipping.employeeCode}}</td>
+              <td>{{shipping.totalPrice}}</td>
+              <td>{{shipping.cardType}}</td>
+              <td>{{shipping.paymentType}}</td>
+              <td>{{shipping.shippingCode}}</td>
+              <td>{{shipping.deliveryDate}}</td>
+              <td>{{shipping.destinationName}}</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--<div class="card easion-card">-->
+    <!--<div class="card-header">-->
+      <!--<div class="easion-card-icon">-->
+        <!--<i class="fas fa-chart-bar"></i>-->
+      <!--</div>-->
+      <!--<div class="easion-card-title">-->
+        <!--<form class="form-inline float-sm-right">-->
+          <!--<label>Pagination</label>-->
+          <!--<div class="btn-group ml-2 mb-1" role="group" aria-label="First group">-->
+            <!--<button type="button" class="btn btn-secondary" *ngFor="let pageNumber of pageIndex"  (click)="getProductInSystemWithPage(pageNumber)" >{{pageNumber}}</button>-->
+          <!--</div>-->
+        <!--</form>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
+
+</div>
+
+
+
+<!--//modal for error-->
+<!--<panel-banner [show-modal]="activeErrorBanner" [banner-input]="error" (close-output)="closeModalBanner()"></panel-banner>-->

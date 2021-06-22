@@ -8,7 +8,7 @@ import javax.persistence.*;
  * Created by jose de leon on 4/27/2021.
  */
 @Data
-@Entity(name = "Order_status")
+@Entity(name = "OrderStatus")
 @Table(name =  "Order_status")
 public class OrderStatus {
 

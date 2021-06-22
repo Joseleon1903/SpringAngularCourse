@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
  */
 @JsonSerialize(using = CustomerOrderSerializer.class)
 @Data
-@Entity(name = "Customer_Order")
+@Entity(name = "CustomerOrder")
 @Table(name =  "Customer_Order", uniqueConstraints = {
         @UniqueConstraint(name = "customer_order_code_unique", columnNames = "order_code")
 } )

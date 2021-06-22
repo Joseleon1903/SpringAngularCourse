@@ -11,7 +11,7 @@ import java.math.BigDecimal;
  */
 
 @Data
-@Entity
+@Entity(name = "FullTimeEmployee")
 public class FullTimeEmployee extends Employee{
 
     protected FullTimeEmployee(){

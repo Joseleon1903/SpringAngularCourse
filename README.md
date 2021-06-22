@@ -30,3 +30,9 @@ ng g s service-name
 ## Angular CLI create directive
 
 ng g d directive-name
+
+## Angular CLI run test
+
+"componentName.spec.ts" as file namespace for test runner 
+
+ng test
