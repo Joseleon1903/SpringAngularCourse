@@ -5,7 +5,7 @@ package com.app.spring.angular.course.SpringAngularCourse.model;
  */
 public enum PaymentType {
 
-    CREDIT_CARD(1),
+    CREDIT_CARD(2),
     DEBIT_CARD(1),
     CASH(3);
 

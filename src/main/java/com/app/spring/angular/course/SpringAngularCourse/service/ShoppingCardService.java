@@ -150,8 +150,10 @@ public class ShoppingCardService {
         customOrder.setOrderStatus(newStatus);
 
         PaymentInfo info = new PaymentInfo();
-        info.setCardType(CardType.MASTERCARD);
-        info.setPaymentType(PaymentType.CREDIT_CARD);
+        CardType ct = paymentRequestDto.getCardType() == 1 ? CardType.VISA : CardType.MASTERCARD;
+        info.setCardType(ct);
+        PaymentType pt = paymentRequestDto.getPaymentType() == 1 ? PaymentType.DEBIT_CARD: PaymentType.CREDIT_CARD;
+        info.setPaymentType(pt);
         info.setAccountNumber(paymentRequestDto.getAccountNumber());
         info.setCardNumber(paymentRequestDto.getCardNumber());
         info.setCardHolderName(paymentRequestDto.getCardHolderName());

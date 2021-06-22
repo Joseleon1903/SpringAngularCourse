@@ -13,11 +13,11 @@ public class PaymentInfo {
 
     @Id
     @SequenceGenerator(
-            name = "payment_info_id",
-            sequenceName ="payment_info_id" ,
+            name = "payment_info_sequence",
+            sequenceName ="payment_info_sequence" ,
             allocationSize =1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE,
-            generator = "payment_info_id")
+            generator = "payment_info_sequence")
     @Column(name = "payment_info_id", nullable = false)
     private long id;
 

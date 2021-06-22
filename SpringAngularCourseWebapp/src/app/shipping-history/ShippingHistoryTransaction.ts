@@ -1,5 +1,4 @@
 export interface ShippingHistoryTransaction {
-
   orderCode:string;
   orderNumber: string;
   creationDate: Date;
@@ -7,10 +6,9 @@ export interface ShippingHistoryTransaction {
   customerCode: string;
   employeeCode: string;
   totalPrice: number;
-  cardType: string;
-  paymentType:string;
-  shippingCode: string;
-  deliveryDate: Date;
-  destinationName: string;
-
+  cardType?: string;
+  paymentType?:string;
+  shippingCode?: string;
+  deliveryDate?: Date;
+  destinationName?: string;
 }

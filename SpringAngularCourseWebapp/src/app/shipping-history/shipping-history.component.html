@@ -43,24 +43,16 @@
           </table>
         </div>
       </div>
+
+      <div class="card easion-card">
+        <div class="card-header">
+          <button type="button" (click)="showMeMore()" [disabled]="hasMoreData()" class="btn btn-secondary btn-lg btn-block mb-1">Show more remain {{counter.rowRemain}}</button>
+        </div>
+      </div>
+
+
     </div>
   </div>
-
-  <!--<div class="card easion-card">-->
-    <!--<div class="card-header">-->
-      <!--<div class="easion-card-icon">-->
-        <!--<i class="fas fa-chart-bar"></i>-->
-      <!--</div>-->
-      <!--<div class="easion-card-title">-->
-        <!--<form class="form-inline float-sm-right">-->
-          <!--<label>Pagination</label>-->
-          <!--<div class="btn-group ml-2 mb-1" role="group" aria-label="First group">-->
-            <!--<button type="button" class="btn btn-secondary" *ngFor="let pageNumber of pageIndex"  (click)="getProductInSystemWithPage(pageNumber)" >{{pageNumber}}</button>-->
-          <!--</div>-->
-        <!--</form>-->
-      <!--</div>-->
-    <!--</div>-->
-  <!--</div>-->
 
 </div>
 

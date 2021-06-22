@@ -1,5 +1,6 @@
 package com.app.spring.angular.course.SpringAngularCourse.controller;
 
+import com.app.spring.angular.course.SpringAngularCourse.dto.CounterResponseDto;
 import com.app.spring.angular.course.SpringAngularCourse.dto.ShippingHistoryResponseDto;
 import com.app.spring.angular.course.SpringAngularCourse.service.ShippingHistoryService;
 import org.slf4j.Logger;
@@ -37,6 +38,12 @@ public class ShippingHistoryTransaction {
         Pageable pageable = PageRequest.of(page,size, Sort.by("id").descending());
         List<ShippingHistoryResponseDto> transactions = shippingHistoryService.findShippingTransaction(pageable);
         return ResponseEntity.ok(transactions);
+    }
+
+    @GetMapping("/count")
+    public ResponseEntity<CounterResponseDto> getShippingHistoryTransaction(@RequestParam("size") int size){
+        CounterResponseDto response = shippingHistoryService.ShippingTransactionCounter(size);
+        return ResponseEntity.ok(response);
     }
 
 }

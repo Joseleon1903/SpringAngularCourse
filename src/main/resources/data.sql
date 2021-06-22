@@ -225,3 +225,32 @@ insert into Order_status (order_status_id,name, description ) values(4, 'REFUSE'
 insert into Order_status (order_status_id,name, description ) values(5, 'IN_PROGRESS', 'Order is in progress');
 
 ALTER SEQUENCE order_status_sequence RESTART WITH 6;
+
+
+/*
+
+  insert from customer order data sample
+
+ */
+
+insert into ORDER_DETAIL (ORDER_DETAIL_ID , DESCRIPTION , PRODUCT_TOTAL_PRICE , TAX_CHARGE , TOTAL_PRICE) values
+(1,	'Customer administrator system administrator accept to make an order number N-O1AH with code Y3LQTZ71 by employee Carlos',	68.40	,47.88	,116.28);
+insert into SHIPPING_DETAIL( SHIPPING_DETAIL_ID , CODE , DELIVERY_DATE , DESTINATION_ADDRESS , SHIPPING_CHARGE  , DESTINATION_ID ) values
+(1, '8RQ414T3', '2022-12-10 10:45:00' , '256  Madison Street',	12.5, 11);
+insert into PAYMENT_INFO (PAYMENT_INFO_ID , ACCOUNT_NUMBER , CARD_HOLDER_NAME, CARD_NUMBER , CARD_TYPE , COMMENT , EXPIRE_DATE , PAYMENT_TYPE )values
+(1, '45233369654', 'Supermarket' , '1789635828', 'MASTERCARD' ,'', '01/50', 	'CREDIT_CARD');
+insert into CUSTOMER_ORDER (ORDER_ID,CREATION_DATE,LAST_UPDATE_DATE,ORDER_CODE,ORDER_NUMBER,CUSTOMER_ID,EMPLOYEE_ID,ORDER_DETAIL_ID,ORDER_STATUS_ID,PAYMENT_INFO_ID,SHIPPING_DETAIL_ID)values
+(1,	'2021-06-22 14:20:21.363',	'2021-06-22 14:20:21.363',	'Y3LQTZ71',	'N-O1AH',	1,	1,	1,	2	,1,	1);
+
+insert into ORDER_DETAIL (ORDER_DETAIL_ID , DESCRIPTION , PRODUCT_TOTAL_PRICE , TAX_CHARGE , TOTAL_PRICE) values
+(2,	'Customer administrator system administrator accept to make an order number N-O1AH with code Y3LQTZ71 by employee Carlos',	68.40	,80.88	,18.28);
+insert into SHIPPING_DETAIL( SHIPPING_DETAIL_ID , CODE , DELIVERY_DATE , DESTINATION_ADDRESS , SHIPPING_CHARGE  , DESTINATION_ID ) values
+(2, '8RQ41', '2022-12-10 10:45:00' , '256  Madison Street',	12.5, 11);
+
+insert into CUSTOMER_ORDER (ORDER_ID,CREATION_DATE,LAST_UPDATE_DATE,ORDER_CODE,ORDER_NUMBER,CUSTOMER_ID,EMPLOYEE_ID,ORDER_DETAIL_ID,ORDER_STATUS_ID,PAYMENT_INFO_ID,SHIPPING_DETAIL_ID)values
+(2,	'2021-06-22 14:20:21.363',	'2021-06-22 14:20:21.363',	'Y3LQT',	'N-O1LK',	1,	1,	2,	1	,null,	1);
+
+ALTER SEQUENCE order_sequence RESTART WITH 3;
+ALTER SEQUENCE order_detail_sequence RESTART WITH 3;
+ALTER SEQUENCE shipping_detail_sequence RESTART WITH 3;
+ALTER SEQUENCE payment_info_sequence RESTART WITH 3;

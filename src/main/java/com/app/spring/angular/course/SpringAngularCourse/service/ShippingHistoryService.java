@@ -1,5 +1,6 @@
 package com.app.spring.angular.course.SpringAngularCourse.service;
 
+import com.app.spring.angular.course.SpringAngularCourse.dto.CounterResponseDto;
 import com.app.spring.angular.course.SpringAngularCourse.dto.ShippingHistoryResponseDto;
 import com.app.spring.angular.course.SpringAngularCourse.jparepository.CustomerOrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,4 +28,15 @@ public class ShippingHistoryService {
         return customerOrderRepository.findCustomersShippingTransaction(pageable);
     }
 
+    public CounterResponseDto ShippingTransactionCounter(int size) {
+       long countRow =  customerOrderRepository.countCustomersShippingTransaction();
+        CounterResponseDto resp = new CounterResponseDto();
+        resp.setTotalRow(countRow);
+        if(size > countRow){
+            resp.setRowRemain(0L);
+            return resp;
+        }
+        resp.setRowRemain(countRow - size);
+        return resp;
+    }
 }
