@@ -14,6 +14,7 @@ import {Destination} from "../destination/Destination";
 import { Observable } from 'rxjs';
 import {environment} from "../../environments/environment";
 import {HttpClient} from "@angular/common/http";
+import {getRandomNumberMax} from "../utils/NumberUtil";
 
 @Injectable({
   providedIn:'root'
@@ -39,7 +40,10 @@ export class HomeService{
 
     });
 
-    this.employeeService.getEmployeeById(1).subscribe(respose=>{
+    //random employee id
+    let employeeId = getRandomNumberMax(12);
+    console.log('employee random : '+ employeeId);
+    this.employeeService.getEmployeeById(employeeId).subscribe(respose=>{
       console.log("fetch Employee from server");
       this.ngRedux.dispatch({type: FETCH_EMPLOYEE_DETAIL_SUCCESS, payload: respose });
     });

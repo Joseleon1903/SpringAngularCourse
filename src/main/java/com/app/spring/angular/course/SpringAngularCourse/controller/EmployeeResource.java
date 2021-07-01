@@ -34,6 +34,12 @@ public class EmployeeResource {
         return ResponseEntity.ok(employee);
     }
 
+    @GetMapping("/find/code/{code}")
+    public ResponseEntity<Employee> getEmployeeByCode(@PathVariable("code") String code){
+        Employee employee = employeeService.findEmployeeByCode(code);
+        return ResponseEntity.ok(employee);
+    }
+
     @PostMapping("/full/time/add")
     public ResponseEntity<Employee> addFullTimeEmployee(@RequestBody FullTimeEmployee fullTimeEmployee){
         Employee employeeOut = employeeService.addEmployee(fullTimeEmployee);

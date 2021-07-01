@@ -27,4 +27,8 @@ public class CustomerService {
         return customerRepository.findCustomersByCode(code).get();
     }
 
+    public Customer findUniqueCustomersByCode(String code) {
+        return customerRepository.findByCustomerCode(code).get();
+    }
+
 }

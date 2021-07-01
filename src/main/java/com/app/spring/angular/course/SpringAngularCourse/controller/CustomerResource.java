@@ -36,4 +36,10 @@ public class CustomerResource {
         return ResponseEntity.ok(customers);
     }
 
+    @GetMapping("/find/code")
+    public ResponseEntity<Customer> getCustomersByCustomerCode(@RequestParam("customerCode") String customerCode){
+        Customer customer = customerService.findUniqueCustomersByCode(customerCode);
+        return ResponseEntity.ok(customer);
+    }
+
 }

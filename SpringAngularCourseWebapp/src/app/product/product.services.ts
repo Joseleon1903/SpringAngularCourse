@@ -4,7 +4,7 @@ import {HttpClient, HttpParams} from "@angular/common/http";
 import {Product} from "./Product";
 import {environment} from "../../environments/environment";
 import {Pagination} from "../utils/Pagination";
-import { catchError, map } from 'rxjs/operators';
+import { catchError } from 'rxjs/operators';
 import {AppError} from "../utils/app-error";
 import {Category} from "./Category";
 import {ProductInputFilter} from "./ProductInputFilter";

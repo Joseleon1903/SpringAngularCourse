@@ -36,6 +36,8 @@ import {ShippingService} from "./home/shipping/ShippingService.service";
 import {HomeService} from "./home/HomeService.service";
 import { ShippingHistoryComponent } from './shipping-history/shipping-history.component';
 import {ShippingHistoryService} from "./shipping-history/shippinghistory.service";
+import {EmployeeDetailComponent} from "./component/panel-employee-detail/panel-employee-detail.component";
+import {CustomerDetailComponent} from "./component/panel-customer-detail/panel-customer-detail.component";
 
 @NgModule({
   declarations: [
@@ -59,7 +61,9 @@ import {ShippingHistoryService} from "./shipping-history/shippinghistory.service
     TodosComponent,
     ZippyComponent,
     ReduxDemoComponent,
-    ShippingHistoryComponent
+    ShippingHistoryComponent,
+    EmployeeDetailComponent,
+    CustomerDetailComponent
   ],
   imports: [
     BrowserModule,

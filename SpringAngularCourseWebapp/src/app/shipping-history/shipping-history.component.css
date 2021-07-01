@@ -1,0 +1,10 @@
+.row-table-link{
+
+  margin-top: 8px;
+  margin-left: 67px;
+  color: #515151;
+  text-decoration: underline;
+}
+.row-table-link hover {
+  color: #A9F5F2;
+}

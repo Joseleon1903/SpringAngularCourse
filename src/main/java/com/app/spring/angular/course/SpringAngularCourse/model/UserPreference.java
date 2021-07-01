@@ -21,4 +21,12 @@ public class UserPreference {
     @Column(name = "share_enable", nullable = true)
     private boolean shareEnable;
 
+    public UserPreference( String nickname,boolean receiveEmailNotification, boolean shareEnable) {
+        this.receiveEmailNotification = receiveEmailNotification;
+        this.nickname = nickname;
+        this.shareEnable = shareEnable;
+    }
+
+    public UserPreference() {
+    }
 }

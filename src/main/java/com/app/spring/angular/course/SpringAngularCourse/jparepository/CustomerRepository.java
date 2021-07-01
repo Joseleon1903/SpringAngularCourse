@@ -17,4 +17,6 @@ public interface CustomerRepository extends JpaRepository<Customer, Long> {
 
     @Query("select c from Customer c where lower(c.customerCode) like lower(concat('%', ?1,'%'))")
     Optional<List<Customer>> findCustomersByCode(String code);
+
+    Optional<Customer> findByCustomerCode(String customerCode);
 }

@@ -4,6 +4,7 @@ import {User} from "./User";
 import {UserService} from "./UserService.services";
 import {NgForm} from "@angular/forms";
 import {BannerError, BannerInfo, BannerInput} from "../component/panel-banner/BannerInput";
+import {Customer} from "./Customer";
 
 @Component({
   selector: 'app-user-profile',
@@ -52,6 +53,7 @@ export class UserProfileComponent implements OnInit {
     };
 
     this.user.pictureUrl = formIn.control.get('userProfileUrl').value;
+
     this.user.customer.firstName= formIn.control.get('customerFirstName').value;
     this.user.customer.lastName = formIn.control.get('customerLastName').value;
     this.user.customer.address = formIn.control.get('customerAddress').value;

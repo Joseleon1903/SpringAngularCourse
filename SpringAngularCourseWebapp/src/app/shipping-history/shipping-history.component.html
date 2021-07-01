@@ -30,8 +30,8 @@
               <td>{{shipping.orderNumber}}</td>
               <td>{{shipping.creationDate}}</td>
               <td>{{shipping.status}}</td>
-              <td>{{shipping.customerCode}}</td>
-              <td>{{shipping.employeeCode}}</td>
+              <td class="row-table-link" (click)="onClickRowName('CustomerCode',shipping.customerCode)">{{shipping.customerCode}}</td>
+              <td class="row-table-link" (click)="onClickRowName('EmployeeCode',shipping.employeeCode)"> {{shipping.employeeCode}} </td>
               <td>{{shipping.totalPrice}}</td>
               <td>{{shipping.cardType}}</td>
               <td>{{shipping.paymentType}}</td>
@@ -56,6 +56,12 @@
 
 </div>
 
+<!--//modal for employee detail-->
+<panel-employee-detail [show-modal]="showEmployeeDetail" [employee-input]="rawEmployee"  (close-output)="closeModalDetail('EmployeeCode')"> </panel-employee-detail>
+
+
+<!--//modal for customer detail-->
+<panel-customer-detail [show-modal]="showCustomerDetail" [customer-input]="rawCustomer"  (close-output)="closeModalDetail('CustomerCode')"> </panel-customer-detail>
 
 
 <!--//modal for error-->

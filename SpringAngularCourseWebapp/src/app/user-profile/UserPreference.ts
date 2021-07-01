@@ -1,7 +1,7 @@
 export interface UserPreference{
 
-  receiveEmailNotification:boolean;
-  nickname: string;
-  shareEnable: boolean;
+  receiveEmailNotification?:boolean;
+  nickname?: string;
+  shareEnable?: boolean;
 
 }

@@ -3,8 +3,10 @@ package com.app.spring.angular.course.SpringAngularCourse.service;
 import com.app.spring.angular.course.SpringAngularCourse.exception.UserNotFoundException;
 import com.app.spring.angular.course.SpringAngularCourse.jparepository.RoleRepository;
 import com.app.spring.angular.course.SpringAngularCourse.jparepository.UserRepository;
-import com.app.spring.angular.course.SpringAngularCourse.model.Role;
+import com.app.spring.angular.course.SpringAngularCourse.model.Customer;
 import com.app.spring.angular.course.SpringAngularCourse.model.User;
+import com.app.spring.angular.course.SpringAngularCourse.model.UserPreference;
+import com.app.spring.angular.course.SpringAngularCourse.utils.CodeGenerationUtil;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -39,10 +41,21 @@ public class UserService {
     public User registerUser(User user){
 
         user.setStatus("ACTIVE");
-//        user.setCreationDay(new Date());
         if(userRepository.findByUsernameOrEmail(user.getUsername(), user.getEmail()).isPresent()){
             throw new UserNotFoundException("user already register");
         }
+
+        //default preference
+        UserPreference pref = new UserPreference("", false, false);
+        user.setUserPreference(pref);
+
+        Customer customer = new Customer();
+        customer.setCustomerCode(CodeGenerationUtil.stringUUIDGenerator());
+        customer.setLastName("");
+        customer.setBirthday(new Date());
+        customer.setFirstName("");
+        customer.setAddress("");
+        user.setCustomer(customer);
         return userRepository.save(user);
     }
 

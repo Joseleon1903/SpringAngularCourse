@@ -38,7 +38,7 @@ public class User {
     @Column(name = "username", nullable = false)
     private String username;
 
-    @Column(name = "picture_url", nullable = false)
+    @Column(name = "picture_url")
     private String pictureUrl;
 
     @Embedded

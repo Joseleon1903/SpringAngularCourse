@@ -40,6 +40,10 @@ public class EmployeeService {
         return employeeRepository.findEmployeeById(id).orElseThrow(() -> new UserNotFoundException("cant't find a user with id : "+ id ));
     }
 
+    public Employee findEmployeeByCode(String code){
+        return employeeRepository.findEmployeeByEmployeeCode(code).orElseThrow(() -> new UserNotFoundException("cant't find a user with id : "+ code ));
+    }
+
     public void deleteEmployee(Long id){
         employeeRepository.deleteEmployeeById(id);
     }

@@ -1,14 +1,13 @@
 import {Component, HostListener, OnInit} from '@angular/core';
 import {Product} from "../product/Product";
-import {ShippingService} from "./shipping/ShippingService.service";
 import {IHomeState} from "./redux/IHomeState";
-import {NgRedux, select} from "ng2-redux";
+import {select} from "ng2-redux";
 import {HomeService} from "./HomeService.service";
 import {AuthService} from "../auth/authorization.service";
-import {User} from "../user-profile/User";
-import {Customer} from "../user-profile/Customer";
 import {Destination} from "../destination/Destination";
 import {NgForm} from "@angular/forms";
+import { DatePipe } from '@angular/common';
+import {getCurrentDateInFormat} from "../utils/DateUtil";
 
 @Component({
   selector: 'app-home',
@@ -99,10 +98,9 @@ export class HomeComponent implements OnInit {
       let orderCode = this.homeService.getState().orderCode;
       let orderNumber= this.homeService.getState().orderNumber;
       let shippingCode = 'SHOPPING_'+this.homeService.getState().orderNumber;
-      //yyyy-MM-dd HH:mm:ss a
-      let date ='2022-12-10 10:45:00 AM';
+      let formattedDate = getCurrentDateInFormat();
       let destinationId = form.control.get('destinationId').value;
-      this.homeService.sendDestinationShipping(orderCode, orderNumber, shippingCode, destinationId, date);
+      this.homeService.sendDestinationShipping(orderCode, orderNumber, shippingCode, destinationId, formattedDate);
       this.switchShippingMode = 'CHOOSE_PAYMENT';
       return;
     }

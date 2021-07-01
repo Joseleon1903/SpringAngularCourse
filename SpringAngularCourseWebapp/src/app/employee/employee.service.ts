@@ -21,6 +21,10 @@ export class EmployeeService{
     return this.http.get<Employee>(`${this.apiServerUrl}/employee/find/${id}`);
   }
 
+  public getEmployeeByCode(code: string): Observable<Employee>{
+    return this.http.get<Employee>(`${this.apiServerUrl}/employee/find/code/${code}`);
+  }
+
   public addEmployeesFullTime(employee:Employee): Observable<Employee>{
     return this.http.post<Employee>(`${this.apiServerUrl}/employee/full/time/add`, employee);
   }

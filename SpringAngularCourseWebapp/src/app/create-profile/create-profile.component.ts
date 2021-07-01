@@ -5,6 +5,7 @@ import {NgForm} from "@angular/forms";
 import {CreationUser} from "./models/CreationUser";
 import {HttpErrorResponse} from "@angular/common/http";
 import {Router} from "@angular/router";
+import {BannerError, BannerInput} from "../component/panel-banner/BannerInput";
 
 
 @Component({
@@ -16,11 +17,14 @@ export class CreateProfileComponent implements OnInit {
 
   constructor(private creationService: CreationService, private router: Router) { }
 
-
+  activeErrorBanner: Boolean;
+  error : BannerInput;
   roles: RoleInput[];
+
 
   ngOnInit(): void {
 
+    this.activeErrorBanner = false;
     // load roles systems
     this.creationService.getRoles()
       .subscribe(response =>{
@@ -44,12 +48,18 @@ export class CreateProfileComponent implements OnInit {
           console.log('register success');
               this.router.navigate(['/']);
           },
-        (error: HttpErrorResponse)=>{
-          alert(error.message);
+        (httpError: HttpErrorResponse)=>{
+          this.error = { type: BannerError, title: '500: interna server error', content: 'Internal server error /n '+ httpError.message};
+          this.activeErrorBanner = true;
           addForm.resetForm();
         }
       );
     }
+  }
+
+  closeModalBanner(){
+    console.log("close error modal");
+    this.activeErrorBanner = false;
   }
 
 

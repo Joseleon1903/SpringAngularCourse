@@ -1,4 +1,4 @@
-import {Component, Input, Output, EventEmitter, OnInit, DoCheck} from '@angular/core';
+import {Component, Input, Output, EventEmitter} from '@angular/core';
 import {BannerError, BannerInfo, BannerInput, BannerWarning} from "./BannerInput";
 
 @Component({
