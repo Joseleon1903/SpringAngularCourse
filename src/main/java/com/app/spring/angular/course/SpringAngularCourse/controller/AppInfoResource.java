@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * Created by jose de leon on 5/22/2021.
- */
+         */
 @RestController
 @RequestMapping("/api")
 public class AppInfoResource {
@@ -15,7 +15,7 @@ public class AppInfoResource {
 
     @GetMapping
     public ResponseEntity<String> getApiInfo(){
-        return ResponseEntity.ok("version:0.0.1");
+        return ResponseEntity.ok("version:0.0.2");
     }
 
 }
