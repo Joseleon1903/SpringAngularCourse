@@ -1,5 +1,6 @@
 package com.app.spring.angular.course.SpringAngularCourse.controller;
 
+import com.app.spring.angular.course.SpringAngularCourse.dto.IProductDetailRaw;
 import com.app.spring.angular.course.SpringAngularCourse.dto.ProductReview;
 import com.app.spring.angular.course.SpringAngularCourse.model.Product;
 import com.app.spring.angular.course.SpringAngularCourse.model.TransactionHistory;
@@ -95,6 +96,11 @@ public class ProductResource {
         return ResponseEntity.ok(response);
     }
 
+    @GetMapping("/product/details")
+    public ResponseEntity<List<IProductDetailRaw>> getProductsDetails(){
+        List<IProductDetailRaw> response = productService.getProductsDetail();
+        return ResponseEntity.ok(response);
+    }
 
 
 }

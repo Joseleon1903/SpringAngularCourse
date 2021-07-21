@@ -1,5 +1,6 @@
 package com.app.spring.angular.course.SpringAngularCourse.service;
 
+import com.app.spring.angular.course.SpringAngularCourse.dto.IProductDetailRaw;
 import com.app.spring.angular.course.SpringAngularCourse.dto.ProductReview;
 import com.app.spring.angular.course.SpringAngularCourse.exception.ProductNotFoundException;
 import com.app.spring.angular.course.SpringAngularCourse.jparepository.ProductRepository;
@@ -91,5 +92,10 @@ public class ProductService {
 
     public Product findById(Long productId) {
         return productRepository.findById(productId).get();
+    }
+
+
+    public List<IProductDetailRaw> getProductsDetail(){
+        return productRepository.findProductDetail();
     }
 }

@@ -1,5 +1,6 @@
 package com.app.spring.angular.course.SpringAngularCourse.jparepository;
 
+import com.app.spring.angular.course.SpringAngularCourse.dto.IProductDetailRaw;
 import com.app.spring.angular.course.SpringAngularCourse.model.Product;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -10,6 +11,7 @@ import org.springframework.data.repository.query.Param;
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
+
 
 /**
  * Created by jose de leon on 4/29/2021.
@@ -32,4 +34,14 @@ public interface ProductRepository extends JpaRepository<Product, Long>{
                                           @Param("minPriceNumber") BigDecimal minPriceNumber,
                                           @Param("maxPriceNumber") BigDecimal maxPriceNumber,
                                           @Param("keyWord") String keyWord, Pageable pages);
+
+    /**
+     * IProductDetailRaw is a proyection of returned columns.
+     * @return List<IProductDetailRaw>
+     */
+    @Query(value = "select prod.id as productId , prod.productCode as productCode,  prod.name as name ," +
+            "prod.description as description , prod.discountPercent as discountPercent , prod.price as price, prod.category.id as categoryId,  prod.category.code as categoryCode " +
+            "FROM Product prod")
+    List<IProductDetailRaw> findProductDetail();
+
 }
