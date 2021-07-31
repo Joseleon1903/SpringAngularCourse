@@ -1,7 +1,7 @@
 import {Component, OnInit} from "@angular/core";
 import {NgForm} from "@angular/forms";
 import {UserInput} from "./UserInput";
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {HttpErrorResponse} from "@angular/common/http";
 import {AuthService} from "../auth/authorization.service";
 
@@ -12,11 +12,17 @@ import {AuthService} from "../auth/authorization.service";
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private authService : AuthService, private router: Router ) { }
+  constructor(private authService : AuthService, private router: Router, private activaterouter : ActivatedRoute, ) { }
 
+  appName: string;
   formError ={errorMessage: 'Login error '}
 
   ngOnInit(): void {
+
+    this.activaterouter.paramMap.subscribe(params =>{
+      console.log(params);
+      this.appName= params.get('appName');
+    });
   }
 
   submitLogin(form : NgForm){
@@ -43,7 +49,13 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('role', result.role+'');
           localStorage.setItem('status', result.status+'');
           localStorage.setItem('profileUrl', result.profileUrl+'');
-          this.router.navigate(['/']);
+
+          if(this.appName == 'Moon'){
+            this.router.navigate(['/moon/home']);
+          }else if(this.appName == 'Sun'){
+            this.router.navigate(['/sun/home']);
+          }
+
         },
         (error: HttpErrorResponse)=>{
          console.log('Error: '+error);

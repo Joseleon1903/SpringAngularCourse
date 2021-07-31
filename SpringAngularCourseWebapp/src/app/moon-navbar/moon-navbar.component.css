@@ -1,0 +1,9 @@
+a {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+/*look clickable*/
+.dropdown-toggle {
+  cursor: pointer;
+}

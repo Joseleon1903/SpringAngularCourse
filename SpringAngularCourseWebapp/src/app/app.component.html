@@ -1,35 +1,58 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a [routerLink]="['/']" class="navbar-brand" style="color:white;">Angular App</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarColor02">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" routerLink="/">Home <span class="sr-only"></span></a>
-      </li>
-      <li><a class="nav-link" routerLink="/product/manager" >Product manager<span class="sr-only"></span></a></li>
-      <li><a class="nav-link" routerLink="/employee" >Employee <span class="sr-only"></span></a>
-      <li><a class="nav-link" routerLink="/history/shipping" >History Shipping<span class="sr-only"></span></a></li>
-      <li *ngIf="IsUserLoggedIn()" ><a class="nav-link" [routerLink]="['/user/profile', username]" >User profile <span class="sr-only"></span></a></li>
-    </ul>
-  </div>
 
-  <div style="display:inline-block; padding: 2px;">
-    <div class="profile-info stats-light" *ngIf="IsUserLoggedIn()">
-      <h5> {{username}}
-        <img [src]="profileUrl" alt="No Image Found" style="height: 40px; width: 40px; padding: 2px; margin: 2px;">
-      <a *ngIf="IsUserLoggedIn()"  (click)="logoutUser()" style="margin: 2px;">
-        <button type="button" class="btn btn-warning mb-1">Logout</button>
-      </a>
-      </h5>
+<div id="application-chooser" *ngIf="!sunMarketVisible && !moonMarketVisible" >
+
+
+  <div class="main text-center text-white bg-dark">
+
+    <div class="d-flex w-100 h-100 p-3 mx-auto flex-column">
+      <div class="mb-auto">
+        <div>
+          <h3 class="float-md-start mb-0">Angular Course Application</h3>
+        </div>
+      </div>
     </div>
 
-    <a *ngIf="!IsUserLoggedIn()" [routerLink]="['/login']" style="display:inline;">
-      <button type="button" class="btn btn-warning mb-1">Login</button>
-    </a>
   </div>
 
-</nav>
+  <main class="dash-content">
+    <div class="container-fluid">
 
-<router-outlet></router-outlet>
+
+      <div class="row dash-row center-content">
+
+        <div class="stats stats-primary" id="app-chooser">
+          <h3 class="stats-title"> Angular Sun Market</h3>
+          <div class="stats-content">
+            <div class="stats-icon">
+              <img src="assets/img/ecommerce.original.jpg" >
+            </div>
+            <div class="stats-data">
+              <button type="button" class="btn btn-outline-success  btn-lg btn-block mb-1" (click)="navigateToSunSite()">Go main page</button>
+              <div class="stats-number">Angular app for Ecomerce</div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="stats stats-primary" id="app-chooser">
+          <h3 class="stats-title"> Angular Moon Market </h3>
+          <div class="stats-content">
+            <div class="stats-icon">
+              <img src="assets/img/online-shopping-supermarket.jpg">
+            </div>
+            <div class="stats-data">
+              <button type="button" class="btn btn-outline-success  btn-lg btn-block mb-1" (click)="navigateToMoonSite()">Go main page</button>
+              <div class="stats-number">Angular app for Supermarket</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<app-sun-market *ngIf="sunMarketVisible"></app-sun-market>
+
+<app-moon-market *ngIf="moonMarketVisible"></app-moon-market>

@@ -38,6 +38,17 @@ import { ShippingHistoryComponent } from './shipping-history/shipping-history.co
 import {ShippingHistoryService} from "./shipping-history/shippinghistory.service";
 import {EmployeeDetailComponent} from "./component/panel-employee-detail/panel-employee-detail.component";
 import {CustomerDetailComponent} from "./component/panel-customer-detail/panel-customer-detail.component";
+import { SunMarketComponent } from './sun-market/sun-market.component';
+import { MoonMarketComponent } from './moon-market/moon-market.component';
+import { MoonNavbarComponent } from './moon-navbar/moon-navbar.component';
+import { MoonHomeComponent } from './moon-home/moon-home.component';
+import { MoonProductsComponent } from './moon-products/moon-products.component';
+import { MoonShoppingCartComponent } from './moon-shopping-cart/moon-shopping-cart.component';
+import { MoonCheckoutComponent } from './moon-checkout/moon-checkout.component';
+import { MoonOrderSuccessComponent } from './moon-order-success/moon-order-success.component';
+import { MoonMyOrdersComponent } from './moon-my-orders/moon-my-orders.component';
+import { MoonAdminProductsComponent } from './admin/moon-admin-products/moon-admin-products.component';
+import { MoonAdminOrdersComponent } from './admin/moon-admin-orders/moon-admin-orders.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +74,18 @@ import {CustomerDetailComponent} from "./component/panel-customer-detail/panel-c
     ReduxDemoComponent,
     ShippingHistoryComponent,
     EmployeeDetailComponent,
-    CustomerDetailComponent
+    CustomerDetailComponent,
+    SunMarketComponent,
+    MoonMarketComponent,
+    MoonNavbarComponent,
+    MoonHomeComponent,
+    MoonProductsComponent,
+    MoonShoppingCartComponent,
+    MoonCheckoutComponent,
+    MoonOrderSuccessComponent,
+    MoonMyOrdersComponent,
+    MoonAdminProductsComponent,
+    MoonAdminOrdersComponent
   ],
   imports: [
     BrowserModule,
@@ -75,32 +97,69 @@ import {CustomerDetailComponent} from "./component/panel-customer-detail/panel-c
     NgReduxModule,
     RouterModule.forRoot([
       {
-        path: '',
+        path: 'sun/home',
         component: HomeComponent
       },
       {
-        path: 'employee',
+        path: 'sun/employee',
         component: EmployeeComponent
       },
       {
-        path: 'product/manager',
+        path: 'sun/product/manager',
         component: ProductManagerComponent
       },
       {
-        path: 'history/shipping',
+        path: 'sun/history/shipping',
         component: ShippingHistoryComponent
       },
       {
-        path: 'login',
+        path: 'sun/login/:appName',
         component: LoginComponent
       },
       {
-        path: 'user/creation',
+        path: 'moon/login/:appName',
+        component: LoginComponent
+      },
+      {
+        path: 'sun/user/creation',
         component: CreateProfileComponent
       },
       {
-        path: 'user/profile/:username',
+        path: 'sun/user/profile/:username',
         component: UserProfileComponent
+      },
+      {
+        path: 'moon/home',
+        component: MoonHomeComponent
+      },
+
+      {
+        path: 'moon/my-orders',
+        component: MoonMyOrdersComponent
+      },
+      {
+        path: 'moon/products',
+        component: MoonProductsComponent
+      },
+      {
+        path: 'moon/shopping-cart',
+        component: MoonShoppingCartComponent
+      },
+      {
+        path: 'moon/checkout',
+        component: MoonCheckoutComponent
+      },
+      {
+        path: 'moon/order-success',
+        component: MoonOrderSuccessComponent
+      },
+      {
+        path: 'moon/admin/products',
+        component: MoonAdminProductsComponent
+      },
+      {
+        path: 'moon/admin/orders',
+        component: MoonAdminOrdersComponent
       },
       {
         path: '**',

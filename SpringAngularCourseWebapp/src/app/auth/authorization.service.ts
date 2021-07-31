@@ -19,11 +19,15 @@ export class AuthService {
   }
 
   logout(){
+    let usernameIn: string = localStorage.getItem('username');
     localStorage.removeItem('userId');
     localStorage.removeItem('username');
     localStorage.removeItem('role');
     localStorage.removeItem('status');
     localStorage.removeItem('profileUrl');
+    this.http.put<AngularUser>(`${this.apiServerUrl}/login` , {username: usernameIn}).subscribe(resp=>{
+      console.log("logout user : "+ resp.username);
+    });
   }
 
   isLoggedIn(){
