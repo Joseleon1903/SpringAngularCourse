@@ -64,39 +64,49 @@ insert into Student (id, first_name, last_name, email, age ) VALUES (4, 'Jessica
 /*
        category table insert
  */
-insert into Category(id, name, code, status)values(1, 'Tecnology', 'TEC-00', true);
-insert into Category(id, name, code, status)values(2, 'Antiques', 'ANT-01', true);
-insert into Category(id, name, code, status)values(3, 'Art', 'ART-02', true);
-insert into Category(id, name, code, status)values(4, 'Baby', 'BB-03', true);
-insert into Category(id, name, code, status)values(5, 'Books', 'BK-04', true);
-insert into Category(id, name, code, status)values(6, 'Industrial', 'IND-05', true);
-insert into Category(id, name, code, status)values(7, 'Cameras', 'CAM-06', true);
-insert into Category(id, name, code, status)values(8, 'Photo', 'PH-07', true);
-insert into Category(id, name, code, status)values(9, 'Cell Phones', 'CELL-08', true);
-insert into Category(id, name, code, status)values(10, 'Cars', 'CAR-09', true);
+insert into Category(id, name, code, status, app_name)values(1, 'Tecnology', 'TEC-00', true, 'Sun');
+insert into Category(id, name, code, status, app_name)values(2, 'Antiques', 'ANT-01', true, 'Sun');
+insert into Category(id, name, code, status, app_name)values(3, 'Art', 'ART-02', true, 'Sun');
+insert into Category(id, name, code, status, app_name)values(4, 'Baby', 'BB-03', true, 'Sun');
+insert into Category(id, name, code, status, app_name)values(5, 'Books', 'BK-04', true, 'Sun');
+insert into Category(id, name, code, status, app_name)values(6, 'Industrial', 'IND-05', true, 'Sun');
+insert into Category(id, name, code, status, app_name)values(7, 'Cameras', 'CAM-06', true, 'Sun');
+insert into Category(id, name, code, status, app_name)values(8, 'Photo', 'PH-07', true, 'Sun');
+insert into Category(id, name, code, status, app_name)values(9, 'Cell Phones', 'CELL-08', true, 'Sun');
+insert into Category(id, name, code, status, app_name)values(10, 'Cars', 'CAR-09', true, 'Sun');
 
 --  *************************************************
-insert into Category(id, name, code, status)values(11, 'Clothing', 'CL-10', true);
-insert into Category(id, name, code, status)values(12, 'Accessories', 'AC-01', true);
-insert into Category(id, name, code, status)values(13, 'Collectibles', 'CC-02', true);
-insert into Category(id, name, code, status)values(14, 'Computers/Tablets', 'CT=-03', true);
-insert into Category(id, name, code, status)values(15, 'Networking', 'NET-04', true);
-insert into Category(id, name, code, status)values(16,  'Movies', 'MOV-05', true);
-insert into Category(id, name, code, status)values(17, 'Entertainment Memorabilia', 'ENT-06', true);
-insert into Category(id, name, code, status)values(18, 'Gift Cards/Coupons', 'CARD-07', true);
-insert into Category(id, name, code, status)values(19, 'Health Beauty', 'HEAL-08', true);
-insert into Category(id, name, code, status)values(20, 'Home Garden', 'HOM-09', true);
+insert into Category(id, name, code, status, app_name)values(11, 'Clothing', 'CL-10', true, 'Sun');
+insert into Category(id, name, code, status, app_name)values(12, 'Accessories', 'AC-01', true, 'Sun');
+insert into Category(id, name, code, status, app_name)values(13, 'Collectibles', 'CC-02', true, 'Sun');
+insert into Category(id, name, code, status, app_name)values(14, 'Computers/Tablets', 'CT=-03', true, 'Sun');
+insert into Category(id, name, code, status, app_name)values(15, 'Networking', 'NET-04', true, 'Sun');
+insert into Category(id, name, code, status, app_name)values(16,  'Movies', 'MOV-05', true, 'Sun');
+insert into Category(id, name, code, status, app_name)values(17, 'Entertainment Memorabilia', 'ENT-06', true, 'Sun');
+insert into Category(id, name, code, status, app_name)values(18, 'Gift Cards/Coupons', 'CARD-07', true, 'Sun');
+insert into Category(id, name, code, status, app_name)values(19, 'Health Beauty', 'HEAL-08', true, 'Sun');
+insert into Category(id, name, code, status, app_name)values(20, 'Home Garden', 'HOM-09', true, 'Sun');
 --  *************************************************
 
-insert into Category(id, name, code, status)values(21, 'Jewelry Watches', 'JEW-01', true);
-insert into Category(id, name, code, status)values(22, 'Music', 'MUS-02', true);
-insert into Category(id, name, code, status)values(23, 'Pet Supplies', 'PET-03', true);
-insert into Category(id, name, code, status)values(24, 'Sporting', 'SPR-04', true);
-insert into Category(id, name, code, status)values(25, 'Hobbies', 'HOB-05', true);
-insert into Category(id, name, code, status)values(26, 'Travel', 'TRL-06', true);
-insert into Category(id, name, code, status)values(27, 'Video Games Console', 'VID-07', true);
-insert into Category(id, name, code, status)values(28, 'Unknow', 'UNK-00', true);
-ALTER SEQUENCE category_sequence RESTART WITH 29;
+insert into Category(id, name, code, status, app_name)values(21, 'Jewelry Watches', 'JEW-01', true, 'Sun');
+insert into Category(id, name, code, status, app_name)values(22, 'Music', 'MUS-02', true, 'Sun');
+insert into Category(id, name, code, status, app_name)values(23, 'Pet Supplies', 'PET-03', true, 'Sun');
+insert into Category(id, name, code, status, app_name)values(24, 'Sporting', 'SPR-04', true, 'Sun');
+insert into Category(id, name, code, status, app_name)values(25, 'Hobbies', 'HOB-05', true, 'Sun');
+insert into Category(id, name, code, status, app_name)values(26, 'Travel', 'TRL-06', true, 'Sun');
+insert into Category(id, name, code, status, app_name)values(27, 'Video Games Console', 'VID-07', true, 'Sun');
+insert into Category(id, name, code, status, app_name)values(28, 'Unknow', 'UNK-00', true, 'Sun');
+--  *************************************************
+
+insert into Category(id, name, code, status, app_name)values(29, 'Bread', 'BBR-00', true, 'Moon');
+insert into Category(id, name, code, status, app_name)values(30, 'Dairy', 'DDD-00', true, 'Moon');
+insert into Category(id, name, code, status, app_name)values(31, 'Fruits', 'FRU-00', true, 'Moon');
+insert into Category(id, name, code, status, app_name)values(32, 'Seasonig and Spicies', 'SAP-00', true, 'Moon');
+insert into Category(id, name, code, status, app_name)values(33, 'Vegetable', 'VGT-00', true, 'Moon');
+
+ALTER SEQUENCE category_sequence RESTART WITH 34;
+
+ALTER TABLE Category ADD COLUMN app_name text NOT NULL DEFAULT 'Sun';
 
 /*
        destination table insert
@@ -131,7 +141,7 @@ ALTER SEQUENCE role_sequence RESTART WITH 4;
        default admin user table insert
  */
 insert into Customer  (customer_id, customer_code,first_name, last_name, address, birthday ) VALUES (1, 'ADMIN_CODE', 'administrator', 'system administrator','NONE',CURRENT_TIMESTAMP() );
-insert into Sys_User  (user_id, email,username, password, creation_day, last_update, status, role_id, customer_id, picture_url, receive_email_notification, share_enable, nick_name) VALUES (1, 'SysAdmin@admin.com', 'admin', 'admin01',CURRENT_TIMESTAMP(),CURRENT_TIMESTAMP(), 'ACTIVE', 2 , 1 , 'https://st4.depositphotos.com/12985790/i/600/depositphotos_227587512-stock-photo-profile-portrait-african-american-businessman.jpg', false,false, '');
+insert into Sys_User  (user_id, email,username, password, creation_day, last_update, status, role_id, customer_id, picture_url, receive_email_notification, share_enable, nick_name, app_name) VALUES (1, 'SysAdmin@admin.com', 'admin', 'admin01',CURRENT_TIMESTAMP(),CURRENT_TIMESTAMP(), 'ACTIVE', 2 , 1 , 'https://st4.depositphotos.com/12985790/i/600/depositphotos_227587512-stock-photo-profile-portrait-african-american-businessman.jpg', false,false, '', 'Any');
 
 ALTER SEQUENCE user_sequence RESTART WITH 2;
 ALTER SEQUENCE customer_sequence RESTART WITH 2;
@@ -254,3 +264,4 @@ ALTER SEQUENCE order_sequence RESTART WITH 3;
 ALTER SEQUENCE order_detail_sequence RESTART WITH 3;
 ALTER SEQUENCE shipping_detail_sequence RESTART WITH 3;
 ALTER SEQUENCE payment_info_sequence RESTART WITH 3;
+

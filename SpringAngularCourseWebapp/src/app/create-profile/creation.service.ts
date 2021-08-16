@@ -17,7 +17,8 @@ export class CreationService{
 
   constructor(private http:HttpClient){}
 
-  creationUser(user:CreationUser){
+  creationUser(user:CreationUser, appName: string){
+    user.appName = appName;
     return this.http.post(`${this.apiServerUrl}/user/create`, user).pipe(
       // "catchError" instead "catch"
       catchError(error => {

@@ -56,7 +56,7 @@ export class ProductComponent implements OnInit, OnChanges {
 
   loadCategory(){
 
-    this.productService.getAllCategory()
+    this.productService.getAllCategory('Sun')
       .subscribe(response =>{
           this.categories = response;
         },

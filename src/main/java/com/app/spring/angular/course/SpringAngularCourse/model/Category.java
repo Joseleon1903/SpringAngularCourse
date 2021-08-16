@@ -35,6 +35,9 @@ public class Category {
     @Column(name = "status", nullable = false)
     private boolean isActive;
 
+    @Column(name = "app_name", nullable = false)
+    private String appName;
+
     public Category(){}
 
     public Category(Long id) {

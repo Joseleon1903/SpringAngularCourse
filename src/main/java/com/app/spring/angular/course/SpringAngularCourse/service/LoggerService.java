@@ -1,5 +1,6 @@
 package com.app.spring.angular.course.SpringAngularCourse.service;
 
+import com.app.spring.angular.course.SpringAngularCourse.controller.IResourceController;
 import com.app.spring.angular.course.SpringAngularCourse.jdbcrepository.DbLoggerJdbcDao;
 import com.app.spring.angular.course.SpringAngularCourse.utils.CodeGenerationUtil;
 import org.springframework.stereotype.Service;
@@ -16,9 +17,9 @@ public class LoggerService {
         this.dbLoggerJdbcDao= dbLoggerJdbcDao;
     }
 
-    public void putLogDatabase(String text, Object className, String serviceName){
+    public void putLogDatabase(String text, IResourceController resourceClass, String serviceName){
         String reference = CodeGenerationUtil.stringUUIDGenerator();
-        String classNameT = className.getClass().getName();
+        String classNameT = resourceClass.getName();
         dbLoggerJdbcDao.insertDatabaseLog(text, classNameT, serviceName,reference );
     }
 

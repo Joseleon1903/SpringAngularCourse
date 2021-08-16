@@ -77,8 +77,9 @@ export class ProductService{
     );
   }
 
-  getAllCategory(): Observable<Category[]>{
-    return this.http.get<Category[]>(`${this.apiServerUrl}/category`);
+  getAllCategory(appName: string): Observable<Category[]>{
+    let params = new HttpParams().set('appName', appName+'');
+    return this.http.get<Category[]>(`${this.apiServerUrl}/category`, {params});
   }
 
 

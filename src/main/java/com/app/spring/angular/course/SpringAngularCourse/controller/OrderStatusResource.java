@@ -1,6 +1,7 @@
 package com.app.spring.angular.course.SpringAngularCourse.controller;
 
 import com.app.spring.angular.course.SpringAngularCourse.model.OrderStatus;
+import com.app.spring.angular.course.SpringAngularCourse.service.LoggerService;
 import com.app.spring.angular.course.SpringAngularCourse.service.OrderStatusService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -15,24 +16,24 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/order/status")
-public class OrderStatusResource {
+public class OrderStatusResource implements IResourceController {
 
     private final OrderStatusService orderStatusService;
 
+    private final LoggerService loggerService;
+
     @Autowired
-    public OrderStatusResource(OrderStatusService orderStatusService){
+    public OrderStatusResource(OrderStatusService orderStatusService, LoggerService loggerService){
         this.orderStatusService = orderStatusService;
+        this.loggerService = loggerService;
     }
 
     @GetMapping
-    public ResponseEntity<List<OrderStatus>> getProducts(){
+    public ResponseEntity<List<OrderStatus>> getAllOrderStatus(){
+        loggerService.putLogDatabase(String.format("Request call GET getAllOrderStatus"),this, "OrderStatusService" );
         List<OrderStatus> ordersStatus = orderStatusService.findAllOrderStatus();
         return ResponseEntity.ok(ordersStatus);
     }
-
-
-
-
 
 
 }

@@ -44,7 +44,7 @@ export class ProductManagerComponent implements OnInit {
   }
 
   getCategoryCatalog(){
-    this.productService.getAllCategory().subscribe(response =>{
+    this.productService.getAllCategory('Sun').subscribe(response =>{
       this.categoryList = response;
     }, error=>{
       console.log('error:'+error)

@@ -13,6 +13,8 @@ import java.util.List;
 @Service
 public class CategoryService {
 
+    public static String SERVICE_NAME = "CategoryService";
+
     private final CategoryRepository categoryRepository;
 
     @Autowired
@@ -20,7 +22,7 @@ public class CategoryService {
         this.categoryRepository= categoryRepository;
     }
 
-    public List<Category> findAllCategory(){
-        return categoryRepository.findByIsActiveTrue().get();
+    public List<Category> findAllCategory(String appName){
+        return categoryRepository.findByAppNameAndIsActiveTrue(appName).get();
     }
 }

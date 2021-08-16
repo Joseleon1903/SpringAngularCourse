@@ -2,6 +2,7 @@ package com.app.spring.angular.course.SpringAngularCourse.controller;
 
 import com.app.spring.angular.course.SpringAngularCourse.dto.CounterResponseDto;
 import com.app.spring.angular.course.SpringAngularCourse.dto.ShippingHistoryResponseDto;
+import com.app.spring.angular.course.SpringAngularCourse.service.LoggerService;
 import com.app.spring.angular.course.SpringAngularCourse.service.ShippingHistoryService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,27 +22,32 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/shipping/history")
-public class ShippingHistoryTransaction {
+public class ShippingHistoryTransaction implements IResourceController {
 
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
     private final ShippingHistoryService shippingHistoryService;
 
+    private final LoggerService loggerService;
+
     @Autowired
-    public ShippingHistoryTransaction(ShippingHistoryService shippingHistoryService){
+    public ShippingHistoryTransaction(ShippingHistoryService shippingHistoryService, LoggerService loggerService){
         this.shippingHistoryService = shippingHistoryService;
+        this.loggerService = loggerService;
     }
 
     @GetMapping
     public ResponseEntity<List<ShippingHistoryResponseDto>> getShippingHistoryTransaction(@RequestParam("page") int page,
                                                                                           @RequestParam("size") int size){
         Pageable pageable = PageRequest.of(page,size, Sort.by("id").descending());
+        loggerService.putLogDatabase(String.format("Request call GET getShippingHistoryTransaction param page: %d , size: %d", page, size),this, "ShippingHistoryService" );
         List<ShippingHistoryResponseDto> transactions = shippingHistoryService.findShippingTransaction(pageable);
         return ResponseEntity.ok(transactions);
     }
 
     @GetMapping("/count")
-    public ResponseEntity<CounterResponseDto> getShippingHistoryTransaction(@RequestParam("size") int size){
+    public ResponseEntity<CounterResponseDto> getShippingHistoryTransactionCount(@RequestParam("size") int size){
+        loggerService.putLogDatabase(String.format("Request call GET getShippingHistoryTransactionCount size %d", size),this, "ShippingHistoryService" );
         CounterResponseDto response = shippingHistoryService.ShippingTransactionCounter(size);
         return ResponseEntity.ok(response);
     }

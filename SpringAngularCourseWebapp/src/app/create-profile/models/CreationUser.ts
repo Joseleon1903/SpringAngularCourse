@@ -5,5 +5,6 @@ export interface CreationUser{
   username: string;
   password: string;
   status: string;
+  appName: string;
   role:RoleInput;
 }

@@ -47,6 +47,9 @@ public class User {
     @Column(name = "password", nullable = false)
     private String password;
 
+    @Column(name = "app_name", nullable = false)
+    private String appName;
+
     @CreationTimestamp
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     @Column(name = "creation_day", nullable = false)

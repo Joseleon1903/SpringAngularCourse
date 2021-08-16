@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.*;
  */
 @RestController
 @RequestMapping("/login")
-public class LoginResource {
+public class LoginResourceController implements IResourceController {
 
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
@@ -26,11 +26,10 @@ public class LoginResource {
     private final LoggerService loggerService;
 
     @Autowired
-    public LoginResource(UserService userService, LoggerService loggerService){
+    public LoginResourceController(UserService userService, LoggerService loggerService){
         this.userService = userService;
         this.loggerService = loggerService;
     }
-
 
     @PostMapping
     public ResponseEntity<AngularUserDto> loginUser(@RequestBody LoginDto loginDto){
@@ -48,10 +47,10 @@ public class LoginResource {
             dto.setStatus(user.getStatus());
             dto.setRole(user.getRole().getRoleName());
             dto.setProfileUrl(user.getPictureUrl());
-            loggerService.putLogDatabase("User "+user.getUsername() +" are logged in satisfactorily",LoginResource.class, "Login" );
+            loggerService.putLogDatabase("User "+user.getUsername() +" are logged in satisfactorily",this, "Login" );
             return ResponseEntity.accepted().body(dto);
         }
-        loggerService.putLogDatabase("User "+user.getUsername() +" fail login",LoginResource.class, "Login" );
+        loggerService.putLogDatabase("User "+user.getUsername() +" fail login",this, "Login" );
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
     }
 
@@ -64,7 +63,7 @@ public class LoginResource {
         User user = userService.searchUserByUsernameOrEmail(loginDto.getUsername(), loginDto.getEmail());
         loginDto.setEmail(user.getEmail());
         loginDto.setUsername(user.getUsername());
-        loggerService.putLogDatabase("User "+loginDto.getUsername() +" Logout from the app", LoginResource.class, "Logout" );
+        loggerService.putLogDatabase("User "+loginDto.getUsername() +" Logout from the app", this, "Logout" );
         return ResponseEntity.accepted().body(loginDto);
     }
 

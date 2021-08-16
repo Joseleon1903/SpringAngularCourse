@@ -14,7 +14,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/student")
-public class StudentResources {
+public class StudentResources implements IResourceController {
 
     private final StudentService studentService;
 

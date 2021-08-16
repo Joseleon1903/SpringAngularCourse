@@ -28,18 +28,18 @@ describe('ProductComponent', () => {
   });
 
 
-  xit('should load category from the service ', () => {
-
-    let productService = TestBed.get(ProductService);
-
-    let listCategory: Category[] = [{id: 1, name:'test1', code: 'TT1', active: true},{id: 2, name:'test2' , code: 'TT2', active: true}, {id: 3, name:'test3',code: 'TT3', active: true} ];
-
-    spyOn(productService, 'getAllCategory').and.returnValue(Observable.from(listCategory));
-
-    fixture.detectChanges();
-
-    expect(component.categories.length).toBe(3);
-  });
+  // xit('should load category from the service ', () => {
+  //
+  //   let productService = TestBed.get(ProductService);
+  //
+  //   let listCategory: Category[] = [{id: 1, name:'test1', code: 'TT1', active: true},{id: 2, name:'test2' , code: 'TT2', active: true}, {id: 3, name:'test3',code: 'TT3', active: true} ];
+  //
+  //   spyOn(productService, 'getAllCategory').and.returnValue(Observable.from(listCategory));
+  //
+  //   fixture.detectChanges();
+  //
+  //   expect(component.categories.length).toBe(3);
+  // });
 
 
 

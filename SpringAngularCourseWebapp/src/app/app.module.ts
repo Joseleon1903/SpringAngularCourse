@@ -49,6 +49,8 @@ import { MoonOrderSuccessComponent } from './moon-order-success/moon-order-succe
 import { MoonMyOrdersComponent } from './moon-my-orders/moon-my-orders.component';
 import { MoonAdminProductsComponent } from './admin/moon-admin-products/moon-admin-products.component';
 import { MoonAdminOrdersComponent } from './admin/moon-admin-orders/moon-admin-orders.component';
+import { ProductFormComponent } from './cmp-moon/product-form/product-form.component';
+import {MoonProductService} from "./cmp-moon/services/MoonProduct.service";
 
 @NgModule({
   declarations: [
@@ -85,7 +87,8 @@ import { MoonAdminOrdersComponent } from './admin/moon-admin-orders/moon-admin-o
     MoonOrderSuccessComponent,
     MoonMyOrdersComponent,
     MoonAdminProductsComponent,
-    MoonAdminOrdersComponent
+    MoonAdminOrdersComponent,
+    ProductFormComponent
   ],
   imports: [
     BrowserModule,
@@ -121,7 +124,7 @@ import { MoonAdminOrdersComponent } from './admin/moon-admin-orders/moon-admin-o
         component: LoginComponent
       },
       {
-        path: 'sun/user/creation',
+        path: 'user/creation/:appName',
         component: CreateProfileComponent
       },
       {
@@ -162,6 +165,11 @@ import { MoonAdminOrdersComponent } from './admin/moon-admin-orders/moon-admin-o
         component: MoonAdminOrdersComponent
       },
       {
+        path: 'moon/admin/products/new',
+        component: ProductFormComponent
+      },
+
+      {
         path: '**',
         component: NotFoundComponent
       },
@@ -176,6 +184,7 @@ import { MoonAdminOrdersComponent } from './admin/moon-admin-orders/moon-admin-o
     ShippingService,
     ShippingHistoryService,
     HomeService,
+    MoonProductService,
     {provide: ErrorHandler, useClass: AppErrorHandler}],
   bootstrap: [AppComponent]
 })

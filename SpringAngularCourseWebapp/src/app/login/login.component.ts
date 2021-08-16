@@ -12,7 +12,7 @@ import {AuthService} from "../auth/authorization.service";
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private authService : AuthService, private router: Router, private activaterouter : ActivatedRoute, ) { }
+  constructor(private authService : AuthService, private router: Router, private activaterouter : ActivatedRoute ) { }
 
   appName: string;
   formError ={errorMessage: 'Login error '}
@@ -42,6 +42,8 @@ export class LoginComponent implements OnInit {
     if(!form.invalid){
       console.log('valid form ');
       this.authService.login(user).subscribe(response => {
+
+          console.log('redirect to Home appname ; '+this.appName);
           console.log('register success');
           let result  = response;
           localStorage.setItem('userId', result.userId+'');
@@ -49,7 +51,6 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('role', result.role+'');
           localStorage.setItem('status', result.status+'');
           localStorage.setItem('profileUrl', result.profileUrl+'');
-
           if(this.appName == 'Moon'){
             this.router.navigate(['/moon/home']);
           }else if(this.appName == 'Sun'){
@@ -79,5 +80,11 @@ export class LoginComponent implements OnInit {
     container.appendChild(button);
     button.click();
   }
+
+  goCreateNewAccount(){
+    console.log('redirect to create new account login');
+  }
+
+
 
 }
