@@ -8,6 +8,7 @@ import { catchError } from 'rxjs/operators';
 import {AppError} from "../utils/app-error";
 import {Category} from "./Category";
 import {ProductInputFilter} from "./ProductInputFilter";
+import {MoonProduct} from "../cmp-moon/types/MoonProduct";
 
 @Injectable({
   providedIn:'root'
@@ -82,5 +83,21 @@ export class ProductService{
     return this.http.get<Category[]>(`${this.apiServerUrl}/category`, {params});
   }
 
+  getAllProducts(appName: string): Observable<MoonProduct[]>{
+    let params = new HttpParams().set('appName', appName+'');
+    return this.http.get<MoonProduct[]>(`${this.apiServerUrl}/moon/products`, {params});
+  }
+
+  getProductFindById(appName: string, id: string): Observable<MoonProduct>{
+    let params = new HttpParams().set('appName', appName+'');
+    return this.http.get<MoonProduct>(`${this.apiServerUrl}/moon/product/`+id);
+  }
+
+  deleteProductById(appName: string, id: string):void{
+    let params = new HttpParams().set('appName', appName+'');
+    this.http.delete(`${this.apiServerUrl}/moon/product/`+id).subscribe( ()=>{
+      console.log("deleted apply");
+    });
+  }
 
 }

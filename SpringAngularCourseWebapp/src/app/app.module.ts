@@ -157,15 +157,19 @@ import {MoonProductService} from "./cmp-moon/services/MoonProduct.service";
         component: MoonOrderSuccessComponent
       },
       {
-        path: 'moon/admin/products',
-        component: MoonAdminProductsComponent
-      },
-      {
         path: 'moon/admin/orders',
         component: MoonAdminOrdersComponent
       },
       {
+        path: 'moon/admin/products',
+        component: MoonAdminProductsComponent
+      },
+      {
         path: 'moon/admin/products/new',
+        component: ProductFormComponent
+      },
+      {
+        path: 'moon/admin/products/:id',
         component: ProductFormComponent
       },
 

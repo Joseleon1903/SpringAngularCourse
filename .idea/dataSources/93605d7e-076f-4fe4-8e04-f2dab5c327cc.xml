@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="AngularApp@localhost">
+  <database-model serializer="dbm" rdbms="POSTGRES" format-version="4.1">
+    <root id="1"/>
+    <database id="2" parent="1" name="AngularApp">
+      <ObjectId>16738</ObjectId>
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </database>
+    <schema id="3" parent="2" name="public">
+      <ObjectId>2200</ObjectId>
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="4" parent="2" name="pg_catalog">
+      <ObjectId>11</ObjectId>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="5" parent="2" name="pg_toast">
+      <ObjectId>99</ObjectId>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="6" parent="2" name="pg_temp_1">
+      <ObjectId>12314</ObjectId>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="7" parent="2" name="pg_toast_temp_1">
+      <ObjectId>12315</ObjectId>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="8" parent="2" name="information_schema">
+      <ObjectId>13018</ObjectId>
+      <Visible>1</Visible>
+    </schema>
+    <sequence id="9" parent="3" name="category_sequence">
+      <ObjectId>17025</ObjectId>
+      <StateNumber>1691</StateNumber>
+    </sequence>
+    <sequence id="10" parent="3" name="customer_sequence">
+      <ObjectId>17027</ObjectId>
+      <StateNumber>1598</StateNumber>
+    </sequence>
+    <sequence id="11" parent="3" name="db_application_log_sequence">
+      <ObjectId>17479</ObjectId>
+      <StateNumber>1471</StateNumber>
+    </sequence>
+    <sequence id="12" parent="3" name="destination_sequence">
+      <ObjectId>17029</ObjectId>
+      <StateNumber>1142</StateNumber>
+    </sequence>
+    <sequence id="13" parent="3" name="employee_sequence">
+      <ObjectId>17031</ObjectId>
+      <StateNumber>1092</StateNumber>
+    </sequence>
+    <sequence id="14" parent="3" name="file_manager_sequence">
+      <ObjectId>17766</ObjectId>
+      <StateNumber>1771</StateNumber>
+    </sequence>
+    <sequence id="15" parent="3" name="moon_product_sequence">
+      <ObjectId>17750</ObjectId>
+      <StateNumber>1703</StateNumber>
+    </sequence>
+    <sequence id="16" parent="3" name="order_detail_sequence">
+      <ObjectId>17033</ObjectId>
+      <StateNumber>1229</StateNumber>
+    </sequence>
+    <sequence id="17" parent="3" name="order_sequence">
+      <ObjectId>17035</ObjectId>
+      <StateNumber>1228</StateNumber>
+    </sequence>
+    <sequence id="18" parent="3" name="order_status_sequence">
+      <ObjectId>17037</ObjectId>
+      <StateNumber>1220</StateNumber>
+    </sequence>
+    <sequence id="19" parent="3" name="payment_info_sequence">
+      <ObjectId>17039</ObjectId>
+      <StateNumber>1231</StateNumber>
+    </sequence>
+    <sequence id="20" parent="3" name="product_sequence">
+      <ObjectId>17041</ObjectId>
+      <StateNumber>1214</StateNumber>
+    </sequence>
+    <sequence id="21" parent="3" name="review_sequence">
+      <ObjectId>17043</ObjectId>
+      <StateNumber>1026</StateNumber>
+    </sequence>
+    <sequence id="22" parent="3" name="role_sequence">
+      <ObjectId>17045</ObjectId>
+      <StateNumber>1146</StateNumber>
+    </sequence>
+    <sequence id="23" parent="3" name="shipping_detail_sequence">
+      <ObjectId>17047</ObjectId>
+      <StateNumber>1230</StateNumber>
+    </sequence>
+    <sequence id="24" parent="3" name="student_sequence">
+      <ObjectId>17049</ObjectId>
+      <StateNumber>1029</StateNumber>
+    </sequence>
+    <sequence id="25" parent="3" name="transaction_history_sequence">
+      <ObjectId>17051</ObjectId>
+      <StateNumber>1030</StateNumber>
+    </sequence>
+    <sequence id="26" parent="3" name="user_sequence">
+      <ObjectId>17053</ObjectId>
+      <StateNumber>1596</StateNumber>
+    </sequence>
+  </database-model>
+</dataSource>

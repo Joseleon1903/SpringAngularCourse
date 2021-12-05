@@ -1,1 +1,43 @@
-<a routerLink="/moon/admin/products/new" class="btn btn-primary">New Product</a>
+<div class="row-section">
+
+  <a routerLink="/moon/admin/products/new" class="btn btn-primary">New Product</a>
+
+</div>
+
+
+<div class="row-section">
+  <div class="col-lg-6">
+    <div class="panel panel-default">
+
+      <div class="panel-body">
+        <div class="table-responsive">
+          <table class="table table-striped table-bordered table-hover">
+            <thead>
+            <tr >
+              <th># Id</th>
+              <th>Tittle</th>
+              <th>Category Name</th>
+              <th>Price</th>
+              <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let product of productList">
+              <td>{{product?.id}}</td>
+              <td>{{product?.title}}</td>
+              <td>{{product?.category?.name}}</td>
+              <td>{{product?.price}}</td>
+              <td> <a [routerLink]="['/moon/admin/products/', product.id]" type="button" class="btn btn-outline btn-info"> Edit </a></td>
+            </tr>
+
+            </tbody>
+          </table>
+        </div>
+        <!-- /.table-responsive -->
+      </div>
+      <!-- /.panel-body -->
+    </div>
+    <!-- /.panel -->
+  </div>
+
+</div>
